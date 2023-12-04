@@ -218,4 +218,19 @@ if (preco >=45) {
     console.log("barato");
 }
 
+
+
+-------------------------------------------
+                CONDICIONAIS DUPLAS IF ELSE pt 2
+-------------------------------------------
+
+
+let idade = 90;
+if (idade <18) {
+    console.log("u are a child")
+} else if (idade >=18 && idade < 60){
+    console.log("u are an adult");
+} else if ( idade > 60 ) {
+    console.log("u are old bro ")
+}
 */
