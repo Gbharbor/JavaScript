@@ -1,5 +1,5 @@
 
-/*
+
 -------------------------------------------
                     HELLO WORLD
 -------------------------------------------
@@ -205,10 +205,13 @@ console.log(x > y);
 let w = "10";
 let z = 10;
 console.log(w === z);
+
 // 3-  substitua o @ pela condicional correta console.log(x @ y); o resultado precisa ser: TRUE
+
 let a = 10;
 let b = 5;
-console.log(a != b); 
+console.log (a != b);
+
 
 // 4- crie uma condicional para verificar se o preco da carne esta barato ou caro PS: Ate 45 esta barato
 let preco = 40.2;
@@ -234,3 +237,12 @@ if (idade <18) {
     console.log("u are old bro ")
 }
 */
+
+let idade = 18;
+if(idade < 18) {
+    console.log("u are a child ");
+} else if (idade >=18 && idade < 60) {
+    console.log("u are an adult");
+} else if (idade > 60) {
+    console.log("u are olderly");
+} 

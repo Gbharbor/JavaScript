@@ -99,16 +99,33 @@ if (idade < 18) {
 } else if (idade > 60) {
     console.log("u are old");
 }
-*/
+
 
 let idade = 19;
-if (idade < 18){
-    console.log("u are child");
-} else if (idade >= 18 && idade < 60){
-    console.log("u are an adult");
-} else if (idade > 60) {
-    console.log ("u are old ");
+if ( idade < 18) {
+    console.log("u are a child");
+} else if  (idade >=18 && idade < 60){
+    console.log("u are an adult")
+} else if (idade < 60) {
+    console.log("u are old");
 }
 
-let idade =19;
-if(idade >1)
+
+
+
+let ok = false;
+if (ok) {
+    console.log("entrou no if ");
+} else  {
+    console.log("saiu do if");
+}
+
+let idade = 90;
+let adulto = idade > 18 && idade < 60;
+
+if(adulto) {
+    console.log("i am an adult");
+} else {
+    console.log("i amm not an adult");
+}
+*/
