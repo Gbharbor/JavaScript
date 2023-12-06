@@ -1,5 +1,5 @@
 
-
+/*
 -------------------------------------------
                     HELLO WORLD
 -------------------------------------------
@@ -236,7 +236,7 @@ if (idade <18) {
 } else if ( idade > 60 ) {
     console.log("u are old bro ")
 }
-*/
+
 
 let idade = 18;
 if(idade < 18) {
@@ -246,3 +246,61 @@ if(idade < 18) {
 } else if (idade > 60) {
     console.log("u are olderly");
 } 
+
+
+
+------------------------------------------
+                CONDICIONAIS TERNARIA
+-------------------------------------------
+-> deu certo e 2 deu errado 10, isso e nossa condicional ternaria:
+
+let isMember = true;
+let shipping = isMember ? 2 : 10;
+
+console.log(isMember ? "voce e membro" : "voce nao e membro");
+console.log("frete: " + shipping);
+
+
+
+
+let age = 90;
+let isAdult = ((age >= 18 && age < 60) ? sim : nao);
+console.log(isAdult);
+
+
+
+
+
+------------------------------------------
+                SWIFT
+-------------------------------------------
+e similar ao if, mas vou por apenas a variavel que quer verificar, e entao vc pode colocar as atribuicoes. mas n pode esquecer de colcoar o break para cada atributo adicionado, mas nao e muito comum para usar o switch, mas em algumas situacoes pode ser necessario saber.
+        exemplo:
+
+let profession = "fireman";
+
+console.log("Profissao: " + profession);
+ switch(profession) {
+    case "supervisor":
+        console.log("ur tshirt gonna be GREEN");
+    break;
+    case "fireman":
+        console.log("ur tshirt gonna be RED");
+    break;
+    case "police":
+        console.log("ur tshirt gonna be BLUE");
+    break;
+
+    default:
+        console.log("ur tshirt gonna be BLACK")
+    break;
+ }
+
+
+
+*/
+
+
+
+
+
