@@ -224,19 +224,8 @@ if (preco >=45) {
 
 
 -------------------------------------------
-                CONDICIONAIS DUPLAS IF ELSE pt 2
+                CONDICIONAIS DUPLAS  ELSE IF pt 2
 -------------------------------------------
-
-
-let idade = 90;
-if (idade <18) {
-    console.log("u are a child")
-} else if (idade >=18 && idade < 60){
-    console.log("u are an adult");
-} else if ( idade > 60 ) {
-    console.log("u are old bro ")
-}
-
 
 let idade = 18;
 if(idade < 18) {
@@ -247,26 +236,25 @@ if(idade < 18) {
     console.log("u are olderly");
 } 
 
-
-
 ------------------------------------------
                 CONDICIONAIS TERNARIA
 -------------------------------------------
--> deu certo e 2 deu errado 10, isso e nossa condicional ternaria:
-
+-> deu certo e 2 deu errado 10, isso e nossa condicional ternaria:vms usar um exemplo do valor de um frete para um usuario, ou seja se ele for membro e 2 se n for e 10.
+                    Exemplo 1
 let isMember = true;
-let shipping = isMember ? 2 : 10;
+let shipping = isMember ? 2 : 10; //temos q colocar a interrogacao e essa separacao de : q  vai dizer pro codigo, que o primeiro e true e o outro e false.
+//agr vms executar o codigo de fato !, ja aqui substituimos com string nossos bollean 2 : 10, e obviamente puxamos a variavel isMember junto com a interrogacao.
+console.log(isMember ? "vc e membro" : "vc n e membro");
+//agr, jogamos na tela o "frete: 2 ou 10", o shipping ta puxando a variavel ismember, e se tive true e 2 e se for false e 10.
+console.log("Frete: " + shipping);
 
-console.log(isMember ? "voce e membro" : "voce nao e membro");
-console.log("frete: " + shipping);
 
+                    Exemplo 2
+//Tmb podemos imaginar que isso e como se fosse um if in line, basicamente. ja aqui colocamos uma alternativa se a pessoa e adulta ou nao, usamos novamente nosso padrao ? valor : valor , n esqueca que se for colocar uma string nas 2 opcoes, precisa por aspas !!!!!
 
-
-
-let age = 90;
-let isAdult = ((age >= 18 && age < 60) ? sim : nao);
+let age = 90; 
+let isAdult = ((age >= 18 && age < 60) ? "sim" : "nao");
 console.log(isAdult);
-
 
 
 
@@ -274,7 +262,7 @@ console.log(isAdult);
 ------------------------------------------
                 SWIFT
 -------------------------------------------
-e similar ao if, mas vou por apenas a variavel que quer verificar, e entao vc pode colocar as atribuicoes. mas n pode esquecer de colcoar o break para cada atributo adicionado, mas nao e muito comum para usar o switch, mas em algumas situacoes pode ser necessario saber.
+e similar ao if, mas vou por apenas a variavel que quer verificar, e entao vc pode colocar as atribuicoes. mas n pode esquecer de colcoar o break para cada atributo adicionado, mas nao e muito comum usar o switch, mas em algumas situacoes pode ser necessario saber.
         exemplo:
 
 let profession = "fireman";
@@ -295,12 +283,4 @@ console.log("Profissao: " + profession);
         console.log("ur tshirt gonna be BLACK")
     break;
  }
-
-
-
 */
-
-
-
-
-

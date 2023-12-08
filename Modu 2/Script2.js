@@ -108,9 +108,74 @@ function nomeCompleto(name,lastname) {
     console.log("Nome Inteiro: " + nomeinteiro);
 }
 nomeCompleto("gui","porto")
+
+
+---------------Função com retorno condicional-----------
+ 
+//so here, we have our function:
+
+function tobeOfAge (age) {
+    if (age >= 18) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//now we gonna executed our function:
+let age = tobeOfAge (17)
+console.log(age);
+
+
+
+outro exemplo:
+
+function maiorDeIdade (idade) {
+    if (idade >= 18) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+let idade = 75;
+let verificacao = maiorDeIdade(idade);
+
+if (verificacao) {
+    console.log("maior de idade");
+} else {
+    console.log ("menor de idade");
+}
+
+
+                        exercicio:
+
+Calcule a porcentagem entre 2 numeros
+exemplo: 25% de 40 e 10 
+Formula da porcentagem: (y/x)*100
+uso da funcao:
+let x = 40
+let y = 10 
+let pct = calcPct (x,y)
+console.log(`${pct}% de ${x} e ${y}`);
+
+                         RESPOSTA:
+
+caso queira pode colocar uma variavel primeiro e o return em baixo, pode fazer, mas fiz dessa forma para o codigo ficar mais clean.
+
+function calcPct(n1, n2) {
+    return (n2 / n1) * 100;
+}
+
+por exemplo 10 vai ser quantos por cento de 40.
+
+10(y) equivale a 25%(Pct) de 40(x)
+y equivale a pct de x 
+
+let x = 80;
+let y = 50; 
+let Pct = calcPct(x, y);
+oq estiver aqui dentro do parenteses tem q ser a ordem que esta na function.
+
+console.log(`${y} equivale a ${Pct}% de ${x}`);
 */
-
-
-
-
-  
