@@ -110,7 +110,7 @@ function nomeCompleto(name,lastname) {
 nomeCompleto("gui","porto")
 
 
----------------Função com retorno condicional-----------
+---------------Função com retorno condicional-----------------------
  
 //so here, we have our function:
 
@@ -148,7 +148,7 @@ if (verificacao) {
 }
 
 
-                        exercicio:
+                        EXERCICIO:
 
 Calcule a porcentagem entre 2 numeros
 exemplo: 25% de 40 e 10 
@@ -178,4 +178,72 @@ let Pct = calcPct(x, y);
 oq estiver aqui dentro do parenteses tem q ser a ordem que esta na function.
 
 console.log(`${y} equivale a ${Pct}% de ${x}`);
+*/
+
+            
+/*
+                     EXERCICIO: 
+
+            Calcule o preco do Imovel 
+            - m2 = 3.000
+            -se tiver 1 quarto o m2 e 1x
+            -se tiver 2 quartos o m2 e 1.2x
+            - se tiver 3 quartos o m2 e 1.5x
+
+                 RESPOSTA:
+
+function calcularImovel(metragem, quartos) {
+    let m2 = 3000;
+    let preco = 0;
+
+        switch (quartos) {
+
+        case 1:
+        default:
+            preco = metragem * m2;
+        break;
+        case 2:
+            preco = metragem * (m2 * 1.2);
+        break;
+        case 3:
+            preco = metragem * (m2 * 1.5);
+        break;
+    }
+        return preco;
+}
+
+let metragem = 123;
+let quartos = 3;
+let preco = calcularImovel(metragem, quartos);
+console.log(`A casa custa R$ ${preco}`);
+
+
+
+            EXERCICIO:
+
+Crie uma funcao que valide usuario e senha.
+usuario correto : pedro 
+senha correta : 123
+uso da funcao 
+
+            RESPOSTA:
+
+function validar (usuario, senha) {
+    if (usuario === "pedro" && senha === 1234) {
+        return true;
+    } else {
+    return false;
+    }
+}
+
+let usuario = "pedro";
+let senha = 1234;
+let validacao = validar (usuario, senha);
+
+if (validacao) {
+    console.log("acesso concedido.");
+} else {
+    console.log ("acesso negado");
+}
+
 */
