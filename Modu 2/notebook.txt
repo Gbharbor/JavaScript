@@ -1,0 +1,337 @@
+-------------------------------------------
+                FUNCOES
+-------------------------------------------
+     
+->  Existem varias formas de criar funcoes, mas aqui vamos aprender a forma mais padrao,  a funcao e como se fosse uma caixinha isolada, ela basicamente so foi criada, mas ainda n executamos ela.
+Entao como usamos a nossa funcao ?!
+
+    [EXEMPLO]
+    
+    function gravidade() {
+        console.log("a gravidade do planeta e: "); 
+        console.log(9.8);
+    }
+    gravidade();
+
+   
+->  A funcao pode receber varios dados, dentro do parenteses, no caso criei aqui n1  e n2, q sao 2 variaveis, e lembre se q essas varaiveis que criei so existem dentro da funcao que criei.
+
+    [EXEMPLO]
+
+    function somar(m1, n2) {
+        let resultado = n1 + n2;
+        console.log("Resultado: " + resultado);
+    }
+    somar(10, 15);
+
+    [EXEMPLO]
+
+    function nomeCompleto(nome,sobrenome) {
+        console.log(`${nome} ${sobrenome}`);
+    }
+    nomeCompleto("Gui","Porto");
+    nomeCompleto("Joao","Silva");
+
+->  Entrada vai para o processamento e depois a saida que chamamos de return.
+->  Agr vms entender a saida ou melhor o resultado(return).
+->  Uma vez q tu use um return, ela acaba naquele momento , ou seja o return e nossa saida e quando damos a saida, o codigo acabou, entao se vc colocar um console log a seguir a seguir do return da funcao, n vai aparecer
+
+    [EXEMPLO]
+
+    function nomeCompleto(nome,sobrenome) {
+        return `${nome} ${sobrenome}`;
+
+    }
+    let completo = nomeCompleto("Gui","Porto");
+        console.log("Nome : " + completo);
+
+->  Aqui criamos uma variavel e adicionamos a funcao, e lembre se que por se tratar de uma string o nomes precisa estar entre aspas.
+->  Ja aqui no nosso console, estamos colocando apenas a variavel, que ja vai busar automaticamente function.
+console.log("Nome: " + completo);.
+
+    [EXEMPLO]
+
+    function multiplicar (n1,n2) {
+        let resultado = (n1*n2); 
+        console.log("resposta: " + resultado);
+    }
+    multiplicar(5,5);
+
+
+    [EXEMPLO]
+
+    function dividir (n1,n2) {
+        let resultado = (n1/n2);
+        console.log("resposta: " + resultado);
+    }
+    dividir(10,2);
+
+
+    [EXEMPLO]
+
+    function somar (n1,n2) {
+        let resultado = (n1+n2);
+        console.log("resposta: " + resultado);
+    }
+    somar(10,10);
+
+    [EXEMPLO]
+
+    function diminuir (n1,n2) {
+        let resultado = (n1-n2);
+        console.log("resposta: " + resultado);
+    }
+    diminuir (10,5);
+
+    [EXEMPLO]
+
+    function nomeCompleto(nome,sobrenome) {
+        return `${nome} ${sobrenome}`;
+    }
+        let completo = nomeCompleto("Guilherme","Porto");
+        console.log("Nome completo: " + completo);
+
+    [EXEMPLO]
+
+    function nomeCompleto(name,lastname) {
+        let nomeinteiro = `${name} ${lastname}`;
+        console.log("Nome Inteiro: " + nomeinteiro);
+    }
+    nomeCompleto("gui","porto")
+
+-------------------------------------------
+        FUNCAO C/ RETURN CONDICIONAL                   
+-------------------------------------------
+ 
+->  So here, we have our function:
+
+    function tobeOfAge (age) {
+        if (age >= 18) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    let age = tobeOfAge (17)
+    console.log(age);
+
+
+
+    [EXEMPLO]
+
+    function maiorDeIdade (idade) {
+        if (idade >= 18) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    let idade = 75;
+    let verificacao = maiorDeIdade(idade);
+    if (verificacao) {
+        console.log("maior de idade");
+    } else {
+        console.log ("menor de idade");
+    }
+
+
+        [EXERCICIO]
+
+        Calcule a porcentagem entre 2 numeros
+        exemplo: 25% de 40 e 10 
+        Formula da porcentagem: (y/x)*100
+        uso da funcao:
+        let x = 40
+        let y = 10 
+        let pct = calcPct (x,y)
+        console.log(`${pct}% de ${x} e ${y}`);
+
+        [RESPOSTA]
+
+        ->  Caso queira pode colocar uma variavel primeiro e o return em baixo, pode fazer, mas fiz dessa forma para o codigo ficar mais clean.
+        ->  Oq estiver aqui dentro do parenteses em calcPct na variavel Pct, tem que ser a ordem que esta na function.
+        ->  Para ficar mais claro a nossa logica desse exercicio, vamos considerar essa expressao por extenso: 
+        ->  10(y) equivale a 25%(Pct) de 40(x) y equivale a pct de x.
+
+
+        function calcPct(n1, n2) {
+            return (n2 / n1) * 100;
+        }
+        let x = 80;
+        let y = 50; 
+        let Pct = calcPct(x, y);
+        console.log(`${y} equivale a ${Pct}% de ${x}`);
+
+        [EXERCICIO]
+
+        Calcule o preco do Imovel:
+        m2 = 3.000
+        se tiver 1 quarto o m2 e 1x
+        se tiver 2 quartos o m2 e 1.2x
+        se tiver 3 quartos o m2 e 1.5x
+
+        [RESPOSTA]
+
+        function calcularImovel(metragem, quartos) {
+            let m2 = 3000;
+            let preco = 0;
+                switch (quartos) {
+
+                case 1:
+                default:
+                    preco = metragem * m2;
+                break;
+                case 2:
+                    preco = metragem * (m2 * 1.2);
+                break;
+                case 3:
+                    preco = metragem * (m2 * 1.5);
+                break;
+            }
+                return preco;
+        }
+        let metragem = 123;
+        let quartos = 3;
+        let preco = calcularImovel(metragem, quartos);
+        console.log(`A casa custa R$ ${preco}`);
+
+
+
+        [EXERCICIO]
+
+        Crie uma funcao que valide usuario e senha.
+        usuario correto : pedro 
+        senha correta : 123
+        uso da funcao 
+
+        [RESPOSTA]
+
+        function validar (usuario, senha) {
+            if (usuario === "pedro" && senha === 1234) {
+                return true;
+            } else {
+            return false;
+            }
+        }
+        let usuario = "pedro";
+        let senha = 1234;
+        let validacao = validar (usuario, senha);
+        if (validacao) {
+            console.log("acesso concedido.");
+        } else {
+            console.log ("acesso negado");
+        }
+
+-------------------------------------------
+            ARROW FUNCTION
+-------------------------------------------
+
+->  Serve para deixar o codigo mais clean.
+->  Aqui temos um funcao normal:
+
+    [EXEMPLO]
+
+    function somar (x , y) {
+        return x + y;
+    }
+    console.log(somar(10,5));
+
+->  agora vamos simplificar ela com o Aroow Function.
+
+    [EXEMPLO]
+
+    const somar = (x, y) => { 
+        return x + y;
+    }
+    console.log(somar(10,5));
+
+->  entao, resumir mais, tirando o return.
+
+    [EXEMPLO]
+
+    const somar = (x , y) => x + y;
+    console.log(somar(10,5));
+
+->  nesse exemplo a seguir, conseguimos resumir mais.
+
+    [EXEMPLO]
+
+    function sobrenome (sob) {
+        return "gui" + sob;
+    }
+    console.log(sobrenome("porto"));
+
+->  agora vamos simplificar:
+
+    [EXEMPLO]
+
+    const sobrenome = sob => "Gui" + sob;
+    console.log(sobrenome("Porto"));
+
+-------------------------------------------
+        VARIAVEIS DENTRO DE FUNCOES
+-------------------------------------------
+ 
+->  Se eu tenho duas variaveis com msm nome, uma fora da funcao e outra dentro, a que estiver dentro que tambem chamamos de variavel local, tera prioridade sobre a que estiver fora, que se chama variavel global.
+
+    [EXEMPLO]
+
+->  Um ponto importante desse exemplo, que temos 3 formas de definir essa nossa variavel count.
+
+    modo 1:
+        function add() {
+            let count = 0;
+            count = count + 1;
+            }
+    modo 2:
+        function add() {
+            let count = 0;
+            count += 1;
+        }
+    modo 3:
+        function add() {
+            let count = 0;
+            count++;
+        }
+
+    [EXEMPLO]
+
+->  Agora vamos para o conteudo de fato, colocamos o add duas vezes, pq estamos executando a funcao duas vezes.
+->  Repare que quando der o console, vai dizer que a variavel n esta definida.
+
+    function add() {
+        let count = 0;
+        count++;
+    }
+    add();
+    add();
+    console.log(count);
+
+->  Entao, como foi criado dentro da funcao, vc n consegue usar aquela variavel, e como se a variavel pertencesse somente a funcao.
+->  Entao, dessa forma vamos tirar da dentro da funcao certo ?!. Pode por onde quiser a variavel, ate msm antes da funcao.
+
+    let count = 0;
+    function add() {
+        count++;
+    }
+    add();
+    add();
+    console.log(count);
+
+->  Agora que a variavel foi criada fora, e usamos ela   dentro da funcao, funciona inclusive no console mostrara o numero 2, obviamente pq ela comeca no zero, como eu defini no exemplo, essa variavel, nesse caso chamamos de escopo global.
+->  Agora vamos sepor que temos a variavel criado fora e dentro da funcao, exatamente igual:
+
+    let count = 0;
+    function add() {
+        let count = 0;
+        count++;
+    }
+    add();
+    add();
+    console.log(count);
+
+->  Repare, que mesmo criando dessa maneira, na teoria teria que dar 1, mas da 0. Porque isso acontece?!
+->  A variavel de escopo local tem preferencia sobre a variavel de escopo global, quando tem o mesmo nome, nesse caso vai rodar a variavel que esta dentro da funcao.
+->  Nesse caso o nosso count++; vai executar o let count que esta dentro da funcao, por isso vai dar zero.
+
+
