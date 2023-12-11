@@ -3,7 +3,7 @@
 -------------------------------------------
      
 ->  Existem varias formas de criar funcoes, mas aqui vamos aprender a forma mais padrao,  a funcao e como se fosse uma caixinha isolada, ela basicamente so foi criada, mas ainda n executamos ela.
-Entao como usamos a nossa funcao ?!
+->  Entao como usamos a nossa funcao ?!
 
     [EXEMPLO]
     
@@ -335,3 +335,280 @@ console.log("Nome: " + completo);.
 ->  Nesse caso o nosso count++; vai executar o let count que esta dentro da funcao, por isso vai dar zero.
 
 
+-------------------------------------------
+        FUNCOES DENTRO DE FUNCOES
+-------------------------------------------
+
+->  Entao vamos criar uma funcao de raiz quadrada por exemplo:
+
+    [EXEMPLO]
+
+    function square(x) {
+        return x * x;
+    }
+    console.log(square(2));
+
+->  Agora vamos criar uma funcao que ela vai somar a raiz quadrada de dois numeros diferentes, e como pode reparar estou usando duas funcoes.
+->  Porem essa segunda funcao, podemos deixar ela mais resumida, sendo assim consumindo menos memoria.
+
+   [EXEMPLO]
+
+    function square(x) {
+        return x * x;
+    }
+    function addSquares(a, b) {
+        return square(a) + square(b);
+    }
+    console.log(addSquares(2,3));
+
+
+->  Mas vamos usar o modo que fica mais explicado as variaveis.
+->  Lembrando que criamos uma segunda funcao, que tem uma variavel, que esta puxando outro funcao, ou seja literalmente a function square esta dentro da funcao addSquares.
+
+    [EXEMPLO]
+
+    function square(x) {
+        return x * x;
+    }
+    function addSquares(a, b) {
+        let sqrA = square(a);
+        let sqrB = square(b);
+        return sqrA + sqrB;
+    }
+    console.log(addSquares(2,3));
+
+->  E como queriamos fazer, calculamos a raiz quadrada de dois e tres, e somamos os resultados, no nosso exemplo o resultado tem que ser 13.
+
+->  As vezes voce pode literalmente colocar a funcao, dentro da funcao, calma explicarei a seguir no exemplo.
+
+    [EXEMPLO]
+
+    function addSquares(a, b) {
+        function square(x) {
+            return x * x;
+        }
+        let sqrA = square(a);
+        let sqrB = square(b);
+        return sqrA + sqrB;    
+    }
+    console.log(addSquares(2,3));
+
+->  Uma opiniao do professor, e usar o arrow function, quando ter o caso de um funcao dentro da outra, como fizemos nesse ultimo exemplo, por questao de organizacao, mas vai muito da opcao de cada um.
+
+    [EXEMPLO]
+
+    function addSquares(a, b) {
+        const square = (x) => {
+            return x * x;
+        }
+        let sqrA = square(a);
+        let sqrB = square(b);
+        return sqrA + sqrB;
+    }
+    console.log(addSquares(2,3));
+
+->  Mas se preferir pode praticar o clean code, e retirar o return e mudando nossas variaveis da function addSquares.
+
+    [EXEMPLO]
+
+    function addSquares(a, b) {
+        const square =(x) => x * x;
+        return square(a) + square(b)
+    }
+    console.log(addSquares(2,3));
+
+
+-------------------------------------------
+        INTRODUCAO A ARRAY
+-------------------------------------------
+
+->  Entao vamos criar um Array de colors,
+->  Repare que nesse exemplo, quando usamos no console, aparece os tres itens que criamos, e na ordem iniciando pelo 0 ate 2, nesse caso.
+
+    [EXEMPLO]
+
+    let colors = ["blue", "red", "green"];
+    console.log(colors);
+
+->  Nesse exemplo que estamos utilizando estamos usando strings, mas poderiamos usar numeros caso queira.
+->  Mas digamos que eu queira acessar apenas um valor, digamos que queremos o blue, logicamente colocamos na ordem de exibicao que comeca pelo zero, ou seja se queremos o blue temos que usar o zero.
+
+    [EXEMPLO]
+
+    let colors = ["blue","red","green"];
+    console.log(colors[0]);
+
+->  Agora, vamos usar um exemplo usando numeros.
+->  Nesse nosso exemplo, queremos mostrar o item dois, que sera o nosso 30.
+
+    [EXEMPLO]
+
+    let idades = [10, 20, 30];
+    console.log(idades[2]);
+
+->  Assim como podemos misturar, usando string,number bollean etc.
+->  Como coloquei para aparecer o segundo valor, vai aparecer apenas o bollean 
+
+    [EXEMPLO]
+
+    let lista = ["arroz", 1, true];
+    console.log(lista[2]);
+
+->  E se eu quiser colocar um Array dentro de um Array? tambem posso ! 
+->  No exemplo que vou fazer, coloquei a variavel nomes(array) dentro de outro lista(array).
+
+    [EXEMPLO]
+
+    let nomes = ["gui","sandro","adilson"];
+    let lista = ["porto", nomes];
+    console.log(lista[1][0]);
+
+->  Tu tambem pode criar um array dentro do array, no caso literalmente:
+->  E como fazemos para pegar executar eles?
+->  Aqui e um pouco complicado de explicar, mas tem que imaginar matrizes.
+->  Entao supondo que quero mostrar o "porto".
+->  Entao, vamos comecar abrindo o valor "gui" que sera nosso valor zero do array lista.
+->  ou seja: console.log(lista[0]);
+->  Mas o valor "porto" esta dentro de outra Array, que no console contabiliza com o valor um, ja que "gui" e o nosso valor zero.
+->  ou seja, console.log(lista[1]);
+->  Agora ja estamos dentro do Array que queremos, mas preciso executar o "porto" que e o nosso valor zero do array um de lista.
+->  Entao, dessa forma apenas colocamos a posicao dele no Array que ele esta inserido, que no caso e zero.
+->  ou seja: console.log(lista[1][0]);
+
+    [EXEMPLO]
+
+    let lista = ["gui", ["porto","barreto"]];
+    console.log(lista[1][0]);
+
+->  Outro exemplo criando uma variavel, so para poder demostrar de outra forma.
+->  Nesse caso criei a variavel puxando o Array um, que onde estao os sobrenomes, e no console, puxei a variavel sobrenome que e onde esta o Array com os sobrenomes que e o valor um, e determinei valor zero, porque quero o "porto" como sobrenome.
+
+    [EXEMPLO]
+
+    let nome = ["gui",["porto","barreto"]];
+    let sobrenome = nome[1];
+    console.log(sobrenome[0]);
+
+
+
+-------------------------------------------
+        OPERACOES BASICAS DE ARRAY
+-------------------------------------------
+
+->  Array tem muitas vertentes, mas vamos comecar pelo basico obviamente, Arrays e algo que levamos sempre conosco, porque e um dos mais importantes.
+->  Vamos fazer um exemplo de ingredientes de um bolo.
+
+    [EXEMPLO]
+
+    let ingredientes = [
+        "ovo",
+        "farinha",
+        "agua"
+        "corante"
+        "sal"
+        "acucar"
+    ];
+    console.log(`total de ingredientes: ${ingredientes.length}`);
+
+->  Repare que aqui fiz uma atualizacao de um item chamado .length isso nos diz quantos valores tem no Array que inseri.
+->  E digamos que eu queira adicionar mais um ingrediente, como podemos fazer, existem varias formas.
+->  Agora a dica de ouro, nunca faca desse modo que irei ensinar a seguir pois e desvantagem, por mais que sim de certo.
+->  Entao, digamos que ja sabemos quantos ingredientes nos temos, podemos fazer assim: 
+->  ingredientes[5] = "cebola";
+->  Repare que o valor e cinco, pois n pode esquecer que sempre comeca por zero, ou seja devido a isso cebola sera nosso valor 5.
+
+   [EXEMPLO]
+
+    let ingredientes = [
+        "ovo",
+        "farinha",
+        "agua"
+        "corante"
+        "sal"
+        "acucar"
+    ];
+    ingredientes[5] = "cebola";
+
+    console.log(`total de ingredientes: ${ingredientes.length}`);
+
+
+->  Mas digamos que sem querer, vc confundiu e colocou:
+->  ingredientes[6] = "cebola";
+->  Nesse caso em especifico, no console, vai dizer que temos 7 ingredientes, e que nao faz nenhum sentido porque temos apenas 6 ingredientes, entao vamos entender porque isso acomtece.
+->  Se dermos um console.log(ingredientes);
+->  Veremos que vai pular do valor 4 para o 6, mesmo a cebola sendo considerada o sexto ingrediente, isso acontece porque o valor 5 foi "pulado", mas no console ele conta igual, ele so nao e exibido, esse valor 5 possui um chamado de Empty(vazio), o valor Empty tambem conta, por isso no console mostra length 7.
+
+   [EXEMPLO]
+
+    let ingredientes = [
+        "ovo",
+        "farinha",
+        "agua"
+        "corante"
+        "sal"
+        "acucar"
+    ];
+    ingredientes[6] = "cebola";
+    console.log(ingredientes);
+
+    console.log(`total de ingredientes: ${ingredientes.length}`);
+
+->  Agora vamos aprender da forma mais correta, de adicionar itens nos nossos Arrays, sem precisar determinar o valor do Array, sendo assim fica mais dificil de errar.
+->  Nesse caso vamos usar o ingredientes.push("cebola");
+->  Agora se abrir console.log(ingredientes); ira mostrar na ordem correta esse novo valor que adicionamos.
+
+    [EXEMPLO]
+
+    let ingredientes = [
+        "ovo",
+        "farinha",
+        "agua"
+        "corante"
+        "sal"
+        "acucar"
+    ];
+    ingredientes.push("cebola");
+    console.log(ingredientes);
+
+    console.log(`total de ingredientes: ${ingredientes.length}`);
+
+->  Caso tu queira, poderia criar um Array sem nenhum item, dentro dele e adicionar depois com o .push:
+
+    [EXEMPLO]
+
+    let ingredientes = [];
+    ingredientes.push("ovo");   
+    ingredientes.push("farinha");
+    ingredientes.push("agua");
+    console.log(ingredientes)
+    console.log(`total de ingredientes: ${ingredientes.length}`);
+
+->  Agora vamos usar duas funcoes distintas, a primeira e a funcao pop.
+->  Essa funcao .pop() vai remover o ultimo item do meu Array, usando nosso exemplo ainda, a agua sera removida.
+
+    [EXEMPLO]
+
+    let ingredientes = [];
+    ingredientes.push("ovo");   
+    ingredientes.push("farinha");
+    ingredientes.push("agua");
+
+    ingredientes.pop();
+
+    console.log(ingredientes)
+    console.log(`total de ingredientes: ${ingredientes.length}`);
+
+->  Mas digamos que tu queira removar o primeiro item do Array, usamos o .shift();
+-> E usando nosso exemplo ainda, o ovo sera removido.
+
+    [EXEMPLO]
+
+    let ingredientes = [];
+    ingredientes.push("ovo");   
+    ingredientes.push("farinha");
+    ingredientes.push("agua");
+
+    ingredientes.shift();
+
+    console.log(ingredientes)
+    console.log(`total de ingredientes: ${ingredientes.length}`);
