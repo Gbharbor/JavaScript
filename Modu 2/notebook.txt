@@ -513,7 +513,7 @@ console.log("Nome: " + completo);.
 ->  Repare que aqui fiz uma atualizacao de um item chamado .length isso nos diz quantos valores tem no Array que inseri.
 ->  E digamos que eu queira adicionar mais um ingrediente, como podemos fazer, existem varias formas.
 ->  Agora a dica de ouro, nunca faca desse modo que irei ensinar a seguir pois e desvantagem, por mais que sim de certo.
-->  Entao, digamos que ja sabemos quantos ingredientes nos temos, podemos fazer assim: 
+->  Entao, digamos que ja sabemos quantos ingredientes nos temos, podemos fazer assim:
 ->  ingredientes[5] = "cebola";
 ->  Repare que o valor e cinco, pois n pode esquecer que sempre comeca por zero, ou seja devido a isso cebola sera nosso valor 5.
 
@@ -525,10 +525,8 @@ console.log("Nome: " + completo);.
         "agua"
         "corante"
         "sal"
-        "acucar"
     ];
     ingredientes[5] = "cebola";
-
     console.log(`total de ingredientes: ${ingredientes.length}`);
 
 
@@ -537,6 +535,8 @@ console.log("Nome: " + completo);.
 ->  Nesse caso em especifico, no console, vai dizer que temos 7 ingredientes, e que nao faz nenhum sentido porque temos apenas 6 ingredientes, entao vamos entender porque isso acomtece.
 ->  Se dermos um console.log(ingredientes);
 ->  Veremos que vai pular do valor 4 para o 6, mesmo a cebola sendo considerada o sexto ingrediente, isso acontece porque o valor 5 foi "pulado", mas no console ele conta igual, ele so nao e exibido, esse valor 5 possui um chamado de Empty(vazio), o valor Empty tambem conta, por isso no console mostra length 7.
+->  Inclusive caso queira, tu poderia substituir um valor caso queira, por exemplo vc queira substituir o valor "ovo" por "cenoura"
+->  Sendo assim, ingredientes[0] = "cenoura";
 
    [EXEMPLO]
 
@@ -546,16 +546,15 @@ console.log("Nome: " + completo);.
         "agua"
         "corante"
         "sal"
-        "acucar"
     ];
     ingredientes[6] = "cebola";
     console.log(ingredientes);
-
     console.log(`total de ingredientes: ${ingredientes.length}`);
 
 ->  Agora vamos aprender da forma mais correta, de adicionar itens nos nossos Arrays, sem precisar determinar o valor do Array, sendo assim fica mais dificil de errar.
 ->  Nesse caso vamos usar o ingredientes.push("cebola");
 ->  Agora se abrir console.log(ingredientes); ira mostrar na ordem correta esse novo valor que adicionamos.
+
 
     [EXEMPLO]
 
@@ -569,7 +568,6 @@ console.log("Nome: " + completo);.
     ];
     ingredientes.push("cebola");
     console.log(ingredientes);
-
     console.log(`total de ingredientes: ${ingredientes.length}`);
 
 ->  Caso tu queira, poderia criar um Array sem nenhum item, dentro dele e adicionar depois com o .push:
@@ -599,16 +597,410 @@ console.log("Nome: " + completo);.
     console.log(`total de ingredientes: ${ingredientes.length}`);
 
 ->  Mas digamos que tu queira removar o primeiro item do Array, usamos o .shift();
--> E usando nosso exemplo ainda, o ovo sera removido.
+->  E usando nosso exemplo ainda, o ovo sera removido.
 
     [EXEMPLO]
 
     let ingredientes = [];
-    ingredientes.push("ovo");   
+    ingredientes.push("ovo");
     ingredientes.push("farinha");
     ingredientes.push("agua");
-
     ingredientes.shift();
-
     console.log(ingredientes)
     console.log(`total de ingredientes: ${ingredientes.length}`);
+
+
+
+-------------------------------------------
+        EXERCICIO DE ARRAY 
+-------------------------------------------
+
+    [EXERCICIO]
+    -1: No array abaixo, qual o numero que pega a Ferrari ?
+    let carros = ["BMW","Ferrari","Mercedes"];
+    [RESPOSTA]
+    console.log(carros[1]);
+
+    [EXERCICIO]
+    -2: Troque a Ferrari por Audi.
+    [RESPOSTA]
+    carros[1] = "Audi";
+
+    [EXERCICIO]
+    -3: Adicione o valor Volvo a lista.
+    [RESPOSTA]
+    carros.push("volvo");
+
+    [EXERCICIO]
+    -4: Exiba quantos itens tem no Array.
+    [RESPOSTA]
+    console.log(`total de itens: ${carros.length});
+
+
+-------------------------------------------
+        O QUE SAO OBJETOS ?
+-------------------------------------------
+
+->  Entao sao muito semelhantes a Arrays, porem de forma bem resumida usamos as chaves {} ao inves de colchetes[].
+->  Entao vamos criar um exemplo aqui com uma variavel string, e um Array e dps o nosso objeto.
+->  O primeiro ponto importante dos objetos, e que quando formos referenciar, nao usamos a logica dos valores igual temos nos Arrays, e sim os itens diretamente.
+
+    [EXEMPLO]
+
+    let nomes = "Gui";
+    let nomes = ["Gui","Pedro"];
+    let personagens = {
+        nome: "Gui",
+        idade: 90,
+        pais: "Brasil",
+    }
+
+->  Ok agr revisamos brevemente do que se trata, porem vamos usar o exemplo que criamos so com objetos, e para a exibicao temos a forma padrao de sempre, referenciando a variavel no console.
+
+    [EXEMPLO]
+
+    let personagem = {
+        nome: "Gui",
+        idade: 90,
+        pais: "Brasil",
+    }
+    console.log(personagem);
+
+->  Mas digamos que queremos mostrar no console apenas um valor, no caso dos arrays usavamos o esquema do valor zero... ja aqui e diferente, como e um objeto adicionamos a variavel depois add ponto e colocamos o nome do objeto.
+
+    [EXEMPLO]
+
+    let personagens = {
+        nome: "Gui",
+        idade: 90,
+        pais: "Brasil",
+    }
+    console.log(personagem.nome);
+
+->  Agora um exemplo que demonstra uma frase, so para praticar.
+
+    [EXEMPLO]
+
+    let personagens = {
+    nome: "Gui",
+    idade: 90,
+    pais: "Brasil,
+    }
+    console.log(`${personagem.nome} tem ${personagem.idade} anos.`);
+
+->  Outra questao interessante, voce pode criar um objeto dentrou de outro objeto, igual faziamos nos array, a diferenca que acessamos aquele valor usando os ponto, mas o metodo e o mesmo em modo cascata.
+
+    [EXEMPLO]
+
+    let personagens = {
+    nome: "Gui",
+    idade: 90,
+    pais: "Brasil",
+        caracteristicas: {
+            forca: 20,
+            magia: 5,
+            stamina: 15
+        }
+    }
+    console.log(`${personagem.nome} tem ${personagem.idade} anos.`);
+    console.log(personagem.caracteristicas.magia);
+
+->  Inclusive, caso queira poderia colocar um Array dentro de um objeto, e para buscar esse array e a mesma logica, que aprendemos em Array.
+
+    [EXEMPLO]
+
+    let personagens = {
+    nome: "Gui",
+    idade: 90,
+    pais: "Brasil",
+    olhos: ["preto","azul"],
+        caracteristicas: {
+            forca: 20,
+            magia: 5,
+            stamina: 15
+        }
+    }
+    console.log(`${personagem.nome} tem ${personagem.idade} anos.`);
+    console.log(personagem.caracteristicas.magia);
+    console.log(personagem.olhos[1]);
+
+
+-------------------------------------------
+        ACESSANDO E ALTERANDO OBJETOS
+-------------------------------------------
+
+->  Agora como alteramos, a logica e bem parecida com o array, entao continuando com o nosso exemplo anterior da ultima aula, digamos que quero alterar a variavel nome de "Gui" para  "Pedro".
+->  O modo e muito semelhante, so vai mudar que vamos usar o ponto ao referenciar o nome do objeto.
+->  E digamos que eu queira aumentar uma caracteristica, como fariamos, nesse caso em especifico aumentei para mais 5 usando o 5+=;
+->  Ok, mas agora eu quero adicionar mais um valor no meu Array que esta dentro do objeto, por exemplo a cor de olho verde.
+->  Nesse caso, temos q lembrar que pra add array usamos o .push, referenciamos ate chegar onde queremos e entao adicionamos, se quisesse excluir o ultimo usamos o .pop, e se quisessemos excluir o primeiro .shift
+
+    [EXEMPLO]
+
+    let personagens = {
+    nome: "Gui",
+    idade: 90,
+    pais: "Brasil",
+    olhos: ["preto","azul"],
+        caracteristicas: {
+            forca: 20,
+            magia: 5,
+            stamina: 15
+        }
+    }
+    personagem.nome = "Pedro";
+    personagem.caracteristicas.forca += 5;
+    personagem.olhos.push("verde);
+    console.log(`${personagem.nome} tem ${personagem.idade} anos.`);
+    console.log(personagem.caracteristicas.magia);
+    console.log(personagem.olhos[1]);
+    console.log(`Forca atualizada: ${personagem.caracteristicas.forca}`);
+    console.log(personagem.olhos);
+
+
+->  Agora vamos um exemplo um pouco mais complexo, so para praticar, temos aqui um objeto com o array carros, mas carros pode ter mais de uma caracteristica ou seja o mais correto e adicionar um objeto dentro desse array carros.
+->  Agora, como acessamos o model fiat?
+->  Simples, usamos  a logica, referenciamos a varriavel, depois escolhemos o objeto cars, e como cars e um array devemos definir se queremos o modelo 1 ou 2, como array e definido por valores que iniciam em 0, nesse caso do fiat nosso valor sera 0, entao esse nosso valor 0 e outro objeto, sendo assim usamos o ponto novamente para puxar o objeto que queremos, que nesse exemplo no caso seria o color.
+->  Ou seja, character.cars[0].color;
+->  Mas eu quero a ferrari porem so a color, nesse caso:
+->  character.cars[1].color;
+
+
+    let character = {
+        name: "Gui",
+        age: 90,
+        cars: [
+            {model: "Fiat",
+             color: "black"},
+            {model: "Ferrari",
+             color: vermelho}
+        ]
+    }
+    console.log(character.car[0].color);
+
+
+-------------------------------------------
+        FUNCAO DENTRO DE OBJETO
+-------------------------------------------
+
+->  Sim, podemo criar funcao dentro de objetos, mas antes vamos ver um exemplo de um objetct basico, aqui so para demonstrar a ideia do que queremos fazer.
+
+    [EXEMPLO]
+
+    let pessoa = {
+        nome: "gui",
+        sobrenome: "porto",
+        }
+    console.log(pessoa.nome + ' ' + pessoa.sobrenome);
+
+->  Entao, ate ai tudo bem, agora vamos executar esses nomes e sobrenomes atraves de uma funcao que irei criar dentro desse objeto.
+->  Essa aula e muito importante porque pode ser um pouco confuso, mas quando crio uma funcao dentro de um objeto, eu ja tenho o nome da funcao, entao a forma padrao que usamos, function funcao(){}, n e necessario usar o funcao, pq ja temos o nome criado, q no caso do nosso exemplo e o nomeCompleto.
+->  ok, mas quando damos o return que ja esta dentro de um objeto, nos temos que usar uma keyword chamada this, que diz pra funcao que o return esta dentro do proprio objeto(proprio item), que a function esta enserida.
+->  Ok, inserimos a keyword this e usamos o ponto para para escolhar quam item que queremos retornar, que no caso e nome e sobrenome, desse modo entao
+->  return this.nome + ' ' + this.sobrenome;
+
+    [EXEMPLO] 
+
+    let pessoa = {
+        nome: "Gui",
+        sobrenome: "porto"
+        nomeCompleto: function() {
+            return this.nome + ' ' + this.sobrenome
+        }
+    }
+
+->  Por uma questao estetica vou usar o template string, agora repare que se eu der no console.log(pessoa.nomeCompleto); vai aparecer a funcao que criamos mas nao os nomes que quero que aparece de fato.
+
+    [EXEMPLO]
+
+    let pessoa = {
+        nome: "gui",
+        sobrenome: "porto",
+        nomeCompleto: function () {
+            return `${this.nome} ${this.sobrenome}`;
+        }
+    }
+    console.log(pessoa.nomeCompleto);
+
+->  Como nosso console esta errado, devemos fazer dessa forma para aparecer os nomes de fato da funcao.
+->Muito simples so aidiconamos os parenteses, de forma que  o console vai executar a funcao.
+
+    [EXEMPLO]
+
+    let pessoa = { 
+        nome: "gui",
+        sobrenome: "porto"
+        nomeCompleto: function () {
+            return `${this.nome} ${this.sobrenome}
+            }
+        }
+        console.log(pessoa.nomeCompleto());
+
+->  Outro detalhe super importante, nos nao conseguimos acessar os resultados do objeto se usarmos o arrow function na funcao que estiver dentro do objeto.
+->  Esse arrow function, chamamos de anonimas, ou seja ela nao consegue referenciar o this, mesmo que tu tente vai dizer que os nomes estao indefinidos.
+->  E para ser sincero, usa muito pouco o this, so estamos aprendendo.
+->  E logico que a funcao vai continuar funcionando mesmo que nao use o this, por exemplo, vou usar o arrow function e n usar o this, obviamente vai funcionar mesmo usando outra variavel etc.
+
+    [EXEMPLO]
+
+    let pessoa = {
+        nome: "gui",
+        sobrenome: "porto"
+        nomeCompleto: () => {
+            return "blablabla"
+        }
+            }
+    console.log(pessoa.nomeCompleto())
+    
+
+
+-------------------------------------------
+                O LOOP FOR
+-------------------------------------------
+
+->  Em resumo , usamos isso para fazer o codigo ser repetido ou executado varias vezes, chamamos de loop.
+->  Digamos que esteja criando uma lista(array) de produtos, e dentro temos todas as caracteristicas desses produtos (object).
+->  Temos varias formas de fazer esse loop, mas hj vms aprender o for, vms fazer um loop simples.
+->  Nos que definimos quando vai parar de repetir, entao nesse exemplo em resumo, a nossa variavel n sera executada apartir do 0, e esse n tem q ser menor que 10, quando chegar na decima vez obviamente, ele ira parar de executar, mas seguindo a logica ele sera somado atraves do atributo n++, dps disso o codigo se repete e executa novamente, como ja disse 10x.
+->  Nesse exemplo coloquei no console uma frase qualquer, e sera a frase que ira executar, e no proprio console aparece o numero de vezes que aquela frase foi executada, no caso por nao trocar e continuar sendo a mesma frase.
+->  Agora vamos adicionar o n, e como pode ver agr sim, o console mostra as 15 linhas, ja que n e a msm frase.
+->  Ah mas nao aparece a linha 10, logico pq eu defini que tem q ser menor que 10 e meu n= 0.
+
+    [EXEMPLO]
+
+    for(let n = 0; n < 10; n++) {
+        console.log("frase qualquer " + n);
+    }
+
+
+
+-------------------------------------------
+            DANDO LOOP EM ARRAYS
+-------------------------------------------
+
+->  Entao vamos dar o loop em um array, pq isso e super comum.
+->  Entao nesse caso, criamos nossa array colors, e em seguida criamos o loop.
+-> Entao, no console referenciamos a nossa array que colors e em seguida dentro de colchetes chamamos nosso n [n], isso faz com que colors execute o loop [n]. 
+->  Porem se usarmos esse loop que vai ate 15, no console ira mostrar as 3 primeiras cores porem as outras 12 q falta para chegar nos 15 sera undefined.
+
+    [EXEMPLO]
+
+    let colors = ["black","white","blue"];
+    for(let n = 0; n < 15; n++) {
+        console.log(colors[n])
+    }
+
+->  Entao, a forma mais correta para esse caso em especifico seria mudar nosso valor de n para n < 3. certo ? 
+
+    [EXEMPLO]
+    
+    let colors = ["blue","black","purple"];
+    for (let n=0; 0 < 3; n++) {
+        console.log(colors[n]);
+    }
+
+->  Ok, funcionou ? sim ! porem, e se eu tiver outra cor, terei que sempre ficar alterando essa valor de maior de n ?! ai que vem o ponto principal, por isso sempre devemos usar o length.
+->  Pronto, agora dessa forma, n preciso me preucupar com o valor de n ser maior ou menor que.
+
+    [EXEMPLO]
+
+    let colors = ["blue","red","violet"];
+    colors.push("green");
+    for (let n = 0; n < colors.length; n++) {
+        console.log(colors[n]);
+    }
+
+
+->  Essa e uma das formas de usar o for, mas temos outras formas de usar o for em arrays.
+->  Essa forma criamos uma variavel chamada i , e com o in colors, o codigo JS explica que esta pegando os valores que tiver dentro do array colors.
+->  Em resuma essa forma ainda e uma keyword, para simplificar o modo anterior, mas logico so funciona se tiver esse "in". 
+->  E tambem poderia usar qualquer outro nome para essa variavel, so usei o "i" como exemplo.
+
+    [EXEMPLO]
+
+    let colors = ["blue","red","violet"];
+    colors.push("green");
+
+    for (let i in colors) {
+        console.log(colors[i]);
+    }
+
+->  E sim temos outra forma ainda, nos dois ultimos exemplos sempre pegamos as chaves para referenciar ou [n] ou [i], como fizemos, ja agora vamos usar o nome da variavel que criar, mas para funcioanr tem ter esse "of", no exemplo chamei a variavel de cor, porque faz mas sentido mas poderia colocar o nome que quiser.
+
+    [EXEMPLO]
+
+    let colors = ["blue","red","violet"];
+    colors.push("green");
+
+    for (let cor of colors) {
+        console.log(cor);
+    }
+
+->  Agora vamos para um exemplo mais complexo, aplicando um pouco de cada coisa.
+->  Nesse caso em especifico criamos objects dentro da array, e conseguimos referencialos no nosso for, atraves da nossa variavel cor , mas poderia ser qualquer outro nome, so para deixar claro, essa forma de "of" e a mais direta possivel.
+
+    [EXEMPLO]
+
+    let colors = [
+        {
+            nome: "red",
+            qt: 10
+        
+        },
+        {
+            nome: "blue",
+            qt: 5
+        },
+        {
+            nome: "violet",
+            qt: 15
+        }
+    ]
+    for (let cor of colors) {
+        console.log(`Nome: ${cor.nome} - ${cor.qt}`);
+    }
+
+
+->  Se quiser, poderia usar o modo "in", com apenas uma mudanca, a seguida a chave [i] que adicionamos no console, usarmos o ponto e por o item do objeto que queremos, no exemplo usei o nome.
+
+    [EXEMPLO]
+
+    let colors = [
+        {nome: "red", qt: 10},
+        {nome: "blue", qt: 5},
+        {nome: "violet", qt: 15}
+    ]
+
+    for(let i in colors) {
+        console.log(colors[i].nome);
+    }
+
+->  Entao, so para concluir o conheciemento, tambem podemos buscar atraves do modo mais classico, porem mais trabalhoso, sem usar o "in" nem "of", e do mesmo jeito que o "in".
+
+    [EXEMPLO] 
+
+    let colors = [
+        {nome:"blue", qt:2},
+        {nome:"red", qt:5},
+        {nome:"violet", qt:10}
+    ];
+    for (let n=0; n < colors.length; n++) {
+        console.log(colors[n].nome);
+    }
+
+->  Vamos supor que quero q todas cores fiquem com a letra maiuscula,nesse caso em especifico usarei o exemplo "in" isso e um bonus da aula.
+->  Entao, a seguir refereniamos o array(colors)e sua keyword, e tmb oq queremos por em maiusculo, nesse caso seram os nomes , entao ponto nome, dessa forma: colors[i].nome.
+->  Ok, agr igualamos a propriedade completa novamente, porem adicionando uma function que ja existe no JS chamada toUpperCase(),e como ja sabemos para puxar uma funcao em um objeto, devemos usar o ponto, e tmb logicamente por se tratar de uma function, precisamos adicionar os parenteses() para ela ser executada, desse modo 
+->  colors[i].nome = colors[i].nome.toUpperCase();
+
+    [EXEMPLO] 
+
+    let colors = [
+        {nome:"blue", qt:2},
+        {nome:"red", qt:5},
+        {nome:"violet", qt:10}
+    ];
+    for (let i in colors) {
+        colors[i].nome = colors[i].nome.toUpperCase();
+    }
+    console.log(colors);
