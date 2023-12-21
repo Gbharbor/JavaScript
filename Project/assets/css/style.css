@@ -1,0 +1,911 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,300&family=Playfair+Display&family=Poppins:wght@300;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Playfair Display', serif;
+    font-family: 'Poppins', sans-serif;  
+    font-size:13px;
+    overflow-x: hidden; /*td conteudo q passar o eixo X sera ignorado*/
+}
+hr {
+    border: 0.5px solid #ddd;
+}
+.header {
+    background-color: white;
+    color: white;
+    width: 100%;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    border-radius: 30px;
+    margin-top: 5px;
+}
+.logo img {
+    margin-left: 40px;
+    width: 100px;
+    height: 90px;
+}
+.menu_opener {
+    display: none;
+}
+.menu {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+.menu ul {
+    display: flex;
+    margin-right: 20px;
+}
+.menu ul,
+.menu li {
+    list-style: none;
+}
+.menu li a {
+    color: #555;
+    text-transform: uppercase;
+    font-family: 'Poppins';
+    font-size: 15px;
+    text-decoration: none;
+    padding-left:10px;
+    padding-right:10px;
+    height:90px;
+    display:flex;
+    align-items:center;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    transition: all 1s linear;
+}
+.menu li a:hover,
+.menu .active a {
+    color:#a47c0c;
+}
+.banner {
+    height: calc(100vh - 40px);
+    background-color: white;
+    overflow: hidden;
+}
+.imgbanner1 {
+    width: 400px;
+}
+.banner .sliders {
+    width: 1000vw;
+    height: 100%; 
+}
+.banner .slide {
+    width: 100vw;
+    height: 100%;
+    display: inline-block;
+}
+.banner .slidearea {
+    display: flex;
+    height: 100%;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.banner h1 {
+    text-transform: uppercase;
+    font-size: 80px;
+    font-family: 'Playfair Display';
+    color: black;
+}
+.button {
+    display: inline-block;
+    background-color: white;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: 'Poppins';
+    text-decoration: none;
+    padding: 10px 30px;
+    margin-top: 30px;
+    border-radius: 20px;
+    border: 1px solid #999;
+    animation-name: button;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    transition: all 1s linear;
+    width: 145px;
+}
+.button:hover {
+    width: 146px;
+    cursor: pointer;
+    box-shadow: 0px 0px 8px #a47c0c;
+    border: 1px solid #a47c0c;
+    color: #a47c0c;
+
+}
+.banner .sliders_pointers {
+    width: 100vw;
+    height: 20px;
+    position: absolute;
+    margin-top: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner .pointer {
+    width: 13px;
+    height: 13px;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.banner .pointer.active {
+    background-color: #a47c0c;
+}
+input[type=submit] {
+    cursor: pointer;
+}
+.default {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #fff;
+}
+.default .section_title,
+.default .section_desc {
+    text-align: center;
+    text-transform: uppercase;
+}
+.default .section_title {
+    color: black;
+    font-family: 'Playfair Display';
+    font-size: 25px;
+}
+.default .section_desc{
+    font-family: 'Poppins';
+    font-size: 14px;
+    color: #a47c0c;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.default .section_body {
+    max-width: 1140px;
+    margin: auto;
+}
+.default.grey {
+    background-color: #f7f7f7;
+}
+
+/*SOBRE NOS*/
+.section_about_us {
+    display: flex;
+    padding-left: 10px;
+}
+.section_about_us_left {
+    flex: 1;
+    height: 400px;
+    width: 600px;
+    border-radius: 40px;
+    box-shadow: 0px 0px 5px #ddd;
+    margin-top: 50px;
+    animation-name: section_about_us_left;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    transition: all 1s linear;
+}
+
+.section_about_us_left:hover {
+    box-shadow: 0px 0px 15px #999;
+}
+.section_about_us_right {
+    width: 700px;
+    padding-left: 10px;
+
+}
+.section_about_us_right video {
+    width: 800px;
+    height: 500px;
+    margin-left: 10px;
+}
+.section_about_us_left p {
+    margin-top: 60px;
+    font-size: 15px;
+    line-height: 29px;
+    padding-top: 10px;
+    padding-left: 20px;
+    color: #333;
+}
+.section_about_us_left a {
+    margin-left: 140px;
+    margin-top: 20px;
+}
+
+/*METODO*/
+.section_methods {
+    display: flex;
+}
+.section_method {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid #555;
+    padding: 15px;
+}
+.section_method:first-child { 
+    border-left: 1px solid #555;
+}
+.section_method h4 {
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: 'Playfair Display';
+}
+.section_method p {
+    margin-top: 10px;
+    font-size: 12px;
+    font-family: 'poppins';
+    color: #a47c0c;
+}
+.section_method img {
+    width: 120px;
+    height: 120px;
+}
+/*
+CLIENTES
+*/
+.section_clients {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section_clients_filters {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 40px;
+    display: inline-block;
+    padding: 5px 30px;
+}
+.section_clients_filters ul,
+.section_clients_filters li {
+    list-style-type: none;
+}
+.section_clients_filters li {
+    display: inline-block;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+}
+.section_clients_filters li:hover,
+.section_clients_filters li.active {
+    color: #a47c0c;
+}
+.section_clients_photos {
+    width: 100vw; /*ele usa td porem tem um limite de 1140px*/
+    max-width: 1140px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+.section_client_photo {
+    width: 280px; /*esse tamanho ja garantimos q cabe numa tela de celular*/
+}
+.section_client_photoarea {
+    margin: 15px;
+    width: 265px;
+    height: 210px;
+}
+.section_client_photoarea img {
+    width: inherit;
+    height: inherit;
+    box-shadow: 5px 5px 8px #555;
+    border-radius: 15px;
+    animation-name: section_client_photoinfo;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    transition: all 1s linear;
+}
+.section_client_photoarea img:hover {
+    width: 270px;
+}
+.section_client_photoinfo {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    border-radius: 15px;
+    animation-name: section_client_photoinfo;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    transition: all 1s linear;
+}
+.section_client_photoinfo:hover { 
+    width: 270px;
+}
+.section_client_photoinfo a{
+    text-decoration: none;
+}
+.section_client_photoinfo a:visited{
+    color: #fff;
+}
+.section_client_photoinfo h5 {
+    text-transform: uppercase;
+    font-size: 26px;
+    font-family:'Playfair Display';
+}
+.section_client_photoinfo p {
+    font-size: 13px;
+    font-family:'poppins';
+    color: #ddd;
+    text-transform: lowercase;
+    font-weight: lighter;
+}
+.section_client_photoinfo p:hover {
+    text-shadow: 0px 0px 2px #fff;
+    color: #fff;
+}
+.section_client_photoarea:hover 
+.section_client_photoinfo {
+ display: flex;
+}
+/*equipe do time*/
+.default.bg_team {
+    background-image: url('../img/staro_clients/hotel_blue.jpeg');
+    background-size:cover;
+    padding:0;
+}
+.section_team_area {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.section_team {
+    overflow: hidden;
+    max-width: 880px;
+    margin: auto;
+}
+.section_team .sliders {
+    width: 1000vw;
+    height: 100%;
+}
+.section_team .slide {
+    width: 280px;
+    height: 100%;
+    display: inline-block;
+    background-color:#fff;
+    margin-right: 20px;
+    min-height: 300px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 7px #a47c0c;
+    border: 1px solid #a47c0c;
+}
+.section_team .slide:hover {
+    border: 1px solid black;
+    box-shadow: 0px 0px 1px black;    
+}
+.slide.hidde{
+    display: none;
+}
+.section_team .slidearea {
+    display: flex;
+    height: 350px;
+    color: black;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    padding:30px;
+}
+.section_title.team {
+    color: white;
+    font-size: 30px;
+}
+.section_team_avatar {
+    width: 150px;
+    height: auto;
+}
+.section_team_name {
+    font-family: 'poppins';
+    text-transform: uppercase;
+    font-size: 17px;
+    margin-top: 30px;
+    text-align: center;
+    color: #555;
+}
+.section_team_name:hover {
+    color: black;
+    cursor: pointer;
+}
+.section_team_role {
+    font-size: 14px;
+    color: #999;
+    margin-top: 5px;
+    text-align: center;
+}
+.section_team_role:hover {
+    color: #333;
+}
+.section_team_social {
+    display: flex;
+    margin-top:20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.section_team_social a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width:  26px;
+    height: 26px;
+    background-color: #ccc;
+    border-radius: 13px;
+    margin-right: 10px;
+}
+.section_team_social a:hover {
+    background-color: #a47c0c;
+}
+/*________________________________________________________________________________________________________________*/
+
+/*Testimonials*/
+.testimonials .section_body {
+    max-width: initial;
+}
+.section_testimonials {
+    overflow: hidden;
+}
+.section_testimonials .sliders {
+    width: 1000vw;
+    height: 100%;
+}
+.section_testimonials .slide {
+    width: 100vw;
+    height: 100%;
+    display: inline-block;
+}
+.section_testimonials .slidearea {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.section_testimonials_avatar img{
+    width: 100px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.section_testimonials_avatar {
+    width: 110px;
+    height: 110px;
+}
+.section_testimonials_avatar:hover {
+    box-shadow: 0px 0px 5px #ddd;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.section_testimonials_name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
+}
+.section_testimonials_role {
+    font-size: 14px;
+}
+.section_testimonials_quoteimg {
+    width: 20px;
+    margin-top: 30px;
+}
+.section_testimonials_quote {
+    margin-top: 10px;
+    font-size: 13px;
+    max-width: 700px;
+    color: #555;
+    text-align: center;
+    line-height: 25px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.section_testimonials .sliders_pointers {
+    width: 100vw;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:40px;
+}
+.section_testimonials .pointer {
+    width: 13px;
+    height: 13px;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.section_testimonials .pointer.active {
+    background-color: #a47c0c;
+}
+
+/*Aqui ficara as companias q trabalham junto*/
+.section_companies {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.section_companies_area{
+    text-align: center;
+}
+.section_companies_area img {
+    width: 100%;
+    height: auto;
+
+}
+
+/*Area para nos contactar*/
+.section_contact {
+    max-width: 450px;
+    margin: auto;
+    text-align: center;
+}
+.section_contact textarea:focus,
+.section_contact input[type=text]:focus,
+.section_contact input[type=email]:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+.section_contact input[type=text],
+.section_contact textarea,
+.section_contact input[type=email]
+ { 
+    display: block;
+    width: 100%;
+    height: 40px;
+    border: 0;
+    background: transparent;
+    border-bottom: 1px solid #ccc;
+}
+.section_contact textarea {
+    height: 100px;
+    resize: none;
+}
+.section_contact_split {
+    display: flex;
+}
+.section_contact_split input:first-child {
+    margin-right: 20px;
+}
+/*Area do mapa*/
+.map_staro {
+    width: 1200px;
+    height: 400px;
+    border: 1px solid #ddd;
+}
+.map_staro:hover {
+    border: 1px solid #a47c0c;
+}
+.section_map {
+ display: flex;
+}
+.section_map_area {
+    width: 100vw;
+    max-width: 1140px;
+    margin: auto;
+    margin-bottom: 60px;
+}
+.section_map_info {
+    display: flex;
+    width: 50%;
+    padding: 30px;
+    background-color: white;
+    color: black;
+}
+
+/*Area do  rodape*/
+footer {
+    background-color:#333;    
+}
+.footer_area {
+    display: flex;
+    max-width: 1140px;
+    margin: auto;
+    color: #fff;
+    padding-top: 20px;
+    height: 200px;
+    align-items: center;
+
+}
+.footer_item{
+    flex: 1;
+    margin-bottom: 20px;
+}
+.footer_social {
+    display: flex;
+}
+.footer_social a {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  margin-right: 10px;
+  animation-name: button;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  transition: all 1s linear;
+}
+.footer_social a:hover {
+    background-color: #999;
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+}
+.footer_social img  {
+    height: 10px;
+}
+.footer_item.area2 {
+    color: #999;
+    line-height: 20px;
+    font-size: 13px;
+    padding: 0 10px 10px 10px;
+    display: flex;
+    align-items: center;
+}
+#saiba_mais {
+    text-decoration: none;
+    color: #999;
+}
+#saiba_mais:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+.footer_item.area3 form {
+    background-color: #333;
+    padding: 30px;
+    border-radius: 10px;
+}
+.footer_item.area3 input {
+    margin-left: 25%;
+    width: 100%;
+    height: 20px;
+    border:none;
+    background: transparent;
+    border-bottom: 0.5px solid #999;
+    outline:0;
+    color: #ddd;
+    font-size: 13px;
+    text-align: center;
+}
+form .btn {
+    margin-top: 10px;
+    margin-left: 50%;
+    text-align: center;
+    width: 50%;
+    background-color: #ccc;
+    
+}
+form .btn:hover {
+    text-align: center;
+    width: 50%;
+}
+/*vms colocar no nosso nav um position absolute para q o menu fique flutuante e nos possamos mover ele.*/
+@media (min-width:450px) and (max-width:800px) {
+    .logo {
+        margin-left: 30px;
+    }
+    nav {
+        position: absolute;
+        z-index: 99;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 70vw;
+        height: calc(100vh - 100px); /*altura como um todo menos a altura do nosso menu*/
+        top: 100px;
+        right: 0;
+    }
+    /*dessa forma colocamos o menu um item abaixo do outro*/
+    .menu ul {
+        flex-direction:column;
+    }
+    .menu li a {
+        font-weight:bold;
+        height: 60px;
+        font-size: 23px;
+        margin-left:50px;
+        border:0;
+    }
+    .menu li.active a {
+        border:0;
+        color: #a47c0c;
+
+    }
+    .menu li a:hover {
+        border:0;
+        color: #a47c0c;
+    }
+    .menu_opener {
+        display: block;
+        width: 45px;
+        margin-right: 30px;
+    }
+    /*entao para o about us e so colocar um column*/
+    .section_about_us {
+        flex-direction: column;
+    }
+    .section_about_us_left {
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-bottom: 30px;
+    }
+    .section_about_us_right {
+        width:auto;
+    }
+    .section_services {
+        flex-wrap: wrap;
+    }
+    .section_service {
+        min-width: 50%;
+        margin-bottom: 20px;
+    }
+    .section_service:first-child {
+        border-left: 0;
+    }
+    .section_team {
+        max-width: 580px;
+    }
+    .section_map_info {
+        width: auto;
+    }
+    .section_map {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .section_map_area {
+        width: auto;
+    }
+    .section_map_info_item {
+        margin-bottom: 20px;
+    }
+    .section_map_info_item:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width:450px) {
+    .logo {
+    margin-left: 30px;
+    }
+
+    nav {
+    display: none;
+    position: absolute;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 80vw;
+    height: calc(100vh - 100px); 
+    top: 100px;
+    right: 0;
+}
+.menu ul {
+    flex-direction:column;
+}
+.menu li a {
+    font-weight:bold;
+    height: 60px;
+    font-size: 20px;
+    margin-left:30px;
+    border:0;
+}
+.menu li.active a {
+    border:0;
+    color: #a47c0c;
+
+}
+.menu li a:hover {
+    border:0;
+    color: #a47c0c;
+}
+.menu_opener {
+    display: block;
+    width: 45px;
+    margin-right: 30px;
+}
+
+.banner h2 {
+    font-size: 17px;
+}
+/*entao para o about us e so colocar um column*/
+.section_about_us {
+    flex-direction: column;
+}
+.section_about_us_left {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+.section_about_us_right {
+    margin-left: 30px;
+    margin-right: 30px;
+    width:auto;
+}
+.section_about_us_right img {
+    width: 100%;
+}
+
+.section_services {
+    flex-wrap: wrap;
+}
+.section_service {
+    min-width: 100%;
+    margin-bottom: 20px;
+}
+.section_service:first-child {
+    border-left: 0;
+}
+
+
+.section_projects_filters {
+    margin-left:30px;
+    margin-right: 30px;
+}
+.section_projects_photo {
+    width: 300px;
+}
+.section_projects_photoarea{
+    width: 300px;
+    height: 190px;
+}
+.section_team {
+    max-width: 280px;
+}
+.section_contact {
+    max-width: 350px;
+
+}
+.section_companies_area{
+    flex-wrap: wrap;
+}
+.section_company {
+    min-width: 50%;
+    margin-bottom: 20px;
+}
+
+.section_map_info {
+    width: auto;
+}
+.section_map {
+ padding: 0;
+ padding-bottom:250px;
+}
+
+.section_map_area {
+    width: auto;
+}
+.section_map_info_item {
+    margin-bottom: 20px;
+}
+.section_map_info_item:last-child {
+    margin-bottom: 0;
+}
+.footer_area {
+    flex-direction: column;
+}
+.footer_item {
+    margin-bottom: 20px;
+}
+.footer_social {
+    justify-content: center;
+}
+}
