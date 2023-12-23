@@ -1,2 +1,2 @@
-# JavaS
+# JavaSript
 Learning JS
