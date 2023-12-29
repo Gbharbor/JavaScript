@@ -27,25 +27,14 @@
     [EXEMPLO]
 
 ->  N precisa digitar o let ou var de novo.
+->  Nao pode colocar o console.log no final, mas se for usar a mesma variavel, n precisa digitar o var ou o let de novo 
 
     var nome = "gui"
     console.log(nome)
     nome = "joao"
     console.log(nome)
 
-    [EXEMPLO]
-
-->  Pode colocar o console.log no final.
-
-    var nome = "gui";
-    nome = "joao";
-    console.log(nome);
-    console.log(nome);
-
-
-    [EXEMPLO]
-
-->  Ja o const, vai ser sempre o primeiro valor que criou, entao nao adianta criar outras variaveis.
+->  Ja o const, vai ser sempre o primeiro valor que criou, entao nao adianta criar outras variaveis, com o msm nome da const.
     
     const nome = "gui";
     nome = "joao";
@@ -57,7 +46,6 @@
     [EXEMPLO]
 
     let x = 1;
-    x = x + 2;
     console.log(x);
 
     [EXEMPLO]   
@@ -185,7 +173,7 @@
 
     [EXEMPLO]
 
-    ->a forma mais correta para executar o ultimo codigo.
+    -> a forma mais correta para executar o ultimo codigo.
 
     let idade = 19;
     if (idade >=18 && idade < 60) {
@@ -272,7 +260,7 @@
     } else if (idade >=18 && idade < 60) {
         console.log("u are an adult");
     } else if (idade > 60) {
-        console.log("u are olderly");
+        console.log("u are elderly");
     } 
 
 ------------------------------------------
@@ -290,9 +278,6 @@
     console.log("Frete: " + shipping);
 
 ->  Agr, jogamos na tela o "frete: 2 ou 10", o shipping ta puxando a variavel ismember, e se tive true e 2 e se for false e 10.
-
-
-
 
     [EXEMPLO]
 
