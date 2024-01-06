@@ -71,5 +71,28 @@ let x = 100; //y is equivalent to %pct of x
 let y = 20;
 let pct = calcpct(x,y);
 console.log(`${y} is equivalent ${pct}% of ${x}`);
-
-//calculate the property price:
+//calculate the property price: m2 = 3.000/
+//1 bedroom m2 = 1x 
+//2 bedroom m2 = 1.2x
+//3 bedroom m2 = 1.5x
+function calcproperty (meters,beds) {
+    let m2 = 3000;
+    let price = 0;
+        switch (beds) {
+            case 1:
+            default: 
+                price = meters * m2;
+            break;
+            case 2:
+                price = meters * (m2 * 1.2);
+            break;
+            case 3:
+                price = meters * (m2 * 1.5);
+            break;
+        }
+        return price;
+}
+let meters = 70;
+let beds = 2;
+let price = calcproperty (meters,beds);
+console.log(`the price is ${price}`);

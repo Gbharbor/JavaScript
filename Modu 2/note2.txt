@@ -191,8 +191,6 @@ console.log("Nome: " + completo);.
         let preco = calcularImovel(metragem, quartos);
         console.log(`A casa custa R$ ${preco}`);
 
-
-
         [EXERCICIO]
 
         Crie uma funcao que valide usuario e senha.
