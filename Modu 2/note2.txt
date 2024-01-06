@@ -18,7 +18,7 @@
 
     [EXEMPLO]
 
-    function somar(m1, n2) {
+    function somar(n1, n2) {
         let resultado = n1 + n2;
         console.log("Resultado: " + resultado);
     }
@@ -34,13 +34,12 @@
 
 ->  Entrada vai para o processamento e depois a saida que chamamos de return.
 ->  Agr vms entender a saida ou melhor o resultado(return).
-->  Uma vez q tu use um return, ela acaba naquele momento , ou seja o return e nossa saida e quando damos a saida, o codigo acabou, entao se vc colocar um console log a seguir a seguir do return da funcao, n vai aparecer
+->  Uma vez q tu use um return, ela acaba naquele momento , ou seja o return e nossa saida e quando damos a saida, o codigo acabou, entao se vc colocar um console log a seguir do return da funcao, n vai aparecer
 
     [EXEMPLO]
 
     function nomeCompleto(nome,sobrenome) {
         return `${nome} ${sobrenome}`;
-
     }
     let completo = nomeCompleto("Gui","Porto");
         console.log("Nome : " + completo);
@@ -105,6 +104,7 @@ console.log("Nome: " + completo);.
  
 ->  So here, we have our function:
 
+    [EXEMPLO]
     function tobeOfAge (age) {
         if (age >= 18) {
             return true;
@@ -115,10 +115,7 @@ console.log("Nome: " + completo);.
     let age = tobeOfAge (17)
     console.log(age);
 
-
-
     [EXEMPLO]
-
     function maiorDeIdade (idade) {
         if (idade >= 18) {
             return true;
@@ -151,9 +148,8 @@ console.log("Nome: " + completo);.
         ->  Caso queira pode colocar uma variavel primeiro e o return em baixo, pode fazer, mas fiz dessa forma para o codigo ficar mais clean.
         ->  Oq estiver aqui dentro do parenteses em calcPct na variavel Pct, tem que ser a ordem que esta na function.
         ->  Para ficar mais claro a nossa logica desse exercicio, vamos considerar essa expressao por extenso: 
-        ->  10(y) equivale a 25%(Pct) de 40(x) y equivale a pct de x.
-
-
+        ->  10(y) equivale a 25%(Pct) de 40(x) ou y equivale a %pct de x.
+        
         function calcPct(n1, n2) {
             return (n2 / n1) * 100;
         }
