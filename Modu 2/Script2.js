@@ -96,3 +96,44 @@ let meters = 70;
 let beds = 2;
 let price = calcproperty (meters,beds);
 console.log(`the price is ${price}`);
+
+//Create a function who value user and password, user correctly : Porto;PW correctly : 1234
+function validation (user,pw) {
+    if(user === "Gui" && pw === 1234) {
+        return true;
+    } else {
+        return false;
+    }
+}
+let user = "Gui";
+let pw = 1234;
+let value = validation (user,pw);
+if (validation) {
+    console.log(`Welcome ${user}`);
+} else {
+    console.log("wrong PW");
+}
+
+//Aroow Function: summary function and return
+function somar (x,y) {
+    return x + y;
+} 
+console.log(somar(10,10));
+//
+const sum = (x,y) => {
+    return x + y;
+}
+console.log(sum(10,30));
+//
+const somando = (x,y) => x + y;
+console.log(somando(10,5));
+//
+function lastname (last) {
+    return "gui" + last;
+} 
+console.log(lastname("Porto"));
+//
+const lastname2 = (lastN) => "name" + lastN;
+console.log(lastname2("surname"));
+
+//variables within functions
