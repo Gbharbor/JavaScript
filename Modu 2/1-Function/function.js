@@ -119,21 +119,67 @@ function somar (x,y) {
     return x + y;
 } 
 console.log(somar(10,10));
-//
 const sum = (x,y) => {
     return x + y;
 }
 console.log(sum(10,30));
-//
 const somando = (x,y) => x + y;
 console.log(somando(10,5));
-//
 function lastname (last) {
     return "gui" + last;
 } 
 console.log(lastname("Porto"));
-//
 const lastname2 = (lastN) => "name" + lastN;
 console.log(lastname2("surname"));
 
-//variables within functions
+//variables within functions, different ways to use count:
+let count = 0;
+function add() {
+    count++; //count += 1; | count + 1;
+}
+add();
+add();
+console.log(count);
+
+// square root
+function square(x) {
+    return x * x;
+}
+console.log(square(2));
+
+//function within function using sum of squares in summary way, but in root way has more details.
+function square(x) {
+    return x * x;
+}
+function addsquares(a,b) {
+    return square(a) + square(b);
+}
+console.log(addsquares(2,2)); //8
+
+function root (x) {
+    return x * x;
+}
+function addroots (a,b) {
+    let rootA = root(a);
+    let rootB = root(b);
+    return rootA + rootB;
+}
+console.log(addroots(3,3));//18
+
+//function within function literally.
+function addrootsqr (a,b) {
+    function root3(x) {
+        return x * x ;
+    }
+    let sqrA = root3(a);
+    let sqrB = root3(b);
+    return sqrA + sqrB;
+}
+console.log(addrootsqr(2,3));
+
+//Clean code function within function return and arrow function both.
+function additems (a,b) {
+    const item = (x) => x * x;
+    return item(a) + item(b);
+}
+console.log(additems(6,6));
