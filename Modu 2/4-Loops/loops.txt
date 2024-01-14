@@ -1,0 +1,150 @@
+-------------------------------------------
+                O LOOP FOR
+-------------------------------------------
+
+->  Em resumo , usamos isso para fazer o codigo ser repetido ou executado varias vezes, chamamos de loop.
+->  Digamos que esteja criando uma lista(array) de produtos, e dentro temos todas as caracteristicas desses produtos (object).
+->  Temos varias formas de fazer esse loop, mas hj vms aprender o for, vms fazer um loop simples.
+->  Nos que definimos quando vai parar de repetir, entao nesse exemplo em resumo, a nossa variavel n sera executada apartir do 0, e esse n tem q ser menor que 10, quando chegar na decima vez obviamente, ele ira parar de executar, mas seguindo a logica ele sera somado atraves do atributo n++, dps disso o codigo se repete e executa novamente, como ja disse 10x.
+->  Nesse exemplo coloquei no console uma frase qualquer, e sera a frase que ira executar, e no proprio console aparece o numero de vezes que aquela frase foi executada, no caso por nao trocar e continuar sendo a mesma frase.
+->  Agora vamos adicionar o n, e como pode ver agr sim, o console mostra as 15 linhas, ja que n e a msm frase.
+->  Ah mas nao aparece a linha 10, logico pq eu defini que tem q ser menor que 10 e meu n= 0.
+
+    [EXEMPLO]
+
+    for(let n = 0; n < 10; n++) {
+        console.log("frase qualquer " + n);
+    }
+
+
+
+-------------------------------------------
+            DANDO LOOP EM ARRAYS
+-------------------------------------------
+
+->  Entao vamos dar o loop em um array, pq isso e super comum.
+->  Entao nesse caso, criamos nossa array colors, e em seguida criamos o loop.
+-> Entao, no console referenciamos a nossa array que colors e em seguida dentro de colchetes chamamos nosso n [n], isso faz com que colors execute o loop [n]. 
+->  Porem se usarmos esse loop que vai ate 15, no console ira mostrar as 3 primeiras cores porem as outras 12 q falta para chegar nos 15 sera undefined.
+
+    [EXEMPLO]
+
+    let colors = ["black","white","blue"];
+    for(let n = 0; n < 15; n++) {
+        console.log(colors[n])
+    }
+
+->  Entao, a forma mais correta para esse caso em especifico seria mudar nosso valor de n para n < 3. certo ? 
+
+    [EXEMPLO]
+    
+    let colors = ["blue","black","purple"];
+    for (let n=0; 0 < 3; n++) {
+        console.log(colors[n]);
+    }
+
+->  Ok, funcionou ? sim ! porem, e se eu tiver outra cor, terei que sempre ficar alterando essa valor de maior de n ?! ai que vem o ponto principal, por isso sempre devemos usar o length.
+->  Pronto, agora dessa forma, n preciso me preucupar com o valor de n ser maior ou menor que.
+
+    [EXEMPLO]
+
+    let colors = ["blue","red","violet"];
+    colors.push("green");
+    for (let n = 0; n < colors.length; n++) {
+        console.log(colors[n]);
+    }
+
+
+->  Essa e uma das formas de usar o for, mas temos outras formas de usar o for em arrays.
+->  Essa forma criamos uma variavel chamada i , e com o in colors, o codigo JS explica que esta pegando os valores que tiver dentro do array colors.
+->  Em resuma essa forma ainda e uma keyword, para simplificar o modo anterior, mas logico so funciona se tiver esse "in". 
+->  E tambem poderia usar qualquer outro nome para essa variavel, so usei o "i" como exemplo.
+
+    [EXEMPLO]
+
+    let colors = ["blue","red","violet"];
+    colors.push("green");
+
+    for (let i in colors) {
+        console.log(colors[i]);
+    }
+
+->  E sim temos outra forma ainda, nos dois ultimos exemplos sempre pegamos as chaves para referenciar ou [n] ou [i], como fizemos, ja agora vamos usar o nome da variavel que criar, mas para funcioanr tem ter esse "of", no exemplo chamei a variavel de cor, porque faz mas sentido mas poderia colocar o nome que quiser.
+
+    [EXEMPLO]
+
+    let colors = ["blue","red","violet"];
+    colors.push("green");
+
+    for (let cor of colors) {
+        console.log(cor);
+    }
+
+->  Agora vamos para um exemplo mais complexo, aplicando um pouco de cada coisa.
+->  Nesse caso em especifico criamos objects dentro da array, e conseguimos referencialos no nosso for, atraves da nossa variavel cor , mas poderia ser qualquer outro nome, so para deixar claro, essa forma de "of" e a mais direta possivel.
+
+    [EXEMPLO]
+
+    let colors = [
+        {
+            nome: "red",
+            qt: 10
+        
+        },
+        {
+            nome: "blue",
+            qt: 5
+        },
+        {
+            nome: "violet",
+            qt: 15
+        }
+    ]
+    for (let cor of colors) {
+        console.log(`Nome: ${cor.nome} - ${cor.qt}`);
+    }
+
+
+->  Se quiser, poderia usar o modo "in", com apenas uma mudanca, a seguida a chave [i] que adicionamos no console, usarmos o ponto e por o item do objeto que queremos, no exemplo usei o nome.
+
+    [EXEMPLO]
+
+    let colors = [
+        {nome: "red", qt: 10},
+        {nome: "blue", qt: 5},
+        {nome: "violet", qt: 15}
+    ]
+
+    for(let i in colors) {
+        console.log(colors[i].nome);
+    }
+
+->  Entao, so para concluir o conheciemento, tambem podemos buscar atraves do modo mais classico, porem mais trabalhoso, sem usar o "in" nem "of", e do mesmo jeito que o "in".
+
+    [EXEMPLO] 
+
+    let colors = [
+        {nome:"blue", qt:2},
+        {nome:"red", qt:5},
+        {nome:"violet", qt:10}
+    ];
+    for (let n=0; n < colors.length; n++) {
+        console.log(colors[n].nome);
+    }
+
+->  Vamos supor que quero q todas cores fiquem com a letra maiuscula,nesse caso em especifico usarei o exemplo "in" isso e um bonus da aula.
+->  Entao, a seguir refereniamos o array(colors)e sua keyword, e tmb oq queremos por em maiusculo, nesse caso seram os nomes , entao ponto nome, dessa forma: colors[i].nome.
+->  Ok, agr igualamos a propriedade completa novamente, porem adicionando uma function que ja existe no JS chamada toUpperCase(),e como ja sabemos para puxar uma funcao em um objeto, devemos usar o ponto, e tmb logicamente por se tratar de uma function, precisamos adicionar os parenteses() para ela ser executada, desse modo 
+->  colors[i].nome = colors[i].nome.toUpperCase();
+
+    [EXEMPLO] 
+
+    let colors = [
+        {nome:"blue", qt:2},
+        {nome:"red", qt:5},
+        {nome:"violet", qt:10}
+    ];
+    for (let i in colors) {
+        colors[i].nome = colors[i].nome.toUpperCase();
+    }
+    console.log(colors);
