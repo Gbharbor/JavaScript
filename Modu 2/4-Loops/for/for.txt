@@ -1,7 +1,6 @@
 -------------------------------------------
                 O LOOP FOR
 -------------------------------------------
-
 ->  Em resumo , usamos isso para fazer o codigo ser repetido ou executado varias vezes, chamamos de loop.
 ->  Digamos que esteja criando uma lista(array) de produtos, e dentro temos todas as caracteristicas desses produtos (object).
 ->  Temos varias formas de fazer esse loop, mas hj vms aprender o for, vms fazer um loop simples.
@@ -16,15 +15,12 @@
         console.log("frase qualquer " + n);
     }
 
-
-
 -------------------------------------------
             DANDO LOOP EM ARRAYS
 -------------------------------------------
-
 ->  Entao vamos dar o loop em um array, pq isso e super comum.
 ->  Entao nesse caso, criamos nossa array colors, e em seguida criamos o loop.
--> Entao, no console referenciamos a nossa array que colors e em seguida dentro de colchetes chamamos nosso n [n], isso faz com que colors execute o loop [n]. 
+-> Entao, no console referenciamos a nossa array em colors e em seguida dentro de colchetes chamamos nosso n [n], isso faz com que colors execute o loop [n]. 
 ->  Porem se usarmos esse loop que vai ate 15, no console ira mostrar as 3 primeiras cores porem as outras 12 q falta para chegar nos 15 sera undefined.
 
     [EXEMPLO]
@@ -39,7 +35,7 @@
     [EXEMPLO]
     
     let colors = ["blue","black","purple"];
-    for (let n=0; 0 < 3; n++) {
+    for (let n=0; n < 3; n++) {
         console.log(colors[n]);
     }
 
@@ -69,7 +65,7 @@
         console.log(colors[i]);
     }
 
-->  E sim temos outra forma ainda, nos dois ultimos exemplos sempre pegamos as chaves para referenciar ou [n] ou [i], como fizemos, ja agora vamos usar o nome da variavel que criar, mas para funcioanr tem ter esse "of", no exemplo chamei a variavel de cor, porque faz mas sentido mas poderia colocar o nome que quiser.
+->  E sim temos outra forma ainda, nos dois ultimos exemplos sempre pegamos os colchetes para referenciar ou [n] ou [i], como fizemos, ja agora vamos usar o nome da variavel q criar, mas para funcioanr tem ter esse "of", no exemplo chamei a variavel de cor, porque faz mas sentido mas poderia colocar o nome que quiser.
 
     [EXEMPLO]
 
@@ -119,7 +115,7 @@
         console.log(colors[i].nome);
     }
 
-->  Entao, so para concluir o conheciemento, tambem podemos buscar atraves do modo mais classico, porem mais trabalhoso, sem usar o "in" nem "of", e do mesmo jeito que o "in".
+->  Entao, so para concluir o conheciemento, tambem podemos buscar atraves do modo mais classico, porem mais trabalhoso, sem usar o "in" nem "of", a parte do console, e igual ao modo "in".
 
     [EXEMPLO] 
 
