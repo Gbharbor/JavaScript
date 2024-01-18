@@ -144,3 +144,62 @@
         colors[i].nome = colors[i].nome.toUpperCase();
     }
     console.log(colors);
+_______________________________________
+
+            LOOP WHILE 
+_______________________________________
+Maioria das vezes da pra usar o loop for, mas e importante saber o while tambem obviamente.
+Nesse exemplo inicial, devemos ter cuidado de nao esquecer de executar numero++, para fazer ele contar ate 10, caso contrario ele ficaria rodando pra sempre ate travar o navegador e fechar o console.
+
+|EXEMPLO|
+let numero = 0;
+
+while (numero < 10) {
+    console.log(`o numero da vez e ${numero}`);
+    numero++;
+}
+
+mas caso queira poderia usar o metodo for para fazer esse mesmo exemplo, da seguinte mandeira:
+
+|EXEMPLO|
+for (let numero =0; numero<=10; numero++) {
+    console.log("repetir" numero);
+}
+
+Mais futuramente quando estiver mais avancado, precisara que seu codigo javascript fique executando eternamente, dessa forma usamos o : while(true), dessa forma ficara executando sempre.
+
+|EXEMPLO|
+
+while(true) {
+}
+
+Agora vamos aprender a estrutura de um while, em resumo e o while e uma condicional entre parenteses.
+Entao esse exemplo a seguir e como nao se deve fazer, porque seu computador vai travar na certa, dessa forma ele repete infinitamente,  por causa do true.
+
+|EXEMPLO|
+while(true) {
+    console.log("bla bla");
+}
+
+|EXERCICIOS|
+Faca um loop que mostre todas as frutas:
+
+let fruits = ["maca","uva","banana"];
+for frutas of fruits {
+    console.log("fav fruits:" + fruits);
+}
+
+outra forma poderia ser assim:
+
+for frutas of fruits {
+    console.log(fruits[frutas]);
+}
+
+Faca um loop de 1 a 100: 
+Nesse caso nao esqueca que o n precisa comecar no 1, e nao no zero como de costume, por se tratar de um array, ele sempre coemca pelo zero, mas como a questao quer que comece do 1, tem q ter atencao nesse ponto.
+
+            let n = 1;
+            while (n <= 100) {
+                console.log(n);
+                n++;
+            }
