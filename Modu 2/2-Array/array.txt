@@ -310,3 +310,81 @@ Para ser bem literal, a gente literalmete pode imaginar no caso do nosso exemplo
 Ah mas eu quero o inverso, quero o mais novo primeiro, nesse caso so inverter a por b 
 
             cars.sort((a,b) => b.year - a.year;);
+
+
+_______________________________________
+
+        ITERACAO DE ARRAY
+_______________________________________
+O Primeiro que vamos estudar sera o filter, digamos qeu tu queira filtrar todas frutas que tenha apenas 4 letras por exemplo.
+lembre se que a funcao filtro gera um novo array, ou seja eu preciso salvar esse cara em algum lugar.
+entao por exemplo vou criar uma regra aqui que usando a variavel bigfruits dizendo que sera para as frutas que tenham mais do que 4 letras.
+aqui esta um exemplo mais detalhado, mas da para comprimir o nosso return.
+
+            let fruits = ["banana","laranja","maca","pera"]
+            let bigfruits = fruits.filter((item)=>{
+                if(item.length > 4) {
+                    return true;
+                } else {
+                    return false;
+                }
+            })
+            console.log(bigfruits);
+
+Ja aqui esta a mesma coisa porem contraido
+
+            let fruits = ["banana","laranja","maca","pera"]
+            let bigfruits = fruits.filter((item)=>{
+                return item.length > 4;
+            });
+            console.log(bigfruits);
+
+so para lembrar poderia tirar o return e colocar em seguida do arrow function, caso queira tmb daria certo.
+
+Entao o filter tem 3 tipos o value que foi oq usamos porem determinei como nome item, temos o index que ele vai dizer qual index que ele ta, e tem o proprio array completo, da pra criar como filtro de comparacao caso queira, e um pouco complexo , mas vamos entender em breve.
+proxima funcao que vamos usar , sao do mesmo grupo de funcao porem fazem funcoes diferente, as duas retornam positivo ou falso, que e a every e some.
+Entao vamos supor que eu quero saber se todas frutas tem mais de 3 letras.
+
+            let fruits = ["banana","laranja","maca","pera"]
+
+            fruits.every((value)=>{
+                if(value.length > 3) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+
+so para pratica vamos contrair ele: agora vamos armazenar o resultado numa variavel, ok por exemplo.
+
+            let fruits = ["banana","laranja","maca","pera"]
+            let ok = fruits.every((value)=> value.length > 3);
+
+            if(ok) {
+                console.log('todos sao maior que 3');
+            } else {
+                console.log('nao sao todos maior que 3);
+            }
+
+Entao para resumir o every, ele so retorna se todos seguem aquela regra, no caso se todos sao maior que tres.
+Agora vamos falar do some, nesse caso n precisa ser todos tem q ser pelo menos um para poder satisfazer, diferente do every que precisa ser todos.
+
+
+            let fruits = ["banana","laranja","maca","pera","uva"]
+            let ok = fruits.some((value)=> value.length > 3;);
+
+            if(ok) {
+                console.log('algum item e maior que 3');
+            } else {
+                console.log('nenhum e maior que 3);
+            }
+
+Uma funcao que e muit utilizada, digamos que tu queira verificar se tem algum item  especifico dentro do array, digamos que tu quer verificar se tem uma uva por exemplo, so usarmos o .includes
+
+            let fruits = ["banana","laranja","maca","pera","uva"]
+
+            if(fruits.includes("uva")){
+                console.log("tem uva sim")
+            } else {
+                console.log("nao tem uva");
+            }

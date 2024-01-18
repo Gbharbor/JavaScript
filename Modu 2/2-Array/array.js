@@ -52,3 +52,57 @@ let option = [
 ]
 option.sort((a,b) => b.hours - a.hours);
 console.log(option);
+
+let fruits = ["banana","laranja","maca","pera"]
+let bigfruits = fruits.filter((value)=>{
+    if (value.length > 4) {
+        return true;
+    } else {
+        return false;
+    }
+});
+console.log(bigfruits);
+
+let office = ["paper","scan","keyboard","cell"];
+let all = office.filter((item) => {
+    return item.length > 4;
+});
+console.log(all);
+
+let meal = ["breakfast","lunch","dinner","snack"];
+let food = meal.every((value)=> {
+    if(value.length > 3) {
+        return true;
+    } else {
+        return false;
+    }
+});
+console.log(food);
+
+let feed = ["breakfast","lunch","dinner","snack"];
+let eat = meal.every((value)=> value.length > 5);
+if (eat) {
+    console.log('all are bigger than 5');
+} else {
+    console.log('not at all bigger than 5');
+}
+
+let stuffs = ["rice","beans","meat","bread"];
+let recipe = stuffs.some((value)=> {
+    if (value.length > 6) {
+        return true;
+    } else {
+        return false;
+    }
+});
+if (recipe) {
+    console.log("someone is bigger than 6")
+} else {
+    console.log("noone is bigger than 6");
+}
+console.log(recipe);
+if (stuffs.includes("grape")) {
+    console.log("you already have this item on list")
+} else {
+    console.log("do not have this item on list");
+}
