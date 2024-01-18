@@ -310,3 +310,175 @@ Para ser bem literal, a gente literalmete pode imaginar no caso do nosso exemplo
 Ah mas eu quero o inverso, quero o mais novo primeiro, nesse caso so inverter a por b 
 
             cars.sort((a,b) => b.year - a.year;);
+______________________________________
+
+        FUNCOES DE ARRAY 
+_______________________________________
+
+Agora um item interessante que nao foi visto,o comando join,entao de modo basico ele retorna uma string digamos assim.
+Ou seja no exemplo que coloquei, deixei apenas um espaco nesse caso, em todos o sitens da minha variavel fruits, ele vai mostrar o valor do array uva por exemplo, e em seguida vai dar um espaco, e assim sucessivamente.
+
+            let fruits = ["uva","laranja"];
+            console.log(fruits.join(' '));
+
+Digamos q tu queira uma virgula ou um traco, o que tu quiser tu adiciona dentro do join.
+Geralmente usamos a virgula, mas vai depender muito do que tu quer fazer.
+
+Agora uma outra dica , digamos que queremos trocar o ultimo item do nosso array, mas porem eu nao sei quantos itens eu tenho para poder especificar ele com o value [].
+Dessa forma usamos dessa maneira: 
+
+            let fruits = ["uva","laranja","pessego"];
+            fruits[fruits.length - 1] = "pera";
+            console.log(fruits.join(' '));
+
+Ou seja chamei o length para mostrar a quantidade de value que tenho no array automatizado e diminui 1, ele indica pro console que meu total menos o ultimo que quero alterar, dessa maneira substituindo o pessego por pera.
+_______________________________________
+
+        ORDENACAO DE ARRAY
+_______________________________________
+
+Entao para comecar vamos aprender a ordenar por ordem alfabetica, usando o nome variavel mais o .sort();
+
+            let fruits = ["maca","uva","laranja","banan"];
+            fruits.sort();
+            console.log(fruits);
+
+Mas digamos que em vez de alfabetica tu queira que seja inversa, do Z ao A digamos assim, ainda n existe uma funcao especifica para isso, entao desse modo devemos criar um parametro, usando o nosso sort para dizer q e alfabetica e dps o .reverse para inverter.
+
+            let fruits = ["maca","uva","laranja","banan"];
+            fruits.sort();
+            fruits.reverse();
+            console.log(fruits);
+
+Se voce usar apenas o .reverse , ira inverter igual, mas apenas o array padrao que tu ja criou, e nao a ordem inversa da alfabetica que queriamos demonstrar.
+
+Agora vamos fazer um exemplo um pouco mais complexo, vamos criar um array de objetos.
+Agora eu quero ordenar essa lista pelo ano do carro, nesse exemplo em especifico o nosso .sort n faz mt sentido pq n tem mt ordem para ele mudar porque temos objeto dentro do nosso array.
+A questao do .sort aqui, vai ser q vamos ter q criar uma funcao dentro do .sort, pode ser uma funcao anonima ou arrow function, irei usar arrow function para ficar mais facil de entender.
+Entao essa funcao que criei dentro do .sort vai definir item por item para ser executada.
+Em resumo vamos dizer que item que fica na frente de quem,dessa forma usamos 0 , numero negativo(diminui um item) ou numero positivo(aumenta).
+Dessa forma vamos chamar de a,b o a seria nosso item atual e o b qual ele se tornara
+Entao quando defino uma condicional if else, e digo que se a.year > b.year ele ira pra frente retornando 1, caso contrario ira pra tras retornando -1 , lembre se que esses valores sao como se fossem posicoes na ordem.
+
+            let cars = [ 
+                { brand: 'fiat', year: 2022},
+                { brand: 'bmw', year: 2018},
+                { brand: 'ferrari', year: 2020}
+            ]
+            cars.sort((a,b) => {
+                if(a.year > b.year) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            });
+            console.log(cars);
+
+ Poderia fazer de uma forma mais complexa caso queira, por exemplo, definifir se b for menor, ai retorna -1 e entao o o else retorna o 0, e uma forma com mais detalhes de demonstrar.
+
+            cars.sort((a,b) => {
+                if(a.year > b.year) {
+                    return 1;
+                } else if (a.year < b.year) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+            console.log(cars);
+
+ Para concluir a logica por ser mais complexo, digamos que o codigo roda e ele analisa os 2 primeiros valores do array verifica qual tem o ano maior, ele percebe que o valor 1 tem um ano maior, dessa forma por ser o valor um sera o nosso a da funcao, sendo assim por ser um ano maior, ele cai uma posicao em relacao ao valor 2, e vai rodando ate todos valores do array serem analisados e ordenados.
+
+Agora vamos simplificar, aprendemos a logica dessa funcao, entao vamos ser mais direto.
+Essa conta vai retornar um numero positivo negativo ou zero, dessa forma os valores tambem se ordenam da mesma forma.
+Para ser bem literal, a gente literalmete pode imaginar no caso do nosso exemplo que sao os anos dos carros, fazendo a conta deles o valor a(2022) - b(2018) , vai dar positivo dessa forma o fiat "vai pra frente" 
+
+            cars.sort((a,b) => {
+                return a.year - b.year;
+            });
+
+ Vou simplificar um pouco mais, ja aprendemos isso em functions, mas so pra praticar, sim doideira imaginar que ficou em apenas uma linha tudo aquilo. 
+
+            cars.sort((a,b) => a.year - b.year;);
+
+Ah mas eu quero o inverso, quero o mais novo primeiro, nesse caso so inverter a por b 
+
+            cars.sort((a,b) => b.year - a.year;);
+
+
+_______________________________________
+
+        ITERACAO DE ARRAY
+_______________________________________
+O Primeiro que vamos estudar sera o filter, digamos qeu tu queira filtrar todas frutas que tenha apenas 4 letras por exemplo.
+lembre se que a funcao filtro gera um novo array, ou seja eu preciso salvar esse cara em algum lugar.
+entao por exemplo vou criar uma regra aqui que usando a variavel bigfruits dizendo que sera para as frutas que tenham mais do que 4 letras.
+aqui esta um exemplo mais detalhado, mas da para comprimir o nosso return.
+
+            let fruits = ["banana","laranja","maca","pera"]
+            let bigfruits = fruits.filter((item)=>{
+                if(item.length > 4) {
+                    return true;
+                } else {
+                    return false;
+                }
+            })
+            console.log(bigfruits);
+
+Ja aqui esta a mesma coisa porem contraido
+
+            let fruits = ["banana","laranja","maca","pera"]
+            let bigfruits = fruits.filter((item)=>{
+                return item.length > 4;
+            });
+            console.log(bigfruits);
+
+so para lembrar poderia tirar o return e colocar em seguida do arrow function, caso queira tmb daria certo.
+
+Entao o filter tem 3 tipos o value que foi oq usamos porem determinei como nome item, temos o index que ele vai dizer qual index que ele ta, e tem o proprio array completo, da pra criar como filtro de comparacao caso queira, e um pouco complexo , mas vamos entender em breve.
+proxima funcao que vamos usar , sao do mesmo grupo de funcao porem fazem funcoes diferente, as duas retornam positivo ou falso, que e a every e some.
+Entao vamos supor que eu quero saber se todas frutas tem mais de 3 letras.
+
+            let fruits = ["banana","laranja","maca","pera"]
+
+            fruits.every((value)=>{
+                if(value.length > 3) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+
+so para pratica vamos contrair ele: agora vamos armazenar o resultado numa variavel, ok por exemplo.
+
+            let fruits = ["banana","laranja","maca","pera"]
+            let ok = fruits.every((value)=> value.length > 3);
+
+            if(ok) {
+                console.log('todos sao maior que 3');
+            } else {
+                console.log('nao sao todos maior que 3);
+            }
+
+Entao para resumir o every, ele so retorna se todos seguem aquela regra, no caso se todos sao maior que tres.
+Agora vamos falar do some, nesse caso n precisa ser todos tem q ser pelo menos um para poder satisfazer, diferente do every que precisa ser todos.
+
+
+            let fruits = ["banana","laranja","maca","pera","uva"]
+            let ok = fruits.some((value)=> value.length > 3;);
+
+            if(ok) {
+                console.log('algum item e maior que 3');
+            } else {
+                console.log('nenhum e maior que 3);
+            }
+
+Uma funcao que e muit utilizada, digamos que tu queira verificar se tem algum item  especifico dentro do array, digamos que tu quer verificar se tem uma uva por exemplo, so usarmos o .includes
+
+            let fruits = ["banana","laranja","maca","pera","uva"]
+
+            if(fruits.includes("uva")){
+                console.log("tem uva sim")
+            } else {
+                console.log("nao tem uva");
+            }
