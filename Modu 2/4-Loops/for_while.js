@@ -22,3 +22,9 @@ for (let n=0; n < colors.length; n++) {
     colors[n].qt = colors[n].qt.toLowerCase();
     colors[n].name = colors[n].name.toLowerCase();
     console.log(`${colors[n].qt} ${colors[n].name}`)}
+
+let number = 1; //be careful with while(true)
+while(number <= 100) {
+    console.log(`numbers: ${number}`)
+    number++;
+}
