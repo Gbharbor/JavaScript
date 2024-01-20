@@ -1,0 +1,102 @@
+-------------------------------------------
+        Manipulando elementos 1
+-------------------------------------------
+Entao sempre que quisermos manipular um elemento, primeiro selecionamos ele, e depois manipulamos ele.
+entao vamos comecar com a div teste.
+
+            function clicou0() {
+            const teste = document.querySelector("#teste");
+            console.log(teste);
+            }
+Agora se quisermos podemos ver o que tem dentro do elemento que selecionamos, so adicionamos o .children no console, dessa forma no console ira mostrar um array dos elementos que no exemplo e um ul , esse children quer dizer que sao filhos imediatos da div.
+
+        function clicou0() {
+        const teste = document.querySelector("teste");
+        console.log(teste.children);
+            }
+
+Ah mas dentro do ul tem as li, eu queria visualizar elas tambem, dessa forma pode seguir a mesma logica dos array de exibicao , e em seguida acrescentando o children tambem:
+
+        function clicou0() {
+        const teste = document.querySelector("teste");
+        console.log(teste.children[0].children);
+            }
+Seguindo essa logica e adicionando um strong dentro da div teste, assim teremos 2 elementos, ou seja se quisermos manipular ele teriamos que por children[1] usando a logica dos arrays, mas como n tem nenhum elemento dentro de strong, ira aparecer um array vazio caso utilize: teste.children[1].children, nesse caso so tem um texto e nenhum elemento.
+
+Agora vamos manipular o elemento de fato, o ul por exemplo, seguindo a mesma logica qu foi ensinanda, porem o children e muito mais um tipo de exibicao do que tem naquele elemento, entao a melhor opcao nesse caso para pegar algo seria o querySelector mesmo.
+
+        function clicou0() {
+        const teste = document.querySelector("#teste");
+        const ul = teste.querySelector("ul");
+        console.log(ul);
+    }
+
+Pronto, usamos o console log so para visualizar oq tamos fazendo, agora de fato vamos comecar a alterar, primeiramente temos o innerHTML, e uma forma de visualizacao melhor, mas tambem serve para alterar. Lembrando que esses eventos acontecem quando tu clicar no botao , como definimos na funcao onclick.
+
+
+Aqui e para visualizar:
+    function clicou0() {
+    const teste = document.querySelector("#teste");
+    const ul = teste.querySelector("ul");
+    console.log(ul.innerHTML);
+}
+
+Aqui e para alteracao:
+function clicou0() {
+    const teste = document.querySelector("#teste");
+    const ul = teste.querySelector("ul");
+    ul.innerHTML = "<li>Item alterado</li>"
+}
+
+ok nesse caso fiz para substituir, mas digamos que eu queira adicionar, nesse caso so adicionar um +=
+
+    function clicou0() {
+    const teste = document.querySelector("#teste");
+    const ul = teste.querySelector("ul");
+    ul.innerHTML += "<li>Item adicionado</li>"
+}
+Outra forma de fazer a mesma coisa, poderia contatenar, dessa forma:
+
+    function clicou0() {
+    const teste = document.querySelector("#teste");
+    const ul = teste.querySelector("ul");
+    ul.innerHTML =  ul.innerHTML + "<li>Item adicionado</li>"
+}
+
+E isso funciona para qualquer elemento so precisa ir referenciando ele ate chegar o que quer manipular de fato, digamos que eu queira alterar o primei li do nosso ul. Repare tambem que como to alterando o texto do meu li, nao preciso dizer que eum <li> como fizemos no exemplo anterior.
+
+        function clicou0() {
+    const teste = document.querySelector("#teste");
+    const ul = teste.querySelector("ul");
+    ul.children[0].innerHTML = "item alterado"
+}
+
+Digamos que coloque um strong dentro do item alterado, vai funcionar igual por ser um innerHTML.
+
+       function clicou0() {
+    const teste = document.querySelector("#teste");
+    const ul = teste.querySelector("ul");
+    ul.children[0].innerHTML = "<strong>item alterado?<strong>"
+}
+
+Porem, se voce colocar innerText ai sim vai interpretar como texto o strong literalmente.
+Para complementar, um modo de visualizacao tambem chamado outerHTML, pq desse modo pega tambem o conteudo interno, no caso de usar o ul, usando isso pegara tambem todos os li.
+
+      function clicou0() {
+    const teste = document.querySelector("#teste");
+    const ul = teste.querySelector("ul");
+    console.log(ul.outerHTML);
+}
+
+E sim tu pode alterar tambem esse outerHTML, seguindo na mesma logica, nao e mt utilizado pq nem sempre a pessoa vai querer alterar um elemento inteiro, mas e bom saber.
+
+
+      function clicou0() {
+    const teste = document.querySelector("#teste");
+    const ul = teste.querySelector("ul");
+    ul.outerHTML = "<strong>Alterado</strong>";
+}
+
+-------------------------------------------
+        Manipulando elementos 2
+-------------------------------------------
