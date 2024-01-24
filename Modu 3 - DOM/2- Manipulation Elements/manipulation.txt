@@ -3,100 +3,220 @@
 -------------------------------------------
 Entao sempre que quisermos manipular um elemento, primeiro selecionamos ele, e depois manipulamos ele.
 entao vamos comecar com a div teste.
-
+                function clicou0() {
+                const teste = document.querySelector("#teste");
+                console.log(teste);
+                }
+Agora se quisermos podemos ver o que tem dentro do elemento que selecionamos, so adicionamos o .children no console, dessa forma no console ira mostrar um array dos elementos que no exemplo e um ul , esse children quer dizer que sao filhos imediatos da div.
+                function clicou0() {
+                const teste = document.querySelector("teste");
+                console.log(teste.children);
+                    }
+Ah mas dentro do ul tem as li, eu queria visualizar elas tambem, dessa forma pode seguir a mesma logica dos array de exibicao , e em seguida acrescentando o children tambem:
+                function clicou0() {
+                const teste = document.querySelector("teste");
+                console.log(teste.children[0].children);
+                    }
+Seguindo essa logica e adicionando um strong dentro da div teste, assim teremos 2 elementos, ou seja se quisermos manipular ele teriamos que por children[1] usando a logica dos arrays, mas como n tem nenhum elemento dentro de strong, ira aparecer um array vazio caso utilize: teste.children[1].children, nesse caso so tem um texto e nenhum elemento.
+Agora vamos manipular o elemento de fato, o ul por exemplo, seguindo a mesma logica qu foi ensinanda, porem o children e muito mais um tipo de exibicao do que tem naquele elemento, entao a melhor opcao nesse caso para pegar algo seria o querySelector mesmo.
             function clicou0() {
             const teste = document.querySelector("#teste");
-            console.log(teste);
+            const ul = teste.querySelector("ul");
+            console.log(ul);
+        }
+Pronto, usamos o console log so para visualizar oq tamos fazendo, agora de fato vamos comecar a alterar, primeiramente temos o innerHTML, e uma forma de visualizacao melhor, mas tambem serve para alterar. Lembrando que esses eventos acontecem quando tu clicar no botao , como definimos na funcao onclick.
+Aqui e para visualizar:
+                function clicou0() {
+                const teste = document.querySelector("#teste");
+                const ul = teste.querySelector("ul");
+                console.log(ul.innerHTML);
             }
-Agora se quisermos podemos ver o que tem dentro do elemento que selecionamos, so adicionamos o .children no console, dessa forma no console ira mostrar um array dos elementos que no exemplo e um ul , esse children quer dizer que sao filhos imediatos da div.
-
-        function clicou0() {
-        const teste = document.querySelector("teste");
-        console.log(teste.children);
+Aqui e para alteracao:
+            function clicou0() {
+                const teste = document.querySelector("#teste");
+                const ul = teste.querySelector("ul");
+                ul.innerHTML = "<li>Item alterado</li>"
             }
-
-Ah mas dentro do ul tem as li, eu queria visualizar elas tambem, dessa forma pode seguir a mesma logica dos array de exibicao , e em seguida acrescentando o children tambem:
-
-        function clicou0() {
-        const teste = document.querySelector("teste");
-        console.log(teste.children[0].children);
-            }
-Seguindo essa logica e adicionando um strong dentro da div teste, assim teremos 2 elementos, ou seja se quisermos manipular ele teriamos que por children[1] usando a logica dos arrays, mas como n tem nenhum elemento dentro de strong, ira aparecer um array vazio caso utilize: teste.children[1].children, nesse caso so tem um texto e nenhum elemento.
-
-Agora vamos manipular o elemento de fato, o ul por exemplo, seguindo a mesma logica qu foi ensinanda, porem o children e muito mais um tipo de exibicao do que tem naquele elemento, entao a melhor opcao nesse caso para pegar algo seria o querySelector mesmo.
-
+ok nesse caso fiz para substituir, mas digamos que eu queira adicionar, nesse caso so adicionar um +=
+            function clicou0() {
+            const teste = document.querySelector("#teste");
+            const ul = teste.querySelector("ul");
+            ul.innerHTML += "<li>Item adicionado</li>"
+        }
+Outra forma de fazer a mesma coisa, poderia contatenar, dessa forma:
+            function clicou0() {
+            const teste = document.querySelector("#teste");
+            const ul = teste.querySelector("ul");
+            ul.innerHTML =  ul.innerHTML + "<li>Item adicionado</li>"
+        }
+E isso funciona para qualquer elemento so precisa ir referenciando ele ate chegar o que quer manipular de fato, digamos que eu queira alterar o primei li do nosso ul. Repare tambem que como to alterando o texto do meu li, nao preciso dizer que eum <li> como fizemos no exemplo anterior.
+                function clicou0() {
+            const teste = document.querySelector("#teste");
+            const ul = teste.querySelector("ul");
+            ul.children[0].innerHTML = "item alterado"
+        }
+Digamos que coloque um strong dentro do item alterado, vai funcionar igual por ser um innerHTML.
+            function clicou0() {
+            const teste = document.querySelector("#teste");
+            const ul = teste.querySelector("ul");
+            ul.children[0].innerHTML = "<strong>item alterado?<strong>"
+        }
+Porem, se voce colocar innerText ai sim vai interpretar como texto o strong literalmente.
+Para complementar, um modo de visualizacao tambem chamado outerHTML, pq desse modo pega tambem o conteudo interno, no caso de usar o ul, usando isso pegara tambem todos os li.
+            function clicou0() {
+            const teste = document.querySelector("#teste");
+            const ul = teste.querySelector("ul");
+            console.log(ul.outerHTML);
+        }
+E sim tu pode alterar tambem esse outerHTML, seguindo na mesma logica, nao e mt utilizado pq nem sempre a pessoa vai querer alterar um elemento inteiro, mas e bom saber.
+            function clicou0() {
+            const teste = document.querySelector("#teste");
+            const ul = teste.querySelector("ul");
+            ul.outerHTML = "<strong>Alterado</strong>";
+        }
+-------------------------------------------
+        Manipulando elementos 2
+-------------------------------------------
+Entao para continuar vamos aprender uma funcao chamada .append(""), ele serve para eu adicionar um conteudo ao conteudo que ja tem dentro desse elemento.
+Agora para entender a logica desse append, porque se reparar estamos adicionando algo, mas ja fizemos isso antes, entao qual seria a diferenca ?: 
+Ao abrir no console, digamos que voce selecione alguma palavra do li, e ao clicar no botao vai continuar aquela palavra selecionada, mesmo adicionando a nova palavra.
+Lembra que faziamos como .innerHTML += "(alterado)", se usar esse metodo, a palavra que tu selecionou, depois q tu clicar no botao nao ficara mais selecionado.
+Agora vou explicar oq aconteceu de fato, ao usar innerHTML ou text, ele vai pegar o conteudo todo e substituir por tras do sistema.
+Entao digamos que por tras eu coloco o valor novo, a pagina faz uma reeleitura de tudo mesmo eu adicionando apenas um valor, seria mais ou menos isso que acontece, e isso e ruim pq se for algo mais complexo ou grande, pode ser ruim para o desempenho, agora ja o append, faz apenas um processo, apenas adiciona o valor novo e pronto, nao faz reeleitura completa do elemento, devido a isso e mt melhor.
+So para lembrar quando sao poucos itens, n faz diferenca nenhuma, mas digamos que tivesse mil itens, ja faria mt diferenca.
+Outro ponto importante o append so funciona para textos.
+digamos q tu faca um ul.append("<li>item add</li>"); esse valor n vai ler como uma tag e sim como um texto.
         function clicou0() {
         const teste = document.querySelector("#teste");
         const ul = teste.querySelector("ul");
-        console.log(ul);
-    }
-
-Pronto, usamos o console log so para visualizar oq tamos fazendo, agora de fato vamos comecar a alterar, primeiramente temos o innerHTML, e uma forma de visualizacao melhor, mas tambem serve para alterar. Lembrando que esses eventos acontecem quando tu clicar no botao , como definimos na funcao onclick.
-
-
-Aqui e para visualizar:
-    function clicou0() {
-    const teste = document.querySelector("#teste");
-    const ul = teste.querySelector("ul");
-    console.log(ul.innerHTML);
-}
-
-Aqui e para alteracao:
-function clicou0() {
-    const teste = document.querySelector("#teste");
-    const ul = teste.querySelector("ul");
-    ul.innerHTML = "<li>Item alterado</li>"
-}
-
-ok nesse caso fiz para substituir, mas digamos que eu queira adicionar, nesse caso so adicionar um +=
-
-    function clicou0() {
-    const teste = document.querySelector("#teste");
-    const ul = teste.querySelector("ul");
-    ul.innerHTML += "<li>Item adicionado</li>"
-}
-Outra forma de fazer a mesma coisa, poderia contatenar, dessa forma:
-
-    function clicou0() {
-    const teste = document.querySelector("#teste");
-    const ul = teste.querySelector("ul");
-    ul.innerHTML =  ul.innerHTML + "<li>Item adicionado</li>"
-}
-
-E isso funciona para qualquer elemento so precisa ir referenciando ele ate chegar o que quer manipular de fato, digamos que eu queira alterar o primei li do nosso ul. Repare tambem que como to alterando o texto do meu li, nao preciso dizer que eum <li> como fizemos no exemplo anterior.
-
+        ul.children[0].append("(alterado)");
+        }
+E como eu faria para add um elemento de fato ? bom nesse caso vamos uma nova coisa chamada .appendChild
+agora nesse caso precisamos criar o elemento na memoria, e dps add com o appendChild, entao isso e uma coisa nova tmb chamado .createElement("li") e dentro das aspas colocamos a tag nova que queremos criar, no nosso caso o li.
+Aqui usei o innerText mas se quisesse poderia usar o innerHTML, sem problema.
+Entao para constar, ate aqui eu so criei o elemento, ele n esta aparecendo em lugar nenhum na tela, nada esta acontecendo de fato.
+Agora sim, usamos nosso ul.appendChild(newli), logico o newli e o nome da variavel que criei, mas poderia ser qualquer outra q tenha criado.
         function clicou0() {
-    const teste = document.querySelector("#teste");
-    const ul = teste.querySelector("ul");
-    ul.children[0].innerHTML = "item alterado"
-}
+        const teste = document.querySelector("#teste");
+        const ul = teste.querySelector("ul");
+        let newli = document.createElement("li");
+        newli.innerText = "item adicionado";  
+        ul.appendChild(newli);
+        }
+Pronto agora sim, conseguimos criar um elemento novo de fato, um novo li.
+Mas nao esqueca do detalhe que se usar o ul.innerHTML += " " e colocando a tag que tu queira de fato, funcionaria tmb, mas ai volta o problema de processamento... que comentamos logo no inicio, pois desse modo ele acaba relendo todo elemento.
+O apend funciona tanto para texto quando para elementos, so estou ensinando para ficar facil o entendimento por tras.
+Entao, o nosso appendChild e como se quisessemos adicionar ao fim, mas podemos adicionar em primeiro, usando o .prepend(newli); , ou seja no comeco. o .prepend tambem tem o mesmo esquema da memoria que ja comentamos, entao sim e uma boa opcao sempre.
+        function clicou0() {
+        const teste = document.querySelector("#teste");
+        const ul = teste.querySelector("ul");
+        let newli = document.createElement("li");
+        newli.innerText = "item adicionado";  
+        ul.prepend(newli);
+        }
+-------------------------------------------
+        Manipulando elementos 3
+-------------------------------------------
+Entao ja aqui vamos aprender a add nao propriamente o elemento em si , e sim antes e depois do elemento, o famoso after e before. 
+Entao em resumo, consigo criar elementos antes ou depois, como no exemplo so criei um texto qualquer, mas e se eu quisesse criar uma tag, por exemplo: ul.after("<em>texto qualquer</em>"), nesse caso nao funcionaria pois preciso criar uma const da tag na memoria, igual fizemos anteriormente com o newul e newli. 
+    let botao5 = document.querySelector(".botao5");
+    botao5.addEventListener("click", function(){
+        console.log("clicou botao5");
+        const teste5 = document.querySelector("#teste5");
+        const ul = teste5.querySelector("ul");
+        ul.after("texto qualquer");
+    })
+Entao, considerando que queremos criar uma tag, vamos fazer o seguinte, entao vamos criar ele, criei a const newbutton, e criamos a tag, como ja fizemos antes, entao crio o conteudo de dentro dela usando o innerhTML ou text.
+    let botao5 = document.querySelector(".botao5");
+    botao5.addEventListener("click", function(){
+        console.log("clicou botao5");
+        const teste5 = document.querySelector("#teste5");
+        const ul = teste5.querySelector("ul");
+        const newbutton = document.createElement("button");
+        newbutton.innerHTML = "botao";
+        ul.before(newbutton);
+    })
+Para praticar, vamos adicionar um novo ul, e o mesmo esquema da criacao do elemento que ja fizemos, usanmos o let newUL = document.createElement("ul"); , a mas para criar um ul preciso criar tmb os li dentro dele certo, entao fizemos a mesma coisa let newLI = document.createElement("li"), nesse caso precisamos usar no append do newLI, o .appendChild dessa forma informando que sera o primeiro filho do nosso ul, caso contrario nao daria certo.
+        let botao5 = document.querySelector(".botao5");
+        botao5.addEventListener("click", function(){
+            console.log("clicou botao5");
+            const teste5 = document.querySelector("#teste5");
+            const ul = teste5.querySelector("ul");
+            let newUL = document.createElement("ul");
+            let newLI = document.createElement("li");
+            newLI.innerHTML = "LI created";
+            newUL.appendChild(newLI);
+            ul.after(newUL);
+        });
+Agora, so para praticar digamos que quero mais de um li, podemos criar um loop for, que ja fizemos nas aulas anteriores de loops, nsse caso usamos o nosso loop for, definimos nosso i  de zero a 5, e i++ para dizer q se repetira, em seguida criamos dentro do nosso loop o nosso elemento LI,em seguida no innerHTML definimos o conteudo dele, da para contatenar e referenciar o nosso i, para mostrar  a exibicao de uma lista de 0 a 5, em seguida o append para exibir esses elementos newLI dentro de UL, pronto esta criado no sistema mas ainda n e visivel no display, entao usamos oq aprendemos de fato aqui, o ul.after(newUL);
+tem q ser fora do loop for, e n esquecer que ele esta puxando a variavel newUL e nosso UL q esta puxando o loop LI dentro dele, parece confuso mas e assim mesmo, tem q se praticar bastante, ah para ficar de forma mais homano e comecar pelo 1, poderia colocar (i + 1);
 
-Digamos que coloque um strong dentro do item alterado, vai funcionar igual por ser um innerHTML.
+        let botao5 = document.querySelector(".botao5");
+        botao5.addEventListener("click", function(){
+            console.log("clicou botao5");
+            const teste5 = document.querySelector("#teste5");
+            const ul = teste5.querySelector("ul");
+            let newUL = document.createElement("ul");
+            for (let i = 0; i < 5; i++) {
+                let newLI = document.createElement("li");
+                newLI.innerHTML = "item add " + (i + 1); 
+                newUL.append(newLI);
+            }
+            ul.after(newUL);
+        });
 
-       function clicou0() {
-    const teste = document.querySelector("#teste");
-    const ul = teste.querySelector("ul");
-    ul.children[0].innerHTML = "<strong>item alterado?<strong>"
-}
-
-Porem, se voce colocar innerText ai sim vai interpretar como texto o strong literalmente.
-Para complementar, um modo de visualizacao tambem chamado outerHTML, pq desse modo pega tambem o conteudo interno, no caso de usar o ul, usando isso pegara tambem todos os li.
-
-      function clicou0() {
-    const teste = document.querySelector("#teste");
-    const ul = teste.querySelector("ul");
-    console.log(ul.outerHTML);
-}
-
-E sim tu pode alterar tambem esse outerHTML, seguindo na mesma logica, nao e mt utilizado pq nem sempre a pessoa vai querer alterar um elemento inteiro, mas e bom saber.
-
-
-      function clicou0() {
-    const teste = document.querySelector("#teste");
-    const ul = teste.querySelector("ul");
-    ul.outerHTML = "<strong>Alterado</strong>";
-}
 
 -------------------------------------------
-        Manipulando elementos 2
+        MANIPULANDO ATRIBUTOS
+-------------------------------------------
+Aqui vamos aprender a manipular atributos, por exemplo placeholder etc, vamos adicionar um input no nosso html, com algumas subclasses, entao para pegar os atributos usamos um comando chamado.getAttribute("placeholder"), para fazer isso usamos esse codigo, e vamos visualizar ele no console. e para mostrar oq diz no placeholder.
+
+        function clicou6() {
+            const input = document.querySelector("input");
+
+            console.log(input.getAttribute("placeholder"));
+        }
+Tambem pode verificar se tem algum atributo ou nao, por exemplo digamos que eu queira ver se tem placeholder. 
+
+            function clicou7() {
+            const input = document.querySelector(".input1");
+            console.log(input.getAttribute("placeholder"));
+            if (input.hasAttribute("placeholder")) {
+                console.log("it has placeholder");
+            } else {
+                console.log("it has not placeholder");
+            }
+            input.setAttribute("placeholder", "no click here");
+        }
+
+Agora digamos q eu queira colocar ou alterar um atributo, usamos o setAttribute, digamos q eu queira mudar o meu placeholder por exemplo, primeiro colocamos oq queremos mudar e em seguida oq queremos de novo no caso do placeholder.
+
+        function clicou7() {
+            const input = document.querySelector(".input1");
+            console.log(input.getAttribute("placeholder"));
+            if (input.hasAttribute("placeholder")) {
+                console.log("it has placeholder");
+            } else {
+                console.log("it has not placeholder");
+            }
+            input.setAttribute("placeholder", "no click here");
+        }
+
+ Agora, vamos fazer um exemplo para mostrar senha por exemplo, aqui estou pegando o type e substituindo por um text, mas n pode esquecer de deixar em default o password no html, e vamos tembem criar um boolean para caso eu queira ver a senha ou voltar ao normal, no caso n ver  a senha, criamos um if else, vamos aproveitar e mudar a mensagem do botao para esconder a senha ou mostrar. Atencao ao detalhe de que so poderia usar botao.value = "mostrar senha" se fosse um input esse button, mas como ele e um elemento por si so, o texto n fica num value e sim no proprio innerText ou HTML, entao usamos o botao.innerText = "Mostrar senha"
+
+   
+        function clicou6() {
+            const input = document.querySelector("input");
+            const botao = document.querySelector(".botao6");
+            if(input.getAttribute("type") === "text") {
+                input.setAttribute("type", "password");
+                botao.innerHTML = "Mostrar Senha";
+            } else {
+                input.setAttribute("type", "text");
+                botao.innerHTML = "Ocultar Senha";
+            }
+        }
+
+-------------------------------------------
+        MANIPULANDO CSS
 -------------------------------------------
