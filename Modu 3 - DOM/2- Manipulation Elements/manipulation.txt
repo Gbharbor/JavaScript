@@ -96,6 +96,7 @@ agora nesse caso precisamos criar o elemento na memoria, e dps add com o appendC
 Aqui usei o innerText mas se quisesse poderia usar o innerHTML, sem problema.
 Entao para constar, ate aqui eu so criei o elemento, ele n esta aparecendo em lugar nenhum na tela, nada esta acontecendo de fato.
 Agora sim, usamos nosso ul.appendChild(newli), logico o newli e o nome da variavel que criei, mas poderia ser qualquer outra q tenha criado.
+
         function clicou0() {
         const teste = document.querySelector("#teste");
         const ul = teste.querySelector("ul");
@@ -220,3 +221,158 @@ Agora digamos q eu queira colocar ou alterar um atributo, usamos o setAttribute,
 -------------------------------------------
         MANIPULANDO CSS
 -------------------------------------------
+Entao aqui em resumo vamos aprender a manipular o CSS inline dos elementos. Entao digamos que tenhamos uma div qualquer e faremos alguma alteracao inline do css dela.
+Primeiramente vamos exbibir ele no  nosso console. temos duas formas uma forma mais simples, mas considerando esse exemplo n teriamos q ter nenhuma outra criada para poder pegar de fato  o primeiro li do nosso elemento, mas vamos ensinar de auqalquer maneira por fins praticos.
+
+            function clicou() {
+                const li = document.querySelector("li");
+                console.log(li);
+            }
+
+E a outra forma foi a que eu fiz de fato para ficar tudo dentro do arquivo unico, ela e um pouco mais complexa mas o resultado e o mesmo.
+
+        function clicou8() {
+            const teste6 = document.querySelector("#teste6");
+            const firstLI = teste6.querySelector("li:first-child");
+            console.log(firstLI);
+            
+        }
+
+Pronto demonstrei as duas formas de visualizacao do nosso codigo com o CSS inline pelo dom.
+Agora vamos ao que interessa de fato , vamos alterar a cor quando clicarmos no botao, entao utilizaremos nosso 
+.style.nomedoquequeralterar, vamos para o exemplo que e mais facil visualizar
+Um ponto importante que tem que ter atencao e que se a propriedade CSS tiver algum tracinho, devemos por a letra maiuscula ao inves de tracinho, por exemplo background-color entao colocamos backgroundColor, por curiosidade o nome disse e camelcase.
+
+
+     function clicou8() {
+            const teste6 = document.querySelector("#teste6");
+            const firstLI = teste6.querySelector("li:first-child");
+            console.log(firstLI);
+            
+            firstLI.style.backgroundColor = "#00F";
+        }
+
+Muito legal ne, mas digamos que queira mudar o tam da fonte, o principio e o mesmo.
+
+     function clicou8() {
+            const teste6 = document.querySelector("#teste6");
+            const firstLI = teste6.querySelector("li:first-child");
+            console.log(firstLI);
+            
+            firstLI.style.backgroundColor = "#00F";
+            firstLI.style.fontSize = "25px";
+        }
+
+Mas sim se vc remover o css inline q fizemos , o cidog funciona igual, ele adiciona os valores e como se tu tivesse criando eles.
+
+-------------------------------------------
+        MANIPULANDO CLASSES
+-------------------------------------------
+Entao vamos manipular classes em elementos, vamos usar um buttonn como exemplo. Lembre se que estou pegando o primeiro button que aparecer.
+
+   function clicou8() {
+    const teste6 = document.querySelector("#teste6");
+    const firstLI = teste6.querySelector("li:first-child");
+    console.log(firstLI);
+    firstLI.style.backgroundColor = "#00F";
+    firstLI.style.fontSize = "25px";
+    firstLI.style.color = "green";
+
+        const button = document.querySelector(".botao8");
+        console.log(button);
+            }
+
+Okay, tudo certo consigo visualizar o botao criado agora vamos adicionar uma nova classe la no nosso html mesmo, sem problema nennhum, lembra que so darmos um espaco e digitar a nova classe, como ja faziamos em html css, pronto ja feito isso e adicionar um novo negocio chamado .classlist ira receber a lista de classes dentro daquele elemento, no caso auqi do button.
+Ira mostarr um domtokenlist e um array com os elementos que tenho dentro desse elemento.
+
+   function clicou8() {
+    const teste6 = document.querySelector("#teste6");
+    const firstLI = teste6.querySelector("li:first-child");
+    console.log(firstLI);
+    firstLI.style.backgroundColor = "#00F";
+    firstLI.style.fontSize = "25px";
+    firstLI.style.color = "green";
+
+        const button = document.querySelector(".botao8");
+        console.log(button.classList);
+            }
+
+Agora digamos que quando eu clicar no botao quero adicionar uma classe a mais a ele, sim isso e possivel da seguinte forma usando o classList.add("nome da classe q tu quer add");
+E para remover so usar o .remove("nome da qual tu quere remover");
+
+
+   function clicou8() {
+    const teste6 = document.querySelector("#teste6");
+    const firstLI = teste6.querySelector("li:first-child");
+    console.log(firstLI);
+    firstLI.style.backgroundColor = "#00F";
+    firstLI.style.fontSize = "25px";
+    firstLI.style.color = "green";
+
+        const button = document.querySelector(".botao8");
+        console.log(button.classList);
+        button.classList.add("newclass1");
+        button.classList.remove("newclass0");
+            }
+
+E como faco para alternar de uma classe para outra por exemplo, podemos usar o if else e um novo argumento chamado contain.
+
+     function clicou8() {
+    const teste6 = document.querySelector("#teste6");
+    const firstLI = teste6.querySelector("li:first-child");
+    console.log(firstLI);
+    firstLI.style.backgroundColor = "#00F";
+    firstLI.style.fontSize = "25px";
+    firstLI.style.color = "green";
+
+        const button = document.querySelector(".botao8");
+        console.log(button.classList);
+
+        if (button.classList.contains("newclass0")) {
+            button.classList.remove("newclass0");
+            button.classList.add("newclass1");
+        } else {
+            button.classList.remove("newclass1");
+            button.classList.add("newclass0");
+    }
+
+    }
+
+Olhando esse if else grande de mais, realmente parece ser complexo, mas temos uma forma de simplificar usando o .toggle
+De forma simples de explicar o toggle, ele faz a fucnao de remover ou adicionar, ou seja coloquei la o newclass0, se tiver ele remove, se n tiver ele adiciona.
+, repare q no caso do toggle ele altera de acordo com a primeira, ou seja se voce adicionar 3 classes, talvez a melhor opcao seja usar o replace.
+
+ function clicou8() {
+    const teste6 = document.querySelector("#teste6");
+    const firstLI = teste6.querySelector("li:first-child");
+    console.log(firstLI);
+    firstLI.style.backgroundColor = "#00F";
+    firstLI.style.fontSize = "25px";
+    firstLI.style.color = "green";
+
+        const button = document.querySelector(".botao8");
+        console.log(button.classList);
+        button.classList.toggle("newclass0");
+    }
+
+Temos tambem o replace, ou seja substitui um e coloca a outra , em resumo ele e como se fosse o nosso if else q fizemos agr a pouco.
+
+         button.classList.replace("newclass0","newclass1");
+
+Caso queira, tambem pode usar um if else com o replace, assim ele n faz uma releitura de toda vez q tu clicar no button, ficaria assim. 
+
+ function clicou8() {
+    const teste6 = document.querySelector("#teste6");
+    const firstLI = teste6.querySelector("li:first-child");
+    console.log(firstLI);
+    firstLI.style.backgroundColor = "#00F";
+    firstLI.style.fontSize = "25px";
+    firstLI.style.color = "green";
+
+    const button = document.querySelector(".botao8");
+    if (button.classList.contains("newclass0")) {
+    button.classList.replace("newclass0","newclass1");
+    } else { 
+    button.classList.replace("newclass1","newclass0");
+    }
+}

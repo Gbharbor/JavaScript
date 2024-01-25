@@ -55,17 +55,19 @@ let botao5 = document.querySelector(".botao5");
 botao5.addEventListener("click", function clicou5(){
     console.log("clicou botao5");
     const teste5 = document.querySelector("#teste5");
-    const ul = teste5.querySelector("ul");
+    let firstul = document.createElement("ul");
+    firstul.innerHTML = "<li>LI criado por DOM</li>"
+    teste5.append(firstul);
     let newUL = document.createElement("ul");
     for (let i = 0; i < 5; i++) {
         let newLI = document.createElement("li");
         newLI.innerHTML = "item add " + (i + 1); 
         newUL.append(newLI);
     }
-    ul.after(newUL);
+    teste5.after(newUL);
     const newbutton = document.createElement("button");
     newbutton.innerHTML = "botao";
-    ul.before(newbutton);
+    teste5.before(newbutton);
 });
 /*let newUL = document.createElement("ul");
   let newLI = document.createElement("li");
@@ -93,3 +95,34 @@ function clicou7() {
     }
     input.setAttribute("placeholder", "no click here");
 }
+
+function clicou8() {
+    const teste6 = document.querySelector("#teste6");
+    const firstLI = teste6.querySelector("li:first-child");
+    console.log(firstLI);
+    firstLI.style.backgroundColor = "#00F";
+    firstLI.style.fontSize = "25px";
+    firstLI.style.color = "green";
+
+    const button = document.querySelector(".botao8");
+    console.log(button);
+    console.log(button.classList);
+
+    if (button.classList.contains("newclass0")) {
+        button.classList.replace("newclass0","newclass1");
+    } else {
+        button.classList.replace("newclass1","newclass0");
+    }
+ 
+}
+
+//button.classList.toggle("newclass0");
+
+/*
+if (button.classList.contains("newclass0")) {
+    button.classList.remove("newclass0");
+    button.classList.add("newclass1");
+} else {
+    button.classList.remove("newclass1");
+    button.classList.add("newclass0");
+} */
