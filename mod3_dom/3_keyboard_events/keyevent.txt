@@ -1,0 +1,61 @@
+----------------------------------------
+        Eventos de Teclado 1
+------------------------------------------
+Para salientar , temos 3 tipos quando apertamos , pressionando e soltamos.
+E mesmo q n tenha nenhum evento acontecendo, qualquer tecla q apertarmos msm q n conseguimos ver literalmente, o documento identifica de qualquer forma.
+Entao temos o onkeydown add dentro do elemento q queremos, semelhante ao onclick, e dentro dela colocamos  a funcao.
+Entao em resumo onkeydown="apertou()" onkeypress="segurou()" onkeyup="soltou()"
+Entao existe essa forma que e direto pelo html, mas tmb existe direto pelo JS
+
+     <input type="text" placeholder="type here" onkeydown="apertou()" onkeypress="segurou()" onkeyup="soltou()"/>
+    
+Agora vamos criar esses eventos de teclado no nosso js para visualizar eles no console, ou seja sempre q apertar qualquer tecla, acontecera os 3 eventos, pq e o processo de qualquer tecla por norma.
+Geralmente nao se usa junto o down e o press, logico so demosntrei aqui os 3 como um exemplo.
+
+        function apertou () {
+            console.log("apertou")
+        }
+        function segurou () {
+            console.log("segurou")
+        }
+        function soltou () {
+            console.log("soltou")
+        }
+
+Entao, agora vou mostrar como criar diretamente no JS, a diferenca clara e que no jS ignoramos a parte do "on", e vamos direto para palavra keyup,keydown,keypress, lembre se q n to executando a funcao to so dizendo qual q usarei. no caso e soltou. 
+Repare q aqui fizemos direto no document e nao em alguma tag especifica.
+
+    function soltou () {
+            console.log("soltou")
+        }
+    document.addEventListener("keyup", soltou);
+
+----------------------------------------
+        Eventos de Teclado 2
+------------------------------------------
+Agora vamos aprender os detalhes desse evento, antes fizemos no documento, mas agr vms fazer direto num input.
+Mas digamos que eu quero saber qual tecla foi apertada e os detalhes dessa tecla.
+Vamos recriar a funcao up, e usar dentro do nosso input novo, aqui adicionaremos um valor que pode ser o nome q quiser, mas eu chamarei de event, e em seguida vamos visualizar o primeiro metodo que e o .code colocaremos dentro do nosso console log, para visualizar, e sim ele pegara ate os shift comand etc, numeros tudo.
+ 
+        function up (event) {
+            console.log(event.code)
+        }
+        const input = document.querySelector(".input1");
+        input.addEventListener("keyup",up);
+
+E temos tmb o .key ele e um pouco mais simplorio, n pega mts detalhes da tecla de fato, num exemplo mais direto, digamos q tu aperte sifht, ele n vai dizer se foi da direita ou esquerda, entao tem esse ponto, por n ser mt detalhado.
+Entao, digamos que queremos saber se a pessoa apertou a tecla sifht + alguma outra tecla, nesse caso especificamos ela junto ao nosso event.shiftkey lembre se q esse event tu cria o nome q queira n e um nome unico. Preste atencao q esse key em shiftKey, precisa ser maiusculo.
+
+    function up (event) {
+        console.log("tecla pressionada: " +event.code);
+        console.log("shift? " +event.shiftKey);
+        console.log("option? " +event.altKey);
+        console.log(event.code);
+        console.log(event.key);
+        console.log(event.shiftkey);
+    }
+    const input = document.querySelector(".input1");
+    input.addEventListener("keyup",up);
+
+
+Podemos ate combinar coisas.
