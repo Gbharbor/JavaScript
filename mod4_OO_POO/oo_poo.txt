@@ -138,7 +138,6 @@ Entao em resumo eu uso ela como se fosse uma variavel dentro do console, mas na 
 Entao vimos como e o gettter q e o get, agr vms ver o setter para setar o valor dessa variavel, digamos vms fazer isso para o age() porem temos q determinar um valor dentro da "funcao" pq ja existe um age criado. entao digamos q seja set age(x) {}. Agora com esse setter criado posso usar ele como opcao para o age, em vez de seguir o padrao _age = 50; logico se vc colocar uma string n funcionar o set q tu criou vai pegar o 50 por padrao de novo. Mas so definir um if q so aceite number q ja funciona, igual fizemos no exemplo anterior.
 Nem sempre e necessario criar, so e necessario quando n e tds valores que eu quero q uma propriedde seja aceita e um tipo de protecao, para n preencher algo q n deveria.
 
-
 class Person3 {
     _age = 50;
     steps = 0;
@@ -164,3 +163,47 @@ class Person3 {
 
     pers1.age = 12;
     console.log(`${pers1.fullName} tem ${pers1.age} anos.`);
+
+------------------------------------------
+        Classes: Heranca
+------------------------------------------
+Entao aqui temos uma classe pessoa com nome e idade, mas digamos q eu precisa criar uma classe para um professor por exemplo ou aluno.
+Ok estudante e uma pessoa, mas ele tmb tera caracteristica de um estudante, caso queira tu poderia repetir colocando nome idade etc, ou entao temos a forma mais eficiente, que e herdar a caracteristica de pessoa, usando class Student extends Person {}, traduzindo to criando a classe estudante esta extendo pessoa, ou seja pego td q tem pessoa mais oq vou por dentro de estudante, ou seja obrigatoriamente ele vai ja ter nome e idade.
+Ok, agr q poderia ser uma caracteristica q so estudante poderia ter, um numero de matricula por exemplo, q vou chamar de id, e lembre se o this sempre se refere a propria classe q estou criando, no caso de this.id = id; e do proprio estudante. 
+Nesse nosso caso em especifico, que estamos usando aprendendo herenca, como disse usamos o this para referencia  a propria coisa q estamos, mas agr temos tmb o super que e para ref oq estamos extendendo q seria o person4. Agr automaticamente ele vai ter um ID, e e tmb com o super vai puxar a funcao do person4, como expliquei.
+Okay, e agr como fac para settar a idade dessa pessoa, e tirar do padrao 0, como estou extendendo a class Student para person4, consigo referencia diretamente o age. 
+Agr vms criar uma nova funcao so para dizer OI, criamos ela e dps executamos la em baixo. 
+Entao pronto criei uma funcao, e ela foi herdada.
+Mas tu pode sobrescrever uma funcao, digamos dentro de Student, ele anula oq foi importado de pessoa e executa oq foi criado dentro dele de fato,
+Alem disso posso executar metodos la do person, digamos q temos a funcao Hi em studant mas quero q execute a la de cima de person.
+A mesma forma q fizemos quando puxamos o super(name), porem agr super.sayHi(); esse super puxa oq studant esta extendendo.
+
+        class Person4 {
+            age = 0;
+            constructor(name) {
+                this.name = name;
+            }
+            sayHi() {
+                console.log(`${this.name} diz OI`)
+            }
+            sayWC() {
+                console.log(`Welcome ${this.name}`);
+            }
+        }
+        class Student extends Person4 {
+            constructor(name,id) { 
+                super(name);
+                this.id = id;
+            }
+            sayHi() {
+                console.log (`${this.name} e um estudante.`)
+            }
+            sayWC(){
+                super.sayWC();
+            }
+        }
+        let perso1 = new Student("Gui Porto", 1); 
+        perso1.age = 25;
+        perso1.sayHi();
+        perso1.sayWC();
+        console.log(`${perso1.name} tem #${perso1.age} anos e matricula ${perso1.id}`);
