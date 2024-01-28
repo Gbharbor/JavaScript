@@ -100,3 +100,22 @@ perso1.age = 25;
 perso1.sayHi();
 perso1.sayWC();
 console.log(`${perso1.name} tem #${perso1.age} anos e matricula ${perso1.id}`);
+
+class Person5 {
+    static hands = 2;
+    age = 0;
+    constructor(name) {
+        this.name = name;
+    }
+    sayHello() {
+        console.log(`${this.name} disse Hola e tem ${Person5.hands} maos.`);
+    }
+    static sayHola() {
+        console.log("Ola");
+    }
+}
+Person5.hands = 4;
+let pessoa1 = new Person5("Porto");
+pessoa1.sayHello();
+console.log(`${pessoa1.name} tem ${Person5.hands} maozitas`);
+Person5.sayHola();

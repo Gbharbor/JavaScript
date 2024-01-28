@@ -207,3 +207,38 @@ A mesma forma q fizemos quando puxamos o super(name), porem agr super.sayHi(); e
         perso1.sayHi();
         perso1.sayWC();
         console.log(`${perso1.name} tem #${perso1.age} anos e matricula ${perso1.id}`);
+
+------------------------------------------
+        Classes: Variavel/metodo estatico
+------------------------------------------
+Existe um conceito chamado estatic, ele pode ser feito tanto p/ variavel quanto p/funcao q vc criar, ou melhor funcoes dentro de uma classe q tmb pode ser chamado de metodo.
+Vamos fazer um exemplo, de uma pessoa normal que tenha duas maos. Vms usar static hands = 2; ou seja ela ta acossiada com a classe pessoa, mas n esta relacionado com o objeto ou a instancia q a gente criar.
+Vamos para a pratica, entao vms criar uma instancia qualquer, e dps executar uma funcao estilo a SayHy(); porem hello, so p/ mudar um pouco.
+porem na hora q for contatenar, vai e vc por o this.hands, vai dizer undefined, como se n existisse.
+pode associar dessa forma "a pessoa tem mao, mas nao o Porto" o this faz referencia ao objeto, ou seja n puxar o hands que esta associado a Pessoa.
+Ou seja, tenho q pensar como faco para associar a quantidade de maos q uma pessoa tem ? nao o Porto, dessa forma usamos o Person6.hands.
+Outra forma de associar e como se o static fizesse parte de um dado geral, e nao daquele objeto, e pode acessar tanto dentro da classe Person5, quanto tmb fora.
+Ta mas eu quero alterar como faco, so add um pessoa1.hands =3; ??? Nao! ah entao tem q alterar na pessoa ???
+Person5.hands = 3; , ou seja se quiser alterar fora do Person5, tu tem q referenciar ele, ate pq ele vai ta em Person5.
+Por normal e bem incomum que a pessoa fique alterando o static a criancao dele inclusive e deixar estatico.
+Se quiser podemos criar uma funcao q seja estatica, em resumo e so por static no inicio em seguida a function static sayHola{}, e para executar em nem precisaria criar uma instancia, era so por um Person5.sayHola(); q ja funcionaria. Mas lembra q precisa referencia a classe Person5, n funcionaria se tu colocasse pessoa1.sayHola();.
+Para concluir, o modo static e bem pouco utilizado na pratica, mas e importante saber tambem.
+
+    class Person5 {
+        static hands = 2;
+        age = 0;
+        constructor(name) {
+            this.name = name;
+        }
+        sayHello() {
+            console.log(`${this.name} disse Hola e tem ${Person5.hands} maos.`);
+        }
+        static sayHola() {
+            console.log("Ola");
+        }
+    }
+    Person5.hands = 4;
+    let pessoa1 = new Person5("Porto");
+    pessoa1.sayHello();
+    console.log(`${pessoa1.name} tem ${Person5.hands} maozitas`);
+    Person5.sayHola();
