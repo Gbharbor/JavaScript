@@ -242,3 +242,28 @@ Para concluir, o modo static e bem pouco utilizado na pratica, mas e importante 
     pessoa1.sayHello();
     console.log(`${pessoa1.name} tem ${Person5.hands} maozitas`);
     Person5.sayHola();
+
+------------------------------------------
+        Classes: Factory
+------------------------------------------
+
+Essa tag n tem nenhuma equivalencia, ou seja ela n e um nome de fato, logico ah n ser q vc defina alguma variavel ou algo do tipo com esse nome.
+Ou seja e mais um conceito digamos assim, a ideia do factory e criar algo em resumo grosseiro seria digamos q criamos uma funcao, fora do person, exemplo function createPerson(name){}, criamos a pessoa com nome idade e por fim retornamos uma pessoa.
+Entao, temos a class person6, porem n quero ficar criando estancia por vez e crio uma  "fabrica" (factory)
+para ir produzindo essas pessoas de forma mais automatizada. Agilizando o trabalho de criar estancia por vez.
+Ou seja, quando executamos a funcao, transformo ela em um objeto para ser visto de forma mais rapida.
+
+        class Person6 {
+            age =0;
+
+            constructor(name) {
+                this.name = name;
+            }
+        }
+        function createPerson(name, age) {
+            let people = new Person6(name);
+            people.age = age;
+            return people;
+        }
+        let people1 = createPerson("Gui",83);
+        console.log(`${people1.name} tem ${people1.age} anos.`);

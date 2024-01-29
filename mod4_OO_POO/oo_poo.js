@@ -119,3 +119,18 @@ let pessoa1 = new Person5("Porto");
 pessoa1.sayHello();
 console.log(`${pessoa1.name} tem ${Person5.hands} maozitas`);
 Person5.sayHola();
+
+class Person6 {
+    age =0;
+
+    constructor(name) {
+        this.name = name;
+    }
+}
+function createPerson(name, age) {
+    let people = new Person6(name);
+    people.age = age;
+    return people;
+}
+let people1 = createPerson("Gui",83);
+console.log(`${people1.name} tem ${people1.age} anos.`);
