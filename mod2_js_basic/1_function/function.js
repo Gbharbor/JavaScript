@@ -1,44 +1,33 @@
-//basic functions
+//basic function
 function gravidade() {
-    console.log("gravity 9.8");
+    console.log("gravidade e 9.8");
 }
 gravidade();
-function somar (n1, n2) {
-    let resultado = n1 + n2;
-    console.log ("Resultado : " + resultado);
+//math operation
+function somar (n1,n2) {
+    let resultado = n1 + n2; // -,*,/
+    console.log("resultado: " + resultado);
 }
-
-somar(10, 10);
-function multiplicar (nu1,nu2) {
-    let result = nu1*nu2
-    console.log ("Resultado: " + result);
-}
-multiplicar (5,5);
-
-function dividir (nu1,nu2) {
-    let valor = nu1/nu2;
-    console.log("Resultado: " + valor);
-}
-dividir(10,2);
-
-function nomecompleto (nome, sobrenome) {
-    console.log(`${nome} ${sobrenome}`);
-}
-nomecompleto("Gui","porto");
-
-function completename (name,lastname) {
-    return `${name} ${lastname}`;
-}
-let complete = completename("Gui","Porto");
-console.log("Name: " + complete);
-
+somar(10,10);
+//fullname: way 1
 function inteironome (name, lastname) {
     let inteironome = `${name} ${lastname}`;
     console.log("Nome Inteiro: " + inteironome);
 }
 inteironome("porto","gui");
-
-// function with conditional return (if / else)
+//fullname: way 2
+function nomecompleto (nome, sobrenome) {
+    console.log(`${nome} ${sobrenome}`);
+}
+nomecompleto("Gui","porto");
+//fullname: way 3
+function completename (name,lastname) {
+    return `${name} ${lastname}`;
+}
+let complete = completename("Gui","Porto");
+console.log("Name: " + complete);
+//function with conditional return (if / else)//
+//To be of Age : way 1
 function tobeofage (age) {
     if (age>=18) {
         return true;
@@ -48,7 +37,7 @@ function tobeofage (age) {
 }
 let age = tobeofage(12);
 console.log(age);
-
+//To be of Age : way 2
 function maiordeidade(idade) {
     if (idade >= 18) {
         return true;
@@ -63,11 +52,12 @@ if (validacao) {
 } else {
     console.log("Menos de idade");
 }
-
+//Calculus porcent 
+//y is equivalent to %pct of x:
 function calcpct(n1,n2) {
     return (n2/n1) * 100;
 } 
-let x = 100; //y is equivalent to %pct of x
+let x = 100;
 let y = 20;
 let pct = calcpct(x,y);
 console.log(`${y} is equivalent ${pct}% of ${x}`);
@@ -96,7 +86,6 @@ let meters = 70;
 let beds = 2;
 let price = calcproperty (meters,beds);
 console.log(`the price is ${price}`);
-
 //Create a function who value user and password, user correctly : Porto;PW correctly : 1234
 function validation (user,pw) {
     if(user === "Gui" && pw === 1234) {
@@ -113,22 +102,25 @@ if (validation) {
 } else {
     console.log("wrong PW");
 }
-
 //Aroow Function: summary function and return
 function somar (x,y) {
     return x + y;
 } 
 console.log(somar(10,10));
+
 const sum = (x,y) => {
     return x + y;
 }
 console.log(sum(10,30));
+
 const somando = (x,y) => x + y;
 console.log(somando(10,5));
+
 function lastname (last) {
     return "gui" + last;
 } 
 console.log(lastname("Porto"));
+
 const lastname2 = (lastN) => "name" + lastN;
 console.log(lastname2("surname"));
 
@@ -155,7 +147,7 @@ function addsquares(a,b) {
     return square(a) + square(b);
 }
 console.log(addsquares(2,2)); //8
-
+//more details in second part, its almost the same thing though.
 function root (x) {
     return x * x;
 }
@@ -165,7 +157,6 @@ function addroots (a,b) {
     return rootA + rootB;
 }
 console.log(addroots(3,3));//18
-
 //function within function literally.
 function addrootsqr (a,b) {
     function root3(x) {
@@ -176,7 +167,6 @@ function addrootsqr (a,b) {
     return sqrA + sqrB;
 }
 console.log(addrootsqr(2,3));
-
 //Clean code function within function return and arrow function both.
 function additems (a,b) {
     const item = (x) => x * x;
