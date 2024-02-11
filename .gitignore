@@ -1,6 +1,5 @@
 .DS_Store
 *.html
-*.txt
 revfunction.js
 revarray.js
 revobject.js
@@ -9,3 +8,11 @@ revselectclick.js
 revmanipulation.js
 revkeyevent.js
 revoo_poo.js
+oo_poo.txt
+keyevent.txt
+manipulation.txt
+selectclick.txt
+for_while.txt
+object.txt
+array.txt
+function.txt
