@@ -1,1 +1,11 @@
 .DS_Store
+*.html
+*.txt
+revfunction.js
+revarray.js
+revobject.js
+revfor_while.js
+revselectclick.js
+revmanipulation.js
+revkeyevent.js
+revoo_poo.js

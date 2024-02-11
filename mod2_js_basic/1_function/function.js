@@ -70,7 +70,7 @@ function calcproperty (meters,beds) {
     let price = 0;
         switch (beds) {
             case 1:
-            default: 
+            default:
                 price = meters * m2;
             break;
             case 2:
@@ -82,27 +82,27 @@ function calcproperty (meters,beds) {
         }
         return price;
 }
-let meters = 70;
+let meters = 80;
 let beds = 2;
 let price = calcproperty (meters,beds);
 console.log(`the price is ${price}`);
 //Create a function who value user and password, user correctly : Porto;PW correctly : 1234
-function validation (user,pw) {
-    if(user === "Gui" && pw === 1234) {
+function validation(user, pw) {
+    if (user === "Gui" && pw === 1234) {
         return true;
     } else {
         return false;
     }
 }
-let user = "Gui";
-let pw = 1234;
-let value = validation (user,pw);
-if (validation) {
-    console.log(`Welcome ${user}`);
+let usuario = "gai";
+let senha = 1234;
+let value = validation(usuario, senha);
+if (value) {
+    console.log(`Welcome ${usuario}`);
 } else {
     console.log("wrong PW");
 }
-//Aroow Function: summary function and return
+// Arrow Function math operations:
 function somar (x,y) {
     return x + y;
 } 
@@ -112,64 +112,73 @@ const sum = (x,y) => {
     return x + y;
 }
 console.log(sum(10,30));
-
 const somando = (x,y) => x + y;
 console.log(somando(10,5));
-
+// Arrow Function users:
 function lastname (last) {
     return "gui" + last;
 } 
 console.log(lastname("Porto"));
-
 const lastname2 = (lastN) => "name" + lastN;
 console.log(lastname2("surname"));
-
 //variables within functions, different ways to use count:
 let count = 0;
 function add() {
-    count++; //count += 1; | count + 1;
+    count++;
 }
 add();
-add();
 console.log(count);
-
-// square root
+let count1 = 0;
+function add1() {
+    count1 = count1 + 1;
+}
+add1();add1();
+console.log(count1);
+let count2 = 0;
+function add2() {
+    count2 += 1;
+}
+add2();add2();add2();
+console.log(count2);
+//Square root
 function square(x) {
     return x * x;
 }
 console.log(square(2));
-
-//function within function using sum of squares in summary way, but in root way has more details.
+//Sum of Squares
+function square (x) {
+    return x * x;
+}
+function addsquares (a,b) {
+    return square(a) + square(b);
+}
+console.log(addsquares(2,3));//13
+//Sum of Squares with variables.
 function square(x) {
     return x * x;
 }
-function addsquares(a,b) {
-    return square(a) + square(b);
-}
-console.log(addsquares(2,2)); //8
-//more details in second part, its almost the same thing though.
-function root (x) {
-    return x * x;
-}
-function addroots (a,b) {
-    let rootA = root(a);
-    let rootB = root(b);
+function addsquares (a,b) {
+    let rootA = square(a);
+    let rootB = square(b);
     return rootA + rootB;
 }
-console.log(addroots(3,3));//18
-//function within function literally.
-function addrootsqr (a,b) {
-    function root3(x) {
-        return x * x ;
+console.log(addsquares(4,4));//32
+//Sum of Squares with function litteraly within function
+function addsquares (a,b) {
+    function square(x) {
+        return x * x;
     }
-    let sqrA = root3(a);
-    let sqrB = root3(b);
+    let sqrA = square(a);
+    let sqrB = square(b);
     return sqrA + sqrB;
 }
-console.log(addrootsqr(2,3));
-//Clean code function within function return and arrow function both.
-function additems (a,b) {
-    const item = (x) => x * x;
-    return item(a) + item(b);
-}
-console.log(additems(6,6));
+console.log(addsquares(5,5))//50
+//Clean code function within function and arrow function
+const addquadrado = (a,b) => {
+    const square = x => x * x;
+    return square(a) + square(b);
+ }
+ console.log(addquadrado(6,6));//72
+//Cleaner ! 
+const additems = (a,b) => a * a + b * b;
+console.log(additems(3,3));//18
