@@ -1,2 +1,1 @@
 # JavaSript
-Learning JS
