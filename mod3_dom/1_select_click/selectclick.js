@@ -1,4 +1,3 @@
-
 //          |SELECTING ELEMENTS I|
 //Put this in the Console, and you will see all "h1" tags, but it could be id, class, combinations, etc.
 document.getElementsByTagName("h1");

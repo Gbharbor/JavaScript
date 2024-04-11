@@ -8,16 +8,19 @@ entao vamos comecar com a div teste.
                 console.log(teste);
                 }
 Agora se quisermos podemos ver o que tem dentro do elemento que selecionamos, so adicionamos o .children no console, dessa forma no console ira mostrar um array dos elementos que no exemplo e um ul , esse children quer dizer que sao filhos imediatos da div.
+
                 function clicou0() {
                 const teste = document.querySelector("teste");
                 console.log(teste.children);
                     }
+
 Ah mas dentro do ul tem as li, eu queria visualizar elas tambem, dessa forma pode seguir a mesma logica dos array de exibicao , e em seguida acrescentando o children tambem:
                 function clicou0() {
                 const teste = document.querySelector("teste");
                 console.log(teste.children[0].children);
                     }
 Seguindo essa logica e adicionando um strong dentro da div teste, assim teremos 2 elementos, ou seja se quisermos manipular ele teriamos que por children[1] usando a logica dos arrays, mas como n tem nenhum elemento dentro de strong, ira aparecer um array vazio caso utilize: teste.children[1].children, nesse caso so tem um texto e nenhum elemento.
+
 Agora vamos manipular o elemento de fato, o ul por exemplo, seguindo a mesma logica qu foi ensinanda, porem o children e muito mais um tipo de exibicao do que tem naquele elemento, entao a melhor opcao nesse caso para pegar algo seria o querySelector mesmo.
             function clicou0() {
             const teste = document.querySelector("#teste");
@@ -150,7 +153,7 @@ Para praticar, vamos adicionar um novo ul, e o mesmo esquema da criacao do eleme
             ul.after(newUL);
         });
 Agora, so para praticar digamos que quero mais de um li, podemos criar um loop for, que ja fizemos nas aulas anteriores de loops, nsse caso usamos o nosso loop for, definimos nosso i  de zero a 5, e i++ para dizer q se repetira, em seguida criamos dentro do nosso loop o nosso elemento LI,em seguida no innerHTML definimos o conteudo dele, da para contatenar e referenciar o nosso i, para mostrar  a exibicao de uma lista de 0 a 5, em seguida o append para exibir esses elementos newLI dentro de UL, pronto esta criado no sistema mas ainda n e visivel no display, entao usamos oq aprendemos de fato aqui, o ul.after(newUL);
-tem q ser fora do loop for, e n esquecer que ele esta puxando a variavel newUL e nosso UL q esta puxando o loop LI dentro dele, parece confuso mas e assim mesmo, tem q se praticar bastante, ah para ficar de forma mais homano e comecar pelo 1, poderia colocar (i + 1);
+tem q ser fora do loop for, e n esquecer que ele esta puxando a variavel newUL e nosso UL q esta puxando o loop LI dentro dele, parece confuso mas e assim mesmo, tem q se praticar bastante, ah para ficar de forma mais humano e comecar pelo 1, poderia colocar (i + 1);
 
         let botao5 = document.querySelector(".botao5");
         botao5.addEventListener("click", function(){
