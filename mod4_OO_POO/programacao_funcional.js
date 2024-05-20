@@ -48,7 +48,6 @@ const defaultUser = {
     email: "",
     level: 1
 }
-
 let user1 = {
     ...defaultUser, //aqui estou copuando tudo de default, porem se eu criar aqui eu substituo os valores, herda td joga td aqui dentro, ou substituo ou crio novas probriedades.
     name: "guilhermao",
