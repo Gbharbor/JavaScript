@@ -119,3 +119,50 @@ let person = user.find(function(value){
 });
 let finded = person;
 console.log(person);
+
+//DATE datas
+let d = new Date();
+console.log(d); //so fazendo isso ira dar todas informacoes completas.
+console.log(d.toDateString());//Dessa forma fica mais resumida
+console.log(d.toUTCString());//pega a hora de outro fuso horario nesse caso na Europa.
+console.log(d.toString());//pega todo texto da variavel que oq ja vimos antes.
+
+//dentro da classe date podemos colocar 7 parametros.
+let data = new Date(2020,0,1, 12,30,12 ); //atencao q mes comeca em zero (janeiro), mas o dia comeca 1 normal. entao seguindo a logica - ano,mes,dia,hora,minutos, segundo.
+console.log(data.toString());
+//podemos usar tmb o date com string, porem tem q ser nesse formato.
+let data1 = new Date('2020-01-01 15:42:17');
+console.log(data1);
+//O minimo necessario para gerar uma data, e ano e mes. 
+let data2 = new Date('2022,2'); //marco de 2022.
+console.log(date2); 
+//E se colocar date(0)
+let data3 = new Date(0);//vai ir para 191=69, porem se colocar toUtcString, ira comecar a contas os milissegundos em 1970, entao ira comecar a conta de 1970.
+console.log(data3)
+let data4 = new Date(0);// dessa forma aparece 1970
+console.log(data4.toUTCString());
+//Ah mas digamos que so quero colocar o tempo, obviamente ira aparecer o ano de 1970 novamente por padrao, ja que to usando o toUTCString.
+let data5 = new Date(123142341);
+console.log(data5.toUTCString);// mas se quisesse numeros antes de 1970 ? ai e so colocar negativo.
+let data6 = new Date(-1234234123412); //agr ira aparecer antes de 1970.
+console.log(data6.toUTCString);//n pode esquecer desse detalhe
+//vamos manipular as datas
+let dat = new Date();
+let novoValor = dat.getFullYear();//digamos q quero saber qual e apenas o ano
+console.log(novoValor);
+let dat1 = new Date();
+let novoValor1 = dat1.getMonth();//digamos q quero saber qual e PWNa o mwa
+console.log(novoValor1);
+let dat2 = new Date();
+let novovalor2 = dat2.getDay();
+console.log(novovalor2);//vai retornar 3, mas pq ? pq retorna o dia da semana, ou seja comeca em 0 (domingo), getday pega o dia da semana, e como pega o dia atual de fato ?
+let dat3 = new Date();
+let novovalor3 = dat3.getDate(); //agr sim pega de fato o dia hj dia 23.
+console.log(novovalor3);
+let dat4 = new Date();
+let novovalor4 = dat4.getHours();//sim tem q ta no plural, e pega as horas.
+//e se for minutos .getMinuts(), .getMilliseconds .getSeconds(); ou seja ele pega a data daquele instante, ele n fica atualizando de fato, temos tambem o getTime(); ira mostrar todos milissegundos de 1970 ate o dia de hoje.
+// temos tmb o Date.now(); retorna um time stump do tempo atual. e semelhante ao getTime, porem e mais direto.
+let dat5 = new Date();
+let novovalor5 = dat5.Date.now();
+console.log(novovalor5);
