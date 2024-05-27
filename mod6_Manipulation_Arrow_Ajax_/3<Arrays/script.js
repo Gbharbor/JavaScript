@@ -85,3 +85,9 @@ let users = [
 ];
 let person = users.find(user => user.sobrenome == 'porto');
 console.log(person); // { id: 1, nome: 'gui', sobrenome: 'porto' }
+
+//Includes para verificar se tenho aquele item na lista.
+let lista = [ 'ovo','cafe','carne'];
+console.log(lista.includes('ovo'));//se tiver retorna true
+
+//Includes em string

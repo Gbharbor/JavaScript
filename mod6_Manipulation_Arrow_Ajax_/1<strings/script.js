@@ -52,3 +52,29 @@ console.log(resultado13);
 // agr quero transformar uma string num array . 
 let nome2 = "Guilherme Barreto Porto"
 let resultado15 = nome.split(''); //ou seja irei cortar, nesse caso irei cortar os espacos em branco, nesse caso ira gerar um array com 3 items, guilherme barreto porto, poderia ser qualquer coisa desde virgula, ponto virgula etc.
+
+//Includes com string e semelhante ao indexOf
+let nombre = 'Guilherme';
+console.log(nombre.includes('a')); //ira ver se na variavel nombre tem a letra a, vai retornar false ou true, nesse caso false, repare q msm q coloque g, tem q ser maisuculo ja q coloquei G maisuculo.
+
+//A funcao repeat, pode ser usado em outros modos tmb, mas em String seria basicamente repetir uma letra por exemplo, sem precisar digitar ela de fato
+//mas pode repetir uma variavel oq quiser.
+console.log('x'.repeat(20));//nesse caso to repetindo o x 20 vezes.
+console.log(nombre.repeat(5));//repeti Guilherme 5x
+
+//Padstart e PadEnd
+let telefone = '45';
+console.log(telefone.padEnd(9,'*')) //quantos caracteres, caso n tenha os 9 q defini, quero q preencha com um * como so digitei 1 numero, os outros 8 ficara * 
+
+let telefone1 = '45'
+console.log(telefone1.padStart(9, '*')); //e a msm coisa do padEnd so comeca de tras para frente
+
+//vamos ver um exemplo mais pratico, digamos q o usuario guardou o cartao dele no site, "e esse cartao q vc quer usar, q tem o final: x,y,z" ? 
+let cartao = '1234 1234 1234 1234'
+console.log(`Esse e seu cartao ? ${cartao}`); //fazer isso e extremamente errado, pois o se outra pessoa estiver acessando tera acesso ao seu cartao.
+
+let card = '1234 5678 9012 3456'
+let lastDigits = card.slice(-4); //dessa forma so pego os 4 itens
+console.log(lastDigits);//so para testar se so aparece os 4 digitos.
+let maskCard = lastDigits.padStart(16, '*');//padstart para colocar * no comeco, ou seja precisa ter 16 caracteres, e o restante preencher com  *
+console.log(`Esse e seu cartao? : ${maskCard}`);
