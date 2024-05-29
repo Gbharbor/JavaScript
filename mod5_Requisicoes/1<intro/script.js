@@ -1,28 +1,40 @@
 /*
-diferenca de Sincrono e assincrono? 
-sincrono:  a ordem de execucacao, uma coisa espera pela outra ou seja  ele ta seguindo de forma sincrona, executa uma linha dps a proxima.
-    
-    let nome : "gui";
-    let sobrenome = "lacerta"
-    let nomeCompleto = nome + sobrenome
+Diferença entre Síncrono e Assíncrono
+Síncrono:
+A ordem de execução é sequencial, ou seja, uma coisa espera pela outra. As operações seguem de forma síncrona, executando uma linha de código após a outra.
+    let nome = "gui";
+    let sobrenome = "lacerta";
+    let nomeCompleto = nome + sobrenome;
 
-Assincrona : Da pra supor q elas executariam td ao msm tempo e n uma por uma, entao essa e a ideia, de que e como se elas executassem td ao mesmo tempo, entao daria errado.
+Assíncrona
+Pode-se supor que elas executariam tudo ao mesmo tempo e não uma por uma. Essa é a ideia: é como se elas executassem tudo ao mesmo tempo, então poderia dar errado.
 
 API
-e uma forma de comunicacao entre 2 coisas (uma maquina e outra):
-digamos q queremos fazer um sistema de chat.
-digamos q preciso fazer uma requisicao do nosso navegador querendo se comunicar com o servidor.
-JSON e um dos tipos de padrao de comunicacao, entre uma maquina a outra maquina, e mt parecido com objetos do JavaScript (javascript object notation).
-XML e outro mais antigo.
+O que é uma API?
+API é uma forma de comunicação entre duas partes (por exemplo, duas máquinas).
 
-Isso e um exemplo de um JSON fake, de como se fosse um blog de posts, nele tera um array com varios object dentro dele, com informacoes do userID, Id, title, e body.
-mas se reparar n vera um blog de fato, ele simplesmente manda um JSON.
-Quando requisitamos essa URL ele abre um JSON, porem ele e util para comunicacao entre uma maquina e outra.
+Exemplo de Uso
+Se quisermos fazer um sistema de chat, precisamos fazer uma requisição do navegador para se comunicar com o servidor.
+
+Padrões de Comunicação
+JSON (JavaScript Object Notation):
+Um dos tipos de padrão de comunicação entre máquinas. É muito parecido com objetos do JavaScript.
+
+XML:
+Outro padrão mais antigo.
+
+Exemplo de JSON
+Aqui está um exemplo de um JSON fictício, como se fosse um blog de posts. Ele contém um array com vários objetos, cada um com informações como userID, ID, title e body.
+
+Embora pareça um blog, ele simplesmente retorna um JSON. Quando requisitamos esta URL, ela abre um JSON, que é útil para a comunicação entre máquinas:
 
 https://jsonplaceholder.typicode.com/posts
-o que e um callback ? 
-significa "ligar de volta"
-O cenceito e literalmente oq significa a traducao.
+
+Callback
+O que é um Callback?
+Callback significa "ligar de volta". O conceito é literalmente o que a tradução sugere: uma função que é passada como argumento para outra função e é executada após algum tipo de evento ou operação.
+
+
 
 */
 document.querySelector('#botao').addEventListener('click',() =>
@@ -48,7 +60,7 @@ function clicou() {
     //quando clicar nesse botao, quero q requisite a URL e exiba essas respostas, vms primeiramente exibir no console, e dps exibimos na tela de fato.
     //vms usar a funcao fetch ela e do prorpio JS para fazer requisicoes, o primeiro paramentro e a propria URL q vc quer requisitar, e em seguida faremos o processo de callback usando o . then
     //agr vms add o data, e quando for exebir no console exibira um response, ira exibir um objeto com varias caracteristicas
-    fetch('https://jsonplaceholder.typicode.com/pos2ts').then((response) => {
+    fetch('https://jsonplaceholder.typicode.com/posts').then((response) => {
     //repare  q o fetch ao passar o mouse em cima, ele retorna um promise, ou seja isso quer dizer q algum momento ele ira retornar algo, por isso a ideia de ser promeca a resposta sera no futuro, por isso temos o then, ou seja temos uma promessa e then faca 
 
         //console.log('executou o callback da requisicao'); //agr vms ignorar essa linha e substiruir por data.
@@ -60,6 +72,7 @@ function clicou() {
         console.log(`status:  ${response.status}`); //dessa forma vejo o status e verifico se teve algum erro de acordo com os numeros q estudamos sobre status de requisicao HTTP
         return response.json();
     }).then((json)=> {
+        document.querySelector('.test1').innerHTML = json.length + "posts"
         console.log(json[0]); //agr fazendo isso ira vir um array com varios itens, ou seja tera um objeto, repare q por se tratar de um array, podemos usar a logica dos arrays "[]".
         //digamos q queira so pegar o primeiro titulo
         console.log(json[0].title);
