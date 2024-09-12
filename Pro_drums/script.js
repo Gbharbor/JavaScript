@@ -30,10 +30,9 @@ function playSound(sound) {
 };
 function playComposition(songArray) {
     let wait = 0;
-
     for(let songItem of songArray) {
         setTimeout(()=>{
-            playSound(`key${songItem}`); //so so deixar assim, ele vai tocar tds letras q tu criou na composicao, para isso precisamos criar um intervalo dentro do loop
+            playSound(`key${songItem}`); //so deixar assim, ele vai tocar tds letras q tu criou na composicao, para isso precisamos criar um intervalo dentro do loop
         }, wait)
         wait += 250;
     }
