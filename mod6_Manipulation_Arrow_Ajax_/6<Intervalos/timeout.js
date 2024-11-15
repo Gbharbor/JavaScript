@@ -1,13 +1,22 @@
-//O timeout so roda uma vez q vc determinar o tempo, ja o interval atualiza permanente.
-let timer;
-function rodar() {
-    timer = setTimeout(function() { //colocar o timer aqui preenchendo ele
-    //alert('rodou'); vms usar outro exemplo.
-    document.querySelector('.demo').innerHTML = "rodou"
+// O setTimeout executa uma função apenas uma vez após um determinado período de tempo, 
+// enquanto o setInterval executa a função repetidamente em intervalos especificados.
 
-    }, 2000); //poe a funcao, e dps o tempo. nesse exemplo executei a funcao a cada 2s, repare q coloquei a function rodar onclick aqui, e joguei o setimeout dentro dela, ou seja quando clicar no botao em 2s aparece o alert.
-};
-//antes de chegar ao fim da execucao vc pode parar ele.
+let timer; // Variável global para armazenar o identificador do timeout
+
+// Função para iniciar o timeout
+function rodar() {
+    timer = setTimeout(function() { // Define o timeout e armazena o identificador em 'timer'
+        // Exemplo: Atualiza o conteúdo do elemento '.demo' após o tempo especificado
+        document.querySelector('.demo').innerHTML = "Rodou"; // Mensagem que será exibida após 2 segundos
+    }, 2000); // Executa a função após 2000 milissegundos (2 segundos)
+
+    // Observação: A função rodar é chamada através de um evento (ex., onclick) no botão.
+    // Quando o botão é clicado, o timeout inicia, e após 2 segundos, a função é executada.
+}
+
+// Função para cancelar o timeout antes que ele seja executado
 function parar() {
-    clearTimeout(timer);//mas vc precisa mandar uma variavel aqui, ou seja tera q cria la, vou chamar de timer, pronto criei la em cima joguei na function rodar e agr posso usar aqui.
-};
+    clearTimeout(timer); // Cancela o timeout configurado em 'rodar' usando o identificador 'timer'
+    // O clearTimeout só funciona se o timeout ainda não foi executado.
+    // Se o timeout já foi acionado e a função foi executada, o clearTimeout não terá efeito.
+}

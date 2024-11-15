@@ -1,21 +1,25 @@
-// sao so 4 principais, existe outros mas n sao mt importante.,
+// Principais métodos para manipulação de números em JavaScript
 let n = 10;
 
-let res = n.toString(); //a funcao toString tu pode usar em varios formatos arrays etc, mas e mais util em numbers, repare q se eu deixasse sem o tostring iria aparecer em outra cor de number, porem como coloquei em tostring ele ficara preto no console.log
-
+// toString() - converte o número para string
+let res = n.toString(); 
+// No console, um número exibido como string aparece em preto, diferenciando-se de números puros.
 console.log(res);
 
-//vms se por que tem um  numero decimal
+// toFixed() - formata o número com uma quantidade específica de casas decimais
 let m = 10.123213123;
-let res1 = "R$"+ n.toFixed(2) // ou seja dessa forma ira aparecer 2 decimais dps da virgula, nesse caso seria 10.12
+let res1 = "R$" + m.toFixed(2); // Exibe o número com 2 casas decimais, resultando em "10.12"
 console.log(res1);
-//agr esse pode usar em numero e string.
+
+// parseInt() - converte uma string para um número inteiro
 let x = '25';
-let res2 = x + 5; //pela logica n ira aparecer 30 , por ser ums string + number, ou seja usamos a funcao parseInt para transformar em number a string q criei.
+let res2 = x + 5; // Como x é uma string, o operador + concatena, resultando em "255"
 console.log(res2);
-let res3 = parseInt(x) + 5//agr sim transformei meu x='25' em number, e dara 30.
+
+let res3 = parseInt(x) + 5; // parseInt converte x para número, resultando em 30
 console.log(res3);
-//temos tambem o parsefloat, ira preservar os decimais de um numero, ou seja usar isso para preservar os decimais.
-let y = '35.8'
-let res4 = parseFloat(y) + 5;
-console.log(res4); // dessa forma ira preservar os decimais, nesse caso 
+
+// parseFloat() - converte uma string para número de ponto flutuante (preserva decimais)
+let y = '35.8';
+let res4 = parseFloat(y) + 5; // parseFloat preserva o decimal, resultando em 40.8
+console.log(res4);

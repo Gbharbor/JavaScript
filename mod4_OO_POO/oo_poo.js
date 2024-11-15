@@ -1,20 +1,21 @@
-//Defining the Person0 class
+// Definindo a classe Person0
 class Person0 {
-    //Constructor of the class that sets the properties of a person
+    // Construtor da classe que define as propriedades de uma pessoa
     constructor(name, age) {
-        //Assigns the received name/age to the object
+        // Atribui o nome e a idade recebidos ao objeto
         this.name = name;
         this.age = age;
     }
 }
-//Creating two persons using Person0 class
-let p1 = new Person0("Joao",20);
-let p2 = new Person0("Maria",30);
-console.log("Age p1: ",p1.age);
-console.log("Name p2: ",p2.name);
+// Criando duas pessoas usando a classe Person0
+let p1 = new Person0("Joao", 20);
+let p2 = new Person0("Maria", 30);
+console.log("Idade de p1: ", p1.age);
+console.log("Nome de p2: ", p2.name);
 
+// Definindo a classe Person1 com uma idade padrão
 class Person1 {
-    //Initializing the age property with the default value 0
+    // Inicializando a propriedade idade com o valor padrão 0
     age = 0;
     constructor(name) {
         this.name = name;
@@ -22,141 +23,142 @@ class Person1 {
 }
 let pe1 = new Person1("Ana");
 let pe2 = new Person1("Gui");
-//Modifying the age of the first person to 20 years.
+// Modificando a idade da primeira pessoa
 pe1.age = 20;
-console.log(`${pe1.name} is ${pe1.age} years old.`);
-console.log(`${pe2.name} is ${pe2.age} years old.`);
+console.log(`${pe1.name} tem ${pe1.age} anos.`);
+console.log(`${pe2.name} tem ${pe2.age} anos.`);
 
+// Definindo a classe Person2 com métodos
 class Person2 {
     age = 0;
     steps = 0;
     constructor(name) {
         this.name = name;
     }
-    //Method to take a step
+    // Método para incrementar os passos
     takeAStep() {
-        this.steps++; //Increments the person's number of steps by 1
+        this.steps++; 
     }
-    //Method to set the person's age
+    // Método para definir a idade, validando se o valor é um número
     setAge(newAge) {
-        //Checks if the new age value is a number
-        if(typeof newAge === "number") {
-            //sets the person's age to the new value
+        if (typeof newAge === "number") {
             this.age = newAge;
         } else {
-            console.log("Age must be a number!");
+            console.log("A idade deve ser um número!");
         }
     }
 }
 let per1 = new Person2("Joao");
-let per2 = new Person2("maria");
-//Taking steps for the first person, increases the number of steps 
+let per2 = new Person2("Maria");
+// Incrementando passos e definindo a idade
 per1.takeAStep();
 per1.takeAStep();
 per1.takeAStep();
-console.log(`${per1.name}'s steps: ${per1.steps}`);
-//Setting the age for the first person to 98
+console.log(`Passos de ${per1.name}: ${per1.steps}`);
 per1.setAge(98);
-console.log(`${per1.name} is ${per1.age} years old.`);
-per2.setAge("hi")
-console.log(`${per2.name} is ${per2.age} years old`)
+console.log(`${per1.name} tem ${per1.age} anos.`);
+per2.setAge("oi");
+console.log(`${per2.name} tem ${per2.age} anos`);
 
+// Definindo a classe Person3 com getter e setter
 class Person3 {
-    _age = 50; //This _ was used to indicate that this property is private, but it does not influence the fact that it is standard!
-    constructor(firstName,lastName) {
+    _age = 50; // Usando _ para indicar uma variável "privada"
+    constructor(firstName, lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    //Getter method to acess age
+    // Getter para a idade
     get age() {
-        return this._age
+        return this._age;
     }   
-    //Setter method to modify age
-    set age(x) { //here i can change the proprierity age
-        if (typeof x == "number") { //Checks if the passed value is a number
-            this._age = x; //updates the age
+    // Setter para a idade com validação
+    set age(x) {
+        if (typeof x == "number") {
+            this._age = x;
         }
     }
-    //Getter nethod to return full name
-    get fullName () {
-        return `${this.firstName} ${this.lastName}`;//Returns fullname
-        }
+    // Getter para o nome completo
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
     }
-// Creating instances of the Person3
-let pers1 = new Person3("Joao","silva");//firstName , lastName
-let pers2 = new Person3("maria");//firstName
-
-//Modifying the age of pers1 using the setter method age()
+}
+let pers1 = new Person3("Joao", "Silva");
+let pers2 = new Person3("Maria");
+// Modificando a idade e acessando o nome completo
 pers1.age = 12;
 console.log(`${pers1.fullName} tem ${pers1.age} anos.`);
 
+// Definindo a classe Person4 com métodos
 class Person4 {
     age = 0;
     constructor(name) {
         this.name = name;
     }
+    // Método para dizer "Oi"
     sayHi() {
-        console.log(`${this.name} say HI`); //Method that prints a message with the person's name
+        console.log(`${this.name} diz Oi`);
     }
+    // Método para dar boas-vindas
     sayWC() {
-        console.log(`Welcome ${this.name}`);
+        console.log(`Bem-vindo(a) ${this.name}`);
     }
 }
-// Defining the Student class that extends Person4
+// Definindo a classe Student que estende Person4
 class Student extends Person4 {
-    constructor(name,id) { 
-        super(name);// Calls the constructor of the parent class (Person4) with the given name
-        this.id = id;//Initializes the id property with the value provided when creating a new Student object
+    constructor(name, id) { 
+        super(name); 
+        this.id = id;
     }
+    // Sobrescrevendo o método sayHi
     sayHi() {
-        console.log (`${this.name} is a student.`)//Replaces the sayHi() method of the parent class, printing a specific message for students
+        console.log(`${this.name} é um(a) estudante.`);
     }
-    sayWC(){
-        super.sayWC();//Calls the sayWC() with super. method of the parent class (Person4)
-        console.log(`Welcome, ${this.name}`); //printing a specific message for students
+    // Sobrescrevendo o método sayWC com super
+    sayWC() {
+        super.sayWC();
+        console.log(`Bem-vindo(a), ${this.name}`);
     }
 }
-// Creating an instance of the Student class
-let perso1 = new Student("Gui Porto", 1);// Create a new object of the Student class with the name "Gui Porto" and id 1
-perso1.age = 25; // Changes the age of the student to 25
-perso1.sayHi();// prints a specific message for students
-perso1.sayWC();// the parent class (Person4)
-console.log(`${perso1.name} is #${perso1.age} years old and ID: ${perso1.id}`);
+let perso1 = new Student("Gui Porto", 1);
+perso1.age = 25;
+perso1.sayHi();
+perso1.sayWC();
+console.log(`${perso1.name} tem ${perso1.age} anos e ID: ${perso1.id}`);
 
+// Definindo a classe Person5 com propriedade e método estáticos
 class Person5 {
-    static hands = 2;//Setting a static property 'hands' with value 2
+    static hands = 2; // Propriedade estática para as mãos
     age = 0;
     constructor(name) {
         this.name = name;
     }
-    //Instance method
+    // Método de instância
     sayHello() {
-        console.log(`${this.name} said Hello and has ${Person5.hands} hands.`);
+        console.log(`${this.name} disse Olá e tem ${Person5.hands} mãos.`);
     }
+    // Método estático
     static sayHola(name) { 
-        console.log(`hola ${name}`);//you can't access instance properties of the class directly using this, because this refers to the class itself, not to a specific instance.
+        console.log(`Hola ${name}`);
     }
 }
-Person5.hands = 6;//Modifying the value of the static property "hands" to 4
-let pessoa1 = new Person5("Porto");//creating a new instance of the Person5
-pessoa1.sayHello();//Calling the sayHello() method of the pessoa1 object,prints a message with the name and the number of hands
-console.log(`${pessoa1.name} has ${Person5.hands} little hands`);
+Person5.hands = 6;
+let pessoa1 = new Person5("Porto");
+pessoa1.sayHello();
+console.log(`${pessoa1.name} tem ${Person5.hands} mãos`);
 Person5.sayHola(pessoa1.name);
 
+// Usando a classe Person6 e uma função para criar instâncias
 class Person6 {
-    age =0;
+    age = 0;
     constructor(name) {
         this.name = name;
     }
 }
-//Create a person with specific name and age
+// Função para criar uma instância de pessoa
 function createPerson(name, age) {
-    //creates  a new instance of the Person6 class with the provided name
     let person = new Person6(name);
-    //Sets the age 
     person.age = age;
-    //Person complete
     return person;
 }
-let person = createPerson("Gui",83);
-console.log(`${person.name} is ${person.age} years old.`);
+let person = createPerson("Gui", 83);
+console.log(`${person.name} tem ${person.age} anos.`);

@@ -1,30 +1,65 @@
+// Função para exibir a imagem usando URL.createObjectURL
 function mostrar() {
+    // Seleciona o primeiro arquivo da entrada de arquivo com id 'imagem'
     let imagem = document.getElementById('imagem').files[0];
-    console.log(imagem); //ate aqui td normal, ia aparecer o file no console.
-    //a partir desse file eu gero uma URL
-   
-    // document.getElementById('area').appendChild = '<img/>' --> vc pode criar assim manualmente.
-    //Ou pode criar a tag mesmo:
+    console.log(imagem); // Exibe o arquivo no console
+
+    // Cria um elemento de imagem ('<img>') dinamicamente
     let img = document.createElement('img');
+    
+    // Define o atributo 'src' usando URL.createObjectURL, que cria uma URL temporária para o arquivo selecionado
     img.src = URL.createObjectURL(imagem);
-    document.getElementById('area').appendChild(img); //um objeto q vai se transforma em um elemento, ira mostrar gigante , como diminuir ela pro tam de uma thambnail.
-    img.width = 200;//repare q se vc for no html e dentro da div area vera q tem a img criada com uma url com blob,numa tag img
-};
-//tem outro metodo , q e levemente assincrono o filereader
+    
+    // Define a largura da imagem para 200 pixels para exibir como uma miniatura (thumbnail)
+    img.width = 200;
+    
+    // Adiciona a imagem criada à área com id 'area'
+    document.getElementById('area').appendChild(img);
+}
+
+// Função para exibir a imagem usando FileReader (modo assíncrono)
 function mostrar1() {
+    // Instancia um objeto FileReader, que permite ler o conteúdo do arquivo de forma assíncrona
     let reader = new FileReader();
+    
+    // Seleciona o primeiro arquivo da entrada de arquivo com id 'imagem1'
     let imagem1 = document.getElementById('imagem1').files[0];
 
+    // Define o callback para o evento 'onloadend', disparado ao final da leitura
     reader.onloadend = function() {
+        // Cria um elemento de imagem ('<img>') dinamicamente
         let img1 = document.createElement('img');
+        
+        // Define o atributo 'src' da imagem como o resultado da leitura, que será uma URL do tipo Data URL
         img1.src = reader.result;
-        img1.width = 200; // Definir a largura da imagem para 200 pixels (thumbnail)
+        
+        // Define a largura da imagem para 200 pixels (thumbnail)
+        img1.width = 200;
+        
+        // Adiciona a imagem criada à área com id 'area1'
         document.getElementById('area1').appendChild(img1);
     }
 
+    // Verifica se existe um arquivo selecionado antes de iniciar a leitura
     if (imagem1) {
-        reader.readAsDataURL(imagem1); // Configura o callback e lê o arquivo como Data URL
+        reader.readAsDataURL(imagem1); // Inicia a leitura do arquivo como Data URL
     } else {
-        console.error("Nenhum arquivo selecionado");
+        console.error("Nenhum arquivo selecionado"); // Exibe erro se nenhum arquivo for selecionado
     }
 }
+
+/*
+Explicações adicionais:
+
+1. **URL.createObjectURL**:
+   - Cria uma URL temporária, associando-a ao objeto `File` para que o navegador possa exibir a imagem.
+   - Ideal para exibir a imagem rapidamente, pois não precisa carregar o conteúdo inteiro do arquivo.
+
+2. **FileReader**:
+   - O `FileReader` é assíncrono, então usa um evento `onloadend` para definir o que deve acontecer após o término da leitura do arquivo.
+   - `readAsDataURL`: Lê o conteúdo do arquivo e o converte para um Data URL (uma string base64).
+   - Permite maior controle e pode ser usado para pré-processamento do conteúdo do arquivo antes da exibição.
+
+3. **Ajuste de largura**:
+   - Definir `img.width = 200` ajusta a imagem para 200 pixels de largura, criando uma exibição em formato de miniatura (thumbnail).
+*/

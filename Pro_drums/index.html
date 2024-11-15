@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <!-- Título principal da página -->
     <h1>Bateria</h1>
 
+    <!-- Div com as teclas da bateria virtual -->
     <div class="keys">
+        <!-- Cada div representa uma tecla; o atributo data-key identifica a tecla e o som associado -->
         <div data-key="keyq" class="key">Q</div>
         <div data-key="keyw" class="key">W</div>
         <div data-key="keye" class="key">E</div>
@@ -23,13 +26,17 @@
         <div data-key="keyx" class="key">X</div>
         <div data-key="keyc" class="key">C</div>
     </div>
+
+    <!-- Campo de entrada para composição e botão de tocar -->
     <div class="composer">
         <input type="text" id="input" placeholder="Faça uma composição..." />
         <button>Tocar</button>
     </div>
 
+    <!-- Rodapé (vazio atualmente) -->
     <footer></footer>
 
+    <!-- Arquivos de áudio associados a cada tecla; o id conecta com os data-key das teclas -->
     <audio id="s_keyq" src="sounds/keyq.wav"></audio>
     <audio id="s_keyw" src="sounds/keyw.wav"></audio>
     <audio id="s_keye" src="sounds/keye.wav"></audio>
@@ -40,6 +47,7 @@
     <audio id="s_keyx" src="sounds/keyx.wav"></audio>
     <audio id="s_keyc" src="sounds/keyc.wav"></audio>
     
+    <!-- Script JavaScript para interatividade com as teclas e o campo de composição -->
     <script src="script.js"></script>
 </body>
 </html>

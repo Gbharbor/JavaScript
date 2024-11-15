@@ -1,39 +1,59 @@
-//no document body eu represento td o site.
-document.body.addEventListener('keyup',(event)=>{
-    //console.log(event.code); //isso diz qual tecla q foi pressionada
-    playSound(event.code.toLowerCase()); //vou transformar em minusculo
+// Evento para detectar a tecla pressionada em todo o corpo do documento
+document.body.addEventListener('keyup', (event) => {
+    // Converte o código da tecla para minúsculas e chama a função playSound
+    playSound(event.code.toLowerCase());
 });
 
-document.querySelector('.composer button').addEventListener('click',()=> {
-    let song = document.querySelector('#input').value; //esse value pega oq foi digitado de fato
-    //console.log("musica: ", song); // aqui e so para testar se ta aparecendo no console. atencao q !== significa diferente
-    if(song !== ' ') {
-        let songArray = song.split(''); // dessa forma crio espaco entre os itens digitados em song,e criando um array tmb
-        //console.log(songArray);//aqui conseguimos visualizar o array criado
+// Evento para o botão de tocar dentro do compositor
+document.querySelector('.composer button').addEventListener('click', () => {
+    // Captura o valor digitado no campo de input
+    let song = document.querySelector('#input').value;
+
+    // Verifica se há algum valor digitado na composição
+    if (song !== ' ') {
+        // Converte a string em um array, separando cada caractere
+        let songArray = song.split('');
+        // Chama a função para tocar a composição com base no array de caracteres
         playComposition(songArray);
     }
 });
 
+// Função para tocar o som associado a uma tecla específica
 function playSound(sound) {
+    // Seleciona o elemento de áudio com o ID correspondente
     let audioElement = document.querySelector(`#s_${sound}`);
+    // Seleciona a tecla correspondente ao data-key
     let keyElement = document.querySelector(`div[data-key='${sound}']`);
+
+    // Verifica se o elemento de áudio existe
     if (audioElement) {
-        audioElement.currentTime = 0; // dessa forma ele reseta o audio, e n espera acabar, dessa forma n da o bug
-        audioElement.play(); //repare q na tecla S, ele da um bug por causa do tempo do audio ser maior, para isso precisamos corrigir usando o currentTime
+        audioElement.currentTime = 0; // Reinicia o áudio para tocar do início
+        audioElement.play(); // Toca o áudio
     }
-    if(keyElement) {
-        keyElement.classList.add('active'); //fazendo isso mudara para amarelo, porem preciso q suma dps q eu  ja cliquei uma vez, entao para corrigir isso, usarei o o setTimeout
-        setTimeout(()=>{
+
+    // Adiciona a classe 'active' à tecla para um efeito visual
+    if (keyElement) {
+        keyElement.classList.add('active');
+
+        // Remove a classe 'active' após 300ms para que o efeito visual seja temporário
+        setTimeout(() => {
             keyElement.classList.remove('active');
         }, 300);
     }
-};
+}
+
+// Função para tocar uma composição baseada em um array de teclas
 function playComposition(songArray) {
-    let wait = 0;
-    for(let songItem of songArray) {
-        setTimeout(()=>{
-            playSound(`key${songItem}`); //so deixar assim, ele vai tocar tds letras q tu criou na composicao, para isso precisamos criar um intervalo dentro do loop
-        }, wait)
-        wait += 250;
+    let wait = 0; // Define o intervalo de espera inicial
+
+    // Itera sobre cada tecla no array de composição
+    for (let songItem of songArray) {
+        // Usa setTimeout para tocar cada som com um intervalo
+        setTimeout(() => {
+            // Chama playSound para cada tecla com base no intervalo de espera
+            playSound(`key${songItem}`);
+        }, wait);
+        
+        wait += 250; // Aumenta o intervalo de espera para o próximo som em 250ms
     }
-};
+}

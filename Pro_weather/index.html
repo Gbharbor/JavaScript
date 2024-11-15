@@ -4,26 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clima</title>
+    <title>Weather</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Clima</h1>
+    <!-- Título da página -->
+    <h1>Weather</h1>
 
+    <!-- Formulário de busca -->
     <form class="busca">
-        <input type="search" id="searchInput" />
-        <button>Buscar</button>
+        <input type="search" id="searchInput" placeholder="Digite a cidade" />
+        <button type="button">Buscar</button> <!-- Botão com tipo "button" para não enviar o formulário -->
     </form>
 
+    <!-- Caixa de resultado para exibir informações do clima -->
     <div class="resultado">
-        <div class="titulo">--</div>
+        <div class="titulo">--</div> <!-- Exibe o nome da cidade e país -->
 
+        <!-- Informações de clima: temperatura e vento -->
         <div class="info">
+            <!-- Bloco de temperatura -->
             <div class="temp">
                 <div class="tempTitulo">Temperatura</div>
                 <div class="tempInfo">-- <sup>ºC</sup></div>
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" />
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Ícone de clima" />
             </div>
+            <!-- Bloco de vento -->
             <div class="vento">
                 <div class="ventoTitulo">Vento</div>
                 <div class="ventoInfo">-- <span>km/h</span></div>
@@ -34,10 +40,10 @@
         </div>
     </div>
 
+    <!-- Mensagem de aviso (ex.: carregando, cidade não encontrada) -->
     <div class="aviso"></div>
 
-    <footer>Criado pela B7Web</footer>
-
+    <!-- Script JavaScript para manipulação dos dados do clima -->
     <script src="script.js"></script>
 </body>
 </html>
