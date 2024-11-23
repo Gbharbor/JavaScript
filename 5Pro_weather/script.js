@@ -1,5 +1,16 @@
 // Evento para o botão de busca
-document.querySelector(".busca button").addEventListener('click', async () => {
+document.querySelector(".busca button").addEventListener('click', buscarClima);
+
+// Evento para pressionar "Enter" no campo de entrada
+document.querySelector('#searchInput').addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Evita o comportamento padrão de envio do formulário
+        buscarClima(); // Dispara a função de busca
+    }
+});
+
+// Função de busca para reutilizar no botão e no evento "Enter"
+async function buscarClima() {
     let input = document.querySelector('#searchInput').value.trim(); // Captura o valor do input
     console.log(input); // Exibe no console o valor digitado pelo usuário
 
@@ -26,7 +37,7 @@ document.querySelector(".busca button").addEventListener('click', async () => {
                     temp: json.main.temp, 
                     tempIcon: json.weather[0].icon, 
                     windSpeed: json.wind.speed, 
-                    windAngle: json.wind.deg 
+                    //windAngle: json.wind.deg 
                 });
             } else if (json.cod === "404") {
                 // Se a cidade não for encontrada, exibe aviso de erro
@@ -47,7 +58,7 @@ document.querySelector(".busca button").addEventListener('click', async () => {
         showWarning('Por favor, digite uma cidade!');
         clearInfo(); 
     }
-});
+}
 
 // Função para exibir mensagens de aviso
 function showWarning(msg) {
@@ -61,7 +72,7 @@ function showInfo(json) {
     document.querySelector('.tempInfo').innerHTML = `${json.temp} <sup>ºC</sup>`;
     document.querySelector('.ventoInfo').innerHTML = `${json.windSpeed} <span>km/h</span>`;
     document.querySelector('.temp img').setAttribute('src', `http://openweathermap.org/img/wn/${json.tempIcon}@2x.png`);
-    document.querySelector('.ventoPonto').style.transform = `rotate(${json.windAngle - 90}deg)`;
+    //document.querySelector('.ventoPonto').style.transform = `rotate(${json.windAngle - 90}deg)`;
 
     // Torna a caixa de resultados visível
     document.querySelector('.resultado').style.display = 'block';
