@@ -1,6 +1,6 @@
 ---
 
-#  👨‍💻 Estudo de JavaScript
+#  👨‍💻 Estudo de JavaScript e TypeScript
 
 Bem-vindo ao meu repositório de estudos sobre **JavaScript**! Aqui você encontrará exemplos, anotações e exercícios práticos, que cobrem desde conceitos básicos até tópicos mais avançados da linguagem.
 
