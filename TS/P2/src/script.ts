@@ -3,7 +3,7 @@
 // -------------------------------------------------------
 
 // Tipo `string`
-let nome: string = "gui"; // Declaração explícita de que `nome` é uma string
+let nome1: string = "gui"; // Declaração explícita de que `nome` é uma string
 
 // Tipo `number`
 let idade: number = 90; // `idade` deve conter apenas valores numéricos
@@ -57,14 +57,14 @@ console.log(firstLetterUpperCase("gui")); // Saída: Gui
 // Tipagem no Retorno de Funções
 // -------------------------------------------------------
 
-function somar(n1: number, n2: number): number {
+function somar1(n1: number, n2: number): number {
     // Parâmetros `n1` e `n2` devem ser números
     // O retorno também é explicitamente do tipo `number`
     return n1 + n2;
 }
 
 // Usando a função
-let resultado = somar(2, 3); // OK: A função retorna um número
+let resultado = somar1(2, 3); // OK: A função retorna um número
 console.log("Resultado da soma:", resultado); // Saída: 5
 
 // -------------------------------------------------------

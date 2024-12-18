@@ -161,7 +161,7 @@ fazerRequisicao(req.url, req.method); // OK
 
 type MathFunction = (n1: number, n2: number) => number;
 
-const somar1: MathFunction = (n1, n2) => n1 + n2;
+const somar: MathFunction = (n1, n2) => n1 + n2;
 const subtrair: MathFunction = (n1, n2) => n1 - n2;
 const multiplicar: MathFunction = (n1, n2) => n1 * n2;
 const dividir: MathFunction = (n1, n2) => n1 / n2;
