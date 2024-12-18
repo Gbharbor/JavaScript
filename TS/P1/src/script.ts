@@ -1,41 +1,75 @@
-// Ao somar, valores como strings podem causar erros, pois o "+" concatena strings em vez de somá-las como números. 
-// Isso destaca a importância de usar TypeScript. Uma solução seria usar uma verificação com `typeof` dentro da função.
+// -------------------------------------------------------
+// Lidando com Erros de Tipos em Operações Matemáticas
+// -------------------------------------------------------
 
-let numero1 = document.getElementById('numero1') as HTMLInputElement; 
-// O `as HTMLInputElement` ajuda a eliminar alguns erros, pois garante que `numero1` será tratado como um input HTML.
+// Elementos HTML referenciados e tipados com `as HTMLInputElement`
+// Isso ajuda o TypeScript a entender que estamos lidando com elementos de entrada HTML
+let numero1 = document.getElementById("numero1") as HTMLInputElement;
+let numero2 = document.getElementById("numero2") as HTMLInputElement;
+let botao = document.getElementById("calcular") as HTMLButtonElement;
+let res = document.getElementById("resultado") as HTMLElement;
 
-let numero2 = document.getElementById('numero2') as HTMLInputElement;
-let botao = document.getElementById('calcular') as HTMLInputElement;
-let res = document.getElementById('resultado') as HTMLInputElement;
-
-function calcular(n1: number, n2: number): number { 
-    // Repare que os três pontinhos embaixo de `n1` e `n2` no VSCode não indicam erro. 
-    // Eles avisam que podem ocorrer problemas futuros caso os tipos não sejam adequados. 
-    // Para prevenir isso, adicionamos explicitamente `: number`.
+// Função que realiza a soma entre dois números
+function calcular(n1: number, n2: number): number {
+    // `n1` e `n2` são explicitamente definidos como números
     return n1 + n2;
 }
 
-botao.addEventListener('click', function() {
-    // `value` e `innerHTML` sempre retornam strings. 
-    // No caso, estamos exigindo números no código, então adicionamos o "+" antes de `numero1.value` e `numero2.value`. 
-    // O "+" converte a string para um número. 
-    // Depois, usamos `.toString()` para garantir que o resultado seja convertido novamente para string antes de ser exibido.
-    res.innerHTML = calcular(+numero1.value, +numero2.value).toString();
+// Adiciona um evento de clique ao botão para realizar o cálculo
+botao.addEventListener("click", function () {
+    // O `value` de inputs é sempre retornado como string
+    // Adicionamos "+" antes dos valores para convertê-los de string para número
+    const resultado = calcular(+numero1.value, +numero2.value);
+
+    // Exibe o resultado no elemento HTML, convertendo o número para string
+    res.innerHTML = resultado.toString();
 });
 
-// **Sobre os erros no VSCode:**
-// Alguns erros aparecem porque o VSCode pensa que os elementos estão duplicados. 
-// Além disso, por padrão, o `value` e o `innerHTML` retornam strings, enquanto exigimos números no código. 
-// Usando o "+" antes dos valores, esse problema é resolvido.
+// -------------------------------------------------------
+// Detalhes Adicionais e Boas Práticas
+// -------------------------------------------------------
 
-// **Gerando o arquivo JavaScript na pasta correta:**
-// Quando organizamos os arquivos em pastas, devemos usar o comando a seguir para compilar o TypeScript e gerar o JS na pasta correta. 
-// Execute esse comando fora da pasta `src`:
+// **1. Erros comuns no VSCode**
+// - O VSCode pode marcar erros ao acessar `value` e `innerHTML` porque ele entende que esses retornos são strings.
+// - A conversão explícita para `number` (usando "+") resolve esse problema ao forçar a tipagem correta.
+
+// **2. Comando para gerar o arquivo JS na pasta correta**
+// - Quando o código TypeScript está em uma estrutura de pastas, você pode usar o seguinte comando:
 // `tsc src/script.ts --outDir public`
+// - Isso garante que o arquivo gerado seja colocado na pasta correta.
 
-// **Lidando com erros de compilação:**
-// Se definirmos, por exemplo, `n2: string` na função `calcular`, o TypeScript gerará um erro. 
-// Mesmo assim, ele continuará a gerar o arquivo JS por padrão.
-// Podemos configurar o TypeScript para impedir a geração de arquivos caso existam erros. 
-// Use o seguinte comando para isso:
+// **3. Lidando com erros de compilação**
+// - Por padrão, o TypeScript ainda gera o arquivo JavaScript mesmo que ocorram erros durante a compilação.
+// - Para evitar isso, você pode usar o comando:
 // `tsc script.ts --noEmitOnError`
+// - Isso impede a geração do arquivo JS caso haja erros no TypeScript.
+
+// -------------------------------------------------------
+// Cenário de Erros e Prevenção com Tipos
+// -------------------------------------------------------
+
+// **Por que usar `typeof` ou o operador "+" é importante?**
+// - Inputs HTML retornam sempre valores do tipo string. 
+// - Se não tratarmos esses valores, podemos acidentalmente realizar operações de concatenação em vez de somas numéricas.
+// - Exemplo:
+//   ```typescript
+//   let a = "5"; // string
+//   let b = "10"; // string
+//   console.log(a + b); // Saída: "510" (concatenação)
+//   ```
+
+// **Exemplo de uso de `typeof` para garantir tipos corretos**
+// Outra abordagem para validar tipos antes de realizar operações:
+function calcularSeguro(n1: any, n2: any): number {
+    if (typeof n1 !== "number" || typeof n2 !== "number") {
+        throw new Error("Os valores devem ser números!");
+    }
+    return n1 + n2;
+}
+
+try {
+    console.log(calcularSeguro(5, 10)); // OK: Saída 15
+    console.log(calcularSeguro("5", 10)); // Gera um erro
+} catch (e) {
+    console.error(e.message);
+}

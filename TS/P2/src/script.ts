@@ -1,52 +1,83 @@
-// **Tipos primitivos principais no TypeScript**
-let nome: string = "gui"; // Tipo string
-let idade: number = 90; // Tipo number (a tipagem é opcional aqui, mas pode ser explícita)
-let programador: boolean = true; // Tipo boolean
+// -------------------------------------------------------
+// Tipos Primitivos no TypeScript
+// -------------------------------------------------------
 
-// **Tipagem em arrays**
-// Criamos arrays tipados com valores específicos:
-let nomes: string[] = ['ana', 'gui', 'bia']; // Apenas strings permitidas
-let numbers: number[] = [10, 20, 30]; // Apenas números permitidos
+// Tipo `string`
+let nome: string = "gui"; // Declaração explícita de que `nome` é uma string
 
-numbers.push(20); 
-// Se tentarmos adicionar algo diferente de `number` ao array, o TypeScript detectará o erro e corrigirá.
+// Tipo `number`
+let idade: number = 90; // `idade` deve conter apenas valores numéricos
 
+// Tipo `boolean`
+let programador: boolean = true; // `programador` é um valor booleano (true/false)
+
+// -------------------------------------------------------
+// Tipagem em Arrays
+// -------------------------------------------------------
+
+// Array contendo apenas strings
+let nomes: string[] = ["ana", "gui", "bia"];
+nomes.push("carlos"); // OK: Adicionando uma string
+// nomes.push(123); // ERRO: `123` não é uma string
+
+// Array contendo apenas números
+let numbers: number[] = [10, 20, 30];
+numbers.push(40); // OK: Adicionando um número
+// numbers.push("quarenta"); // ERRO: Apenas números são permitidos
+
+// Outra forma de tipar arrays: `Array<Type>`
 let numeros: Array<number> = [20, 30, 40];
-// Outra forma de definir a tipagem para arrays usando `Array<Type>`.
+numeros.push(50); // OK: Adicionando um número
 
-// **Tipo Any**
-let coisas: any = ['ana', 'gui', 'bia']; // Permite valores de qualquer tipo
-coisas.push(213); 
-// Útil quando você precisa de flexibilidade no conteúdo do array, mas deve ser usado com cuidado.
+// -------------------------------------------------------
+// Tipo `any` (Aceita qualquer tipo)
+// -------------------------------------------------------
 
-// **Tipos nos parâmetros de funções**
+// Array com `any` permite qualquer tipo de valor
+let coisas: any[] = ["ana", "gui", "bia"];
+coisas.push(213); // OK: Adicionando um número
+coisas.push(true); // OK: Adicionando um booleano
+
+// Atenção: Usar `any` reduz a segurança do código e deve ser evitado quando possível.
+
+// -------------------------------------------------------
+// Tipagem nos Parâmetros de Funções
+// -------------------------------------------------------
+
 function firstLetterUpperCase(name: string): string {
-    // Para garantir que `name` seja uma string, adicionamos a tipagem ao parâmetro.
-    let firstLetter = name.charAt(0).toUpperCase();
-    return firstLetter + name.substring(1);
+    // O parâmetro `name` é tipado como string
+    let firstLetter = name.charAt(0).toUpperCase(); // Primeira letra maiúscula
+    return firstLetter + name.substring(1); // Retorna a string formatada
 }
-firstLetterUpperCase('gui');
 
-// **Tipagem no retorno de funções**
-let nome3: string = firstLetterUpperCase('gui');
-// Aqui não é necessário declarar explicitamente a tipagem de `nome3`, porque a função já retorna uma string.
+// Usando a função
+console.log(firstLetterUpperCase("gui")); // Saída: Gui
+
+// -------------------------------------------------------
+// Tipagem no Retorno de Funções
+// -------------------------------------------------------
 
 function somar(n1: number, n2: number): number {
-    // Declaramos os parâmetros como `number` e o retorno também como `number`.
+    // Parâmetros `n1` e `n2` devem ser números
+    // O retorno também é explicitamente do tipo `number`
     return n1 + n2;
 }
-let resultado = somar(2, 3);
-// Sem a tipagem explícita, `n1` e `n2` seriam tratados como `any`, podendo causar erros.
 
-// **Contextual Typing em funções anônimas**
-let names4 = ['ana', 'gui', 'bia'];
-names4.forEach(function(nom) {
-    // O TypeScript infere automaticamente o tipo de `nom` como `string` com base no array.
-    if (typeof nom === 'string') {
-        // Verificamos o tipo explicitamente para evitar problemas.
-        console.log(nom.toUpperCase()); // Se for string, converte para maiúsculas.
-    } else {
-        console.log(nom); // Caso contrário, exibe o valor diretamente.
-    }
+// Usando a função
+let resultado = somar(2, 3); // OK: A função retorna um número
+console.log("Resultado da soma:", resultado); // Saída: 5
+
+// -------------------------------------------------------
+// Contextual Typing (Tipagem Contextual)
+// -------------------------------------------------------
+
+// O TypeScript infere o tipo dos elementos em arrays automaticamente
+let names4 = ["ana", "gui", "bia"]; // `names4` é inferido como `string[]`
+
+names4.forEach(function (nom) {
+    // O TypeScript entende que `nom` é uma string com base no array
+    console.log(nom.toUpperCase()); // Converte cada nome para maiúsculas
 });
-// Se tentarmos adicionar um número ao array `names4`, o TypeScript detectará o erro devido ao tipo inferido.
+
+// Caso adicione um número ao array `names4`, o TypeScript acusa erro:
+// names4.push(123); // ERRO: O array aceita apenas strings
